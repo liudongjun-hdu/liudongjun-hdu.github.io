@@ -2,49 +2,56 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://liudongjun.com/about/index.html</loc>
+    <loc>https://liudongjun-hdu.github.io/friends/index.html</loc>
     
     <lastmod>2021-03-20</lastmod>
     
   </url>
   
   <url>
-    <loc>http://liudongjun.com/tags/index-1.html</loc>
+    <loc>https://liudongjun-hdu.github.io/contact/index.html</loc>
     
     <lastmod>2021-03-20</lastmod>
     
   </url>
   
   <url>
-    <loc>http://liudongjun.com/friends/index.html</loc>
+    <loc>https://liudongjun-hdu.github.io/about/index.html</loc>
     
     <lastmod>2021-03-20</lastmod>
     
   </url>
   
   <url>
-    <loc>http://liudongjun.com/contact/index.html</loc>
+    <loc>https://liudongjun-hdu.github.io/tags/index.html</loc>
     
     <lastmod>2021-03-20</lastmod>
     
   </url>
   
   <url>
-    <loc>http://liudongjun.com/categories/index.html</loc>
+    <loc>https://liudongjun-hdu.github.io/categories/index.html</loc>
     
     <lastmod>2021-03-20</lastmod>
     
   </url>
   
   <url>
-    <loc>http://liudongjun.com/tags/index.html</loc>
+    <loc>https://liudongjun-hdu.github.io/2021/03/20/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</loc>
     
     <lastmod>2021-03-20</lastmod>
     
   </url>
   
   <url>
-    <loc>http://liudongjun.com/2021/03/12/hello-world/</loc>
+    <loc>https://liudongjun-hdu.github.io/tags/index-1.html</loc>
+    
+    <lastmod>2021-03-20</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://liudongjun-hdu.github.io/2021/03/12/hello-world/</loc>
     
     <lastmod>2021-03-12</lastmod>
     
@@ -52,7 +59,7 @@
   
 
   <url>
-    <loc>http://liudongjun.com/</loc>
+    <loc>https://liudongjun-hdu.github.io/</loc>
     <lastmod>2021-03-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>

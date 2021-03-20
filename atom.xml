@@ -3,11 +3,11 @@
   <title>栋栋的博客</title>
   
   <subtitle>杭州电子科技大学研究生</subtitle>
-  <link href="http://liudongjun.com/atom.xml" rel="self"/>
+  <link href="https://liudongjun-hdu.github.io/atom.xml" rel="self"/>
   
-  <link href="http://liudongjun.com/"/>
-  <updated>2021-03-12T08:25:08.131Z</updated>
-  <id>http://liudongjun.com/</id>
+  <link href="https://liudongjun-hdu.github.io/"/>
+  <updated>2021-03-20T08:27:03.979Z</updated>
+  <id>https://liudongjun-hdu.github.io/</id>
   
   <author>
     <name>Liu Dongjun</name>
@@ -17,9 +17,35 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>机器学习</title>
+    <link href="https://liudongjun-hdu.github.io/2021/03/20/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    <id>https://liudongjun-hdu.github.io/2021/03/20/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</id>
+    <published>2021-03-20T08:16:46.000Z</published>
+    <updated>2021-03-20T08:27:03.979Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;Title&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
     <title>Hello World</title>
-    <link href="http://liudongjun.com/2021/03/12/hello-world/"/>
-    <id>http://liudongjun.com/2021/03/12/hello-world/</id>
+    <link href="https://liudongjun-hdu.github.io/2021/03/12/hello-world/"/>
+    <id>https://liudongjun-hdu.github.io/2021/03/12/hello-world/</id>
     <published>2021-03-12T08:25:08.131Z</published>
     <updated>2021-03-12T08:25:08.131Z</updated>
     
