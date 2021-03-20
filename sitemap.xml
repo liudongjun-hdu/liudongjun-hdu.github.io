@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>http://liudongjun.com/about/index.html</loc>
+    
+    <lastmod>2021-03-20</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://liudongjun.com/tags/index-1.html</loc>
+    
+    <lastmod>2021-03-20</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://liudongjun.com/friends/index.html</loc>
+    
+    <lastmod>2021-03-20</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://liudongjun.com/contact/index.html</loc>
+    
+    <lastmod>2021-03-20</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://liudongjun.com/categories/index.html</loc>
+    
+    <lastmod>2021-03-20</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://liudongjun.com/tags/index.html</loc>
+    
+    <lastmod>2021-03-20</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://liudongjun.com/2021/03/12/hello-world/</loc>
+    
+    <lastmod>2021-03-12</lastmod>
+    
+  </url>
+  
+
+  <url>
+    <loc>http://liudongjun.com/</loc>
+    <lastmod>2021-03-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  
+
+  
+</urlset>
