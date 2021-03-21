@@ -439,7 +439,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.4k
+                    1.6k
                 </div>
                 
 
@@ -462,7 +462,7 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <ol>
-<li><p>绘图需要引入的包<br>import matplotlib.pyplot as plt<br>import matplotlib<br>from sklearn.metrics import *<br>exp_root = ‘/home/wyh/Python_workspace/DAN_EEGIMAGE_CODE/model_indices/‘<br>import matplotlib.pyplot as plt<br>import numpy as np</p>
+<li><p>绘图需要引入的包以及图片存储路径<br>import matplotlib.pyplot as plt<br>import matplotlib<br>from sklearn.metrics import *<br>import matplotlib.pyplot as plt<br>import numpy as np<br>exp_root = ‘/home/wyh/Python_workspace/DAN_EEGIMAGE_CODE/model_indices/‘</p>
 </li>
 <li><p>横向对比图</p>
 <pre><code>def Comparsion_regression():
@@ -498,101 +498,209 @@
 </code></pre>
 <p><img src="/images/DualChart.jpg" alt="横向对比图"></p>
 </li>
+<li><p>混淆矩阵</p>
+<pre><code>def plot_confusion_matrix(y_true, y_pred, labels):  # 计算混淆矩阵，以评估分类的准确性。
+ cmap = plt.cm.binary
+ cm = confusion_matrix(y_true, y_pred)
+ tick_marks = np.array(range(len(labels))) + 0.5
+ np.set_printoptions(precision=2)
+ cm_normalized = cm.astype(&#39;float&#39;) / cm.sum(axis=1)[:, np.newaxis]
+ plt.figure(figsize=(20, 18), dpi=120)
+ ind_array = np.arange(len(labels))
+ x, y = np.meshgrid(ind_array, ind_array)
+ intFlag = 0
+ for x_val, y_val in zip(x.flatten(), y.flatten()):
+     #
+     if (intFlag):
+         c = cm[y_val][x_val]
+         plt.text(x_val, y_val, &quot;%d&quot; % (c,), color=&#39;black&#39;, fontsize=20, va=&#39;center&#39;, ha=&#39;center&#39;)
+
+     else:
+         c = cm_normalized[y_val][x_val]
+
+         if (c &gt; 0.80):
+
+             plt.text(x_val, y_val, &quot;%0.2f&quot; % (c * 100,), color=&#39;white&#39;, fontsize=20, va=&#39;center&#39;, ha=&#39;center&#39;)
+         else:
+             plt.text(x_val, y_val, &quot;%0.2f&quot; % (c * 100,), color=&#39;black&#39;, fontsize=20, va=&#39;center&#39;, ha=&#39;center&#39;)
+ if (intFlag):
+     plt.imshow(cm, interpolation=&#39;nearest&#39;, cmap=cmap)
+ else:
+     plt.imshow(cm_normalized, interpolation=&#39;nearest&#39;, cmap=cmap)
+ plt.gca().set_xticks(tick_marks, minor=True)
+ plt.gca().set_yticks(tick_marks, minor=True)
+ plt.gca().xaxis.set_ticks_position(&#39;none&#39;)
+ plt.gca().yaxis.set_ticks_position(&#39;none&#39;)
+ plt.grid(True, which=&#39;minor&#39;, linestyle=&#39;-&#39;)
+ plt.gcf().subplots_adjust(bottom=0.15)
+ plt.title(&#39;&#39;)
+ plt.colorbar()
+ xlocations = np.array(range(len(labels)))
+ plt.xticks(xlocations, labels, rotation=90, fontsize=20, fontproperties=zhfont1)
+ plt.yticks(xlocations, labels, fontsize=20, fontproperties=zhfont1)
+ plt.ylabel(&#39;真实类别&#39;, fontsize=20, fontproperties=zhfont1)
+ plt.xlabel(&#39;预测类别&#39;, fontsize=20, fontproperties=zhfont1)
+ plt.savefig(exp_root + &#39;knn_confusion_matrix12.jpg&#39;, dpi=600)
+ plt.show()
+</code></pre>
+<p><img src="/images/knn_confusion_matrix12.jpg" alt="混淆矩阵图"></p>
+</li>
+<li><p>t-sne</p>
+<pre><code>def plot_embedding(data, label):
+ fig = plt.figure(figsize=(5, 5))
+ type1_x = []
+ type1_y = []
+ type2_x = []
+ type2_y = []
+ type3_x = []
+ type3_y = []
+ type4_x = []
+ type4_y = []
+ type5_x = []
+ type5_y = []
+ type6_x = []
+ type6_y = []
+ type7_x = []
+ type7_y = []
+ type8_x = []
+ type8_y = []
+ for i in range(data.shape[0]):
+     if label[i] == 0:
+         type1_x.append(data[i][0])
+         type1_y.append(data[i][1])
+     if label[i] == 1:
+         type2_x.append(data[i][0])
+         type2_y.append(data[i][1])
+     if label[i] == 2:
+         type3_x.append(data[i][0])
+         type3_y.append(data[i][1])
+     if label[i] == 3:
+         type4_x.append(data[i][0])
+         type4_y.append(data[i][1])
+     if label[i] == 4:
+         type5_x.append(data[i][0])
+         type5_y.append(data[i][1])
+     if label[i] == 5:
+         type6_x.append(data[i][0])
+         type6_y.append(data[i][1])
+     if label[i] == 6:
+         type7_x.append(data[i][0])
+         type7_y.append(data[i][1])
+     if label[i] == 7:
+         type8_x.append(data[i][0])
+         type8_y.append(data[i][1])
+ color = plt.cm.Set3(0)
+ color = np.array(color).reshape(1, 4)
+ color1 = plt.cm.Set3(1)
+ color1 = np.array(color1).reshape(1, 4)
+ color2 = plt.cm.Set3(2)
+ color2 = np.array(color2).reshape(1, 4)
+ color3 = plt.cm.Set3(3)
+ color3 = np.array(color3).reshape(1, 4)
+ type1 = plt.scatter(type1_x, type1_y, s=10, c=&#39;r&#39;)
+ type2 = plt.scatter(type2_x, type2_y, s=10, c=&#39;g&#39;)
+ type3 = plt.scatter(type3_x, type3_y, s=10, c=&#39;b&#39;)
+ type4 = plt.scatter(type4_x, type4_y, s=10, c=&#39;k&#39;)
+ type5 = plt.scatter(type5_x, type5_y, s=10, c=&#39;c&#39;)
+ type6 = plt.scatter(type6_x, type6_y, s=10, c=&#39;m&#39;)
+ type7 = plt.scatter(type7_x, type7_y, s=10, c=&#39;y&#39;)
+ type8 = plt.scatter(type8_x, type8_y, s=10, c=color)
+ plt.legend((type1, type2, type3, type4, type5, type6, type7, type8),
+            (&#39;愤怒&#39;, &#39;厌恶&#39;, &#39;恐惧&#39;, &#39;快乐&#39;, &#39;中立&#39;, &#39;悲伤&#39;, &#39;惊奇&#39;), prop=zhfont1)
+ plt.xticks()
+ plt.yticks()
+ return fig
+def visual_features(x_train_img, x_test_img, y_train, y_test):
+ from sklearn.manifold import TSNE
+ # 可视化训练/测试数据模式
+ X_train = x_train_img
+ Y_train = y_train
+ tsne = TSNE(n_components=2, init=&#39;pca&#39;, random_state=0)  # 使用TSNE对特征降到二维
+ reduce_dim_X = tsne.fit_transform(X_train)  # 降维后的数据
+ # 画图
+ # plt.subplot(1, 2, 1)
+ fig = plot_embedding(reduce_dim_X, Y_train)
+ # 图例过大，保存figure时无法保存完全，故对此参数进行调整
+ fig.subplots_adjust(right=0.7)
+ plt.title(&#39;图像视觉特征可视化&#39;, fontproperties=zhfont1)
+ plt.savefig(&quot;/home/wyh/Python_workspace/DAN_EEGIMAGE_CODE/model_indices/t-sne_train_image.jpg&quot;)
+ plt.show()
+ X_test = x_test_img
+ Y_test = y_test
+ tsne = TSNE(n_components=2, init=&#39;pca&#39;, random_state=0)  # 使用TSNE对特征降到二维
+ reduce_dim_X = tsne.fit_transform(X_test)  # 降维后的数据
+ # 画图
+ # plt.subplot(1, 2, 2)
+ fig = plot_embedding(reduce_dim_X, Y_test)
+ # 图例过大，保存figure时无法保存完全，故对此参数进行调整
+ fig.subplots_adjust(right=0.7)
+ plt.title(&#39;虚拟脑电情感特征可视化&#39;, fontproperties=zhfont1)
+ # plt.show()
+ plt.savefig(&quot;/home/wyh/Python_workspace/DAN_EEGIMAGE_CODE/model_indices/t-sne_train_EEG-LIKE.jpg&quot;)
+ plt.show()
+</code></pre>
+<p><img src="/images/t-sne_train_image.jpg" alt="t-sne图1"><br><img src="/images/t-sne_train_EEG-LIKE.jpg" alt="t-sne图2"></p>
+</li>
+<li><p>纵向对比图</p>
+<pre><code>def comparison_bar(IMAGE_score, Regression_score, Fusion_score, EEG_score):
+ X = [&#39;图像&#39;, &#39;回归&#39;, &#39;融合&#39;, &#39;脑电&#39;]
+ Y = [0.839080459770114, 0.873563218390804, 0.885057471264367, 0.977011494252873]
+
+ plt.xticks(fontproperties=zhfont1)
+ plt.bar(X, Y, 0.5, color=[&#39;green&#39;, &#39;blue&#39;, &#39;yellow&#39;, &#39;red&#39;])
+ plt.xlabel(&quot;方法&quot;, fontproperties=zhfont1)
+ plt.ylabel(&quot;准确率&quot;, fontproperties=zhfont1)
+ plt.title(&quot;方法对比图&quot;, fontproperties=zhfont1)
+ for a, b in zip(X, Y):
+     plt.text(a, b, &#39;%.4f&#39; % b, ha=&#39;center&#39;, va=&#39;bottom&#39;, fontsize=11)
+ # plt.show()
+ plt.savefig(&quot;/home/wyh/Python_workspace/DAN_EEGIMAGE_CODE/model_indices/BarChart.jpg&quot;)
+ plt.show()
+</code></pre>
+<p><img src="/images/BarChart.jpg" alt="纵向对比图"></p>
+</li>
+<li><p>折线图</p>
+<pre><code>def EEG_like(x_test_eeg, y_pred_test):
+ x_test_eeg_average = x_test_eeg.mean(0)
+ x_test_like_average = y_pred_test.mean(0)
+ x1 = range(0, 128)
+ x2 = range(0, 128)
+ y1 = x_test_eeg_average
+ y2 = x_test_like_average
+ plt.subplot(2, 1, 1)
+ plt.plot(x1, y1, &#39;.-&#39;)
+ plt.title(&#39;脑电情感特征和虚拟脑电情感特征&#39;, fontproperties=zhfont1)
+ plt.ylabel(&#39;脑电情感特征&#39;, fontproperties=zhfont1)
+ # plt.xlabel(&#39;Time series&#39;,fontproperties=zhfont1)
+ plt.subplot(2, 1, 2)
+ plt.plot(x2, y2, &#39;.-&#39;)
+ plt.xlabel(&#39;模拟时间序列&#39;, fontproperties=zhfont1)
+ plt.ylabel(&#39;虚拟脑电情感特征&#39;, fontproperties=zhfont1)
+ # plt.show()
+ plt.savefig(&quot;/home/wyh/Python_workspace/DAN_EEGIMAGE_CODE/model_indices/EEG-LIKE.jpg&quot;)
+ plt.show()
+</code></pre>
+<p><img src="/images/EEG-LIKE.jpg" alt="折线图"></p>
+</li>
+<li><p>accuracy_loss图</p>
+<pre><code>x1 = range(0, iteration//log_interval)
+x2 = range(0, iteration//log_interval)
+y1 = Accuracy_list
+y2 = Loss_list
+plt.subplot(2, 1, 1)
+plt.plot(x1, y1, &#39;o-&#39;)
+plt.title(&#39;Train accuracy vs. epochs&#39;)
+plt.ylabel(&#39;Train accuracy&#39;)
+plt.subplot(2, 1, 2)
+plt.plot(x2, y2, &#39;.-&#39;)
+plt.xlabel(&#39;Train loss vs. epochs&#39;)
+plt.ylabel(&#39;Train loss&#39;)
+plt.savefig(&quot;/home/wyh/Python_workspace/DAN_EEGIMAGE_CODE/model_indices/accuracy_loss.jpg&quot;)
+plt.show()
+</code></pre>
+<p><img src="/images/accuracy_loss.jpg" alt="accuracy_loss图"></p>
+</li>
 </ol>
-<p>def plot_confusion_matrix(y_true, y_pred, labels):  # 计算混淆矩阵，以评估分类的准确性。<br>    cmap = plt.cm.binary<br>    cm = confusion_matrix(y_true, y_pred)<br>    tick_marks = np.array(range(len(labels))) + 0.5<br>    np.set_printoptions(precision=2)<br>    cm_normalized = cm.astype(‘float’) / cm.sum(axis=1)[:, np.newaxis]<br>    plt.figure(figsize=(20, 18), dpi=120)<br>    ind_array = np.arange(len(labels))<br>    x, y = np.meshgrid(ind_array, ind_array)<br>    intFlag = 0<br>    for x_val, y_val in zip(x.flatten(), y.flatten()):<br>        #<br>        if (intFlag):<br>            c = cm[y_val][x_val]<br>            plt.text(x_val, y_val, “%d” % (c,), color=’black’, fontsize=20, va=’center’, ha=’center’)</p>
-<pre><code>    else:
-        c = cm_normalized[y_val][x_val]
-
-        if (c &gt; 0.80):
-
-            plt.text(x_val, y_val, &quot;%0.2f&quot; % (c * 100,), color=&#39;white&#39;, fontsize=20, va=&#39;center&#39;, ha=&#39;center&#39;)
-        else:
-            plt.text(x_val, y_val, &quot;%0.2f&quot; % (c * 100,), color=&#39;black&#39;, fontsize=20, va=&#39;center&#39;, ha=&#39;center&#39;)
-if (intFlag):
-    plt.imshow(cm, interpolation=&#39;nearest&#39;, cmap=cmap)
-else:
-    plt.imshow(cm_normalized, interpolation=&#39;nearest&#39;, cmap=cmap)
-plt.gca().set_xticks(tick_marks, minor=True)
-plt.gca().set_yticks(tick_marks, minor=True)
-plt.gca().xaxis.set_ticks_position(&#39;none&#39;)
-plt.gca().yaxis.set_ticks_position(&#39;none&#39;)
-plt.grid(True, which=&#39;minor&#39;, linestyle=&#39;-&#39;)
-plt.gcf().subplots_adjust(bottom=0.15)
-plt.title(&#39;&#39;)
-plt.colorbar()
-xlocations = np.array(range(len(labels)))
-plt.xticks(xlocations, labels, rotation=90, fontsize=20, fontproperties=zhfont1)
-plt.yticks(xlocations, labels, fontsize=20, fontproperties=zhfont1)
-plt.ylabel(&#39;真实类别&#39;, fontsize=20, fontproperties=zhfont1)
-plt.xlabel(&#39;预测类别&#39;, fontsize=20, fontproperties=zhfont1)
-plt.savefig(exp_root + &#39;knn_confusion_matrix12.jpg&#39;, dpi=600)
-plt.show()
-</code></pre>
-<p>def plot_embedding(data, label):<br>    fig = plt.figure(figsize=(5, 5))<br>    type1_x = []<br>    type1_y = []<br>    type2_x = []<br>    type2_y = []<br>    type3_x = []<br>    type3_y = []<br>    type4_x = []<br>    type4_y = []<br>    type5_x = []<br>    type5_y = []<br>    type6_x = []<br>    type6_y = []<br>    type7_x = []<br>    type7_y = []<br>    type8_x = []<br>    type8_y = []</p>
-<pre><code>for i in range(data.shape[0]):
-    if label[i] == 0:
-        type1_x.append(data[i][0])
-        type1_y.append(data[i][1])
-    if label[i] == 1:
-        type2_x.append(data[i][0])
-        type2_y.append(data[i][1])
-    if label[i] == 2:
-        type3_x.append(data[i][0])
-        type3_y.append(data[i][1])
-    if label[i] == 3:
-        type4_x.append(data[i][0])
-        type4_y.append(data[i][1])
-    if label[i] == 4:
-        type5_x.append(data[i][0])
-        type5_y.append(data[i][1])
-    if label[i] == 5:
-        type6_x.append(data[i][0])
-        type6_y.append(data[i][1])
-    if label[i] == 6:
-        type7_x.append(data[i][0])
-        type7_y.append(data[i][1])
-    if label[i] == 7:
-        type8_x.append(data[i][0])
-        type8_y.append(data[i][1])
-
-color = plt.cm.Set3(0)
-color = np.array(color).reshape(1, 4)
-color1 = plt.cm.Set3(1)
-color1 = np.array(color1).reshape(1, 4)
-color2 = plt.cm.Set3(2)
-color2 = np.array(color2).reshape(1, 4)
-color3 = plt.cm.Set3(3)
-color3 = np.array(color3).reshape(1, 4)
-
-type1 = plt.scatter(type1_x, type1_y, s=10, c=&#39;r&#39;)
-type2 = plt.scatter(type2_x, type2_y, s=10, c=&#39;g&#39;)
-type3 = plt.scatter(type3_x, type3_y, s=10, c=&#39;b&#39;)
-type4 = plt.scatter(type4_x, type4_y, s=10, c=&#39;k&#39;)
-type5 = plt.scatter(type5_x, type5_y, s=10, c=&#39;c&#39;)
-type6 = plt.scatter(type6_x, type6_y, s=10, c=&#39;m&#39;)
-type7 = plt.scatter(type7_x, type7_y, s=10, c=&#39;y&#39;)
-type8 = plt.scatter(type8_x, type8_y, s=10, c=color)
-plt.legend((type1, type2, type3, type4, type5, type6, type7, type8),
-           (&#39;愤怒&#39;, &#39;厌恶&#39;, &#39;恐惧&#39;, &#39;快乐&#39;, &#39;中立&#39;, &#39;悲伤&#39;, &#39;惊奇&#39;), prop=zhfont1)
-# loc=(0.77, 0.6))
-plt.xticks()
-plt.yticks()
-return fig
-</code></pre>
-<p>def visual_features(x_train_img, x_test_img, y_train, y_test):<br>    from sklearn.manifold import TSNE<br>    # 可视化训练/测试数据模式<br>    X_train = x_train_img<br>    Y_train = y_train<br>    tsne = TSNE(n_components=2, init=’pca’, random_state=0)  # 使用TSNE对特征降到二维<br>    reduce_dim_X = tsne.fit_transform(X_train)  # 降维后的数据<br>    # 画图<br>    # plt.subplot(1, 2, 1)<br>    fig = plot_embedding(reduce_dim_X, Y_train)<br>    # 图例过大，保存figure时无法保存完全，故对此参数进行调整<br>    fig.subplots_adjust(right=0.7)<br>    plt.title(‘图像视觉特征可视化’, fontproperties=zhfont1)<br>    plt.savefig(“/home/wyh/Python_workspace/DAN_EEGIMAGE_CODE/model_indices/t-sne_train_image.jpg”)<br>    plt.show()<br>    X_test = x_test_img<br>    Y_test = y_test<br>    tsne = TSNE(n_components=2, init=’pca’, random_state=0)  # 使用TSNE对特征降到二维<br>    reduce_dim_X = tsne.fit_transform(X_test)  # 降维后的数据<br>    # 画图<br>    # plt.subplot(1, 2, 2)<br>    fig = plot_embedding(reduce_dim_X, Y_test)<br>    # 图例过大，保存figure时无法保存完全，故对此参数进行调整<br>    fig.subplots_adjust(right=0.7)<br>    plt.title(‘虚拟脑电情感特征可视化’, fontproperties=zhfont1)<br>    # plt.show()<br>    plt.savefig(“/home/wyh/Python_workspace/DAN_EEGIMAGE_CODE/model_indices/t-sne_train_EEG-LIKE.jpg”)<br>    plt.show()</p>
-<p>def comparison_bar(IMAGE_score, Regression_score, Fusion_score, EEG_score):<br>    X = [‘图像’, ‘回归’, ‘融合’, ‘脑电’]<br>    Y = [0.839080459770114, 0.873563218390804, 0.885057471264367, 0.977011494252873]</p>
-<pre><code>plt.xticks(fontproperties=zhfont1)
-plt.bar(X, Y, 0.5, color=[&#39;green&#39;, &#39;blue&#39;, &#39;yellow&#39;, &#39;red&#39;])
-plt.xlabel(&quot;方法&quot;, fontproperties=zhfont1)
-plt.ylabel(&quot;准确率&quot;, fontproperties=zhfont1)
-plt.title(&quot;方法对比图&quot;, fontproperties=zhfont1)
-for a, b in zip(X, Y):
-    plt.text(a, b, &#39;%.4f&#39; % b, ha=&#39;center&#39;, va=&#39;bottom&#39;, fontsize=11)
-# plt.show()
-plt.savefig(&quot;/home/wyh/Python_workspace/DAN_EEGIMAGE_CODE/model_indices/BarChart.jpg&quot;)
-plt.show()
-</code></pre>
-<p>def EEG_like(x_test_eeg, y_pred_test):<br>    x_test_eeg_average = x_test_eeg.mean(0)<br>    x_test_like_average = y_pred_test.mean(0)<br>    x1 = range(0, 128)<br>    x2 = range(0, 128)<br>    y1 = x_test_eeg_average<br>    y2 = x_test_like_average<br>    plt.subplot(2, 1, 1)<br>    plt.plot(x1, y1, ‘.-‘)<br>    plt.title(‘脑电情感特征和虚拟脑电情感特征’, fontproperties=zhfont1)<br>    plt.ylabel(‘脑电情感特征’, fontproperties=zhfont1)<br>    # plt.xlabel(‘Time series’,fontproperties=zhfont1)<br>    plt.subplot(2, 1, 2)<br>    plt.plot(x2, y2, ‘.-‘)<br>    plt.xlabel(‘模拟时间序列’, fontproperties=zhfont1)<br>    plt.ylabel(‘虚拟脑电情感特征’, fontproperties=zhfont1)<br>    # plt.show()<br>    plt.savefig(“/home/wyh/Python_workspace/DAN_EEGIMAGE_CODE/model_indices/EEG-LIKE.jpg”)<br>    plt.show()</p>
 
                 
             </div>
@@ -1095,7 +1203,7 @@ plt.show()
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">2.7k</span>&nbsp;字
+                class="white-color">2.8k</span>&nbsp;字
             
             
             
