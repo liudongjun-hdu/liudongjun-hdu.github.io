@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="深度学习零散知识点, 栋栋的博客">
+    <meta name="keywords" content="绘图, 栋栋的博客">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>深度学习零散知识点 | 栋栋的博客</title>
+    <title>绘图 | 栋栋的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -289,12 +289,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">深度学习零散知识点</h1>
+                    <h1 class="description center-align post-title">绘图</h1>
                 </div>
             </div>
         </div>
@@ -410,12 +410,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">
-                                <span class="chip bg-color">深度学习</span>
+                            <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                                <span class="chip bg-color">机器学习</span>
                             </a>
                         
-                            <a href="/tags/%E8%BF%81%E7%A7%BB%E5%AD%A6%E4%B9%A0/">
-                                <span class="chip bg-color">迁移学习</span>
+                            <a href="/tags/%E7%BB%98%E5%9B%BE/">
+                                <span class="chip bg-color">绘图</span>
                             </a>
                         
                     </div>
@@ -439,7 +439,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    833
+                    1.4k
                 </div>
                 
 
@@ -461,127 +461,138 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>#深度学习零散知识点</p>
-<ol>
-<li>reshape<pre><code>x_train = x_train.reshape(-1, height, width, channels).astype(&#39;float32&#39;)
-x_test = x_test.reshape(-1, height, width, channels).astype(&#39;float32&#39;)
-</code></pre>
-reshape更改数组形状，astype更改数值类型。</li>
-<li>to_categorical<pre><code>y_train = np_utils.to_categorical(y_train, n_classes) 
-y_test = np_utils.to_categorical(y_test, n_classes)
-</code></pre>
-to_categorical就是将类别向量转换为二进制（只有0和1）的矩阵类型表示。其表现为将原有的类别向量转换为独热（onehot）编码的形式。</li>
-<li>keras数据增强<pre><code>datagen = ImageDataGenerator(
-     rotation_range=10,
-     width_shift_range=0.1,
-     height_shift_range=0.1,
-     horizontal_flip=True,
-     shear_range=0.1,
-     zoom_range=0.1,
-     fill_mode=&#39;nearest&#39;)
-</code></pre>
-图像深度学习任务中，面对小数据集，我们往往需要利用Image Data Augmentation图像增广技术来扩充我们的数据集，而keras的内置ImageDataGenerator很好地帮我们实现图像增广。</li>
-<li>keras flow函数<pre><code>for x_batch, y_batch in datagen.flow(x_train, y_train, batch_size=batch_size, shuffle=True):
-flow(self, X, y, batch_size=32, shuffle=True, seed=None, save_to_dir=None, save_prefix=&#39;&#39;, save_format=&#39;png&#39;)：
-</code></pre>
-接收numpy数组和标签为参数,生成经过数据提升或标准化后的batch数据,并在一个无限循环中不断的返回batch数据,flow_from_directory(directory): 以文件夹路径为参数,生成经过数据提升/归一化后的数据,在一个无限循环中无限产生batch数据。</li>
-<li>keras 自定义损失函数<pre><code>def dice_coef(y_true, y_pred, lamb):
- cross_loss= K.categorical_crossentropy(y_true,y_pred)
- mmd_loss = keras.losses.kullback_leibler_divergence(y_true,y_pred)
- return lamb * cross_loss + lamb * mmd_loss
-def dice_loss(lamb):
- def dice(y_true, y_pred):
-     return dice_coef(y_true, y_pred, lamb)
- return dice
-def my_loss(args, lamb):
- y_true, y_pred, train_feature, test_feature = args[0], args[1], args[2], args[3]
- mmd_loss = keras.losses.kullback_leibler_divergence(train_feature,test_feature)
- cross_loss= K.categorical_crossentropy(y_true,y_pred)
- return cross_loss + lamb*mmd_loss
-</code></pre>
+                <ol>
+<li><p>绘图需要引入的包<br>import matplotlib.pyplot as plt<br>import matplotlib<br>from sklearn.metrics import *<br>exp_root = ‘/home/wyh/Python_workspace/DAN_EEGIMAGE_CODE/model_indices/‘<br>import matplotlib.pyplot as plt<br>import numpy as np</p>
 </li>
-<li>keras 训练，使用自定义损失函数<pre><code>model.add(Dense(n_classes,activation=&#39;softmax&#39;))
-train_features = model.predict(x_train)
-test_features = model.predict(x_test)
-train_features = tf.convert_to_tensor(train_features)
-test_features = tf.convert_to_tensor(test_features)
-y_pred = model.predict(x_train)
-y_true = y_train
-y_pred = tf.convert_to_tensor(y_pred)
-y_true = tf.convert_to_tensor(y_true)
-loss_body = layers.Lambda(my_loss, output_shape=(1,), name=&#39;my_loss&#39;, arguments=&#123;&#39;lamb&#39;:0.5&#125;)([y_true, y_pred, train_features, test_features])
-model.add(loss_body)
-sgd = SGD(lr=lr, decay=1e-5, momentum=0.9, nesterov=False)
-model.compile(loss=&#123;&#39;my_loss&#39;: lambda y_true, y_pred: y_pred&#125;, optimizer=sgd)
+<li><p>横向对比图</p>
+<pre><code>def Comparsion_regression():
+ # 构建数据
+ x_data = [&#39;愤怒&#39;, &#39;快乐&#39;, &#39;中立&#39;, &#39;悲伤&#39;, &#39;惊奇&#39;, &#39;厌恶&#39;, &#39;恐惧&#39;]
+ y_data1 = [100.00, 92.31, 100.00, 83.33, 83.33, 50.00, 37.50]
+ y_data2 = [100.00, 96.15, 100.00, 83.33, 91.67, 62.50, 37.50]
+ bar_width = 0.4
+ # Y轴数据使用range(len(x_data), 就是0、1、2...
+ plt.barh(y=range(len(x_data)), width=y_data1, label=&#39;IMAGE&#39;, color=&#39;steelblue&#39;, alpha=0.8, height=bar_width)
+ # Y轴数据使用np.arange(len(x_data))+bar_width,
+ # 就是bar_width、1+bar_width、2+bar_width...这样就和第一个柱状图并列了
+ plt.barh(y=np.arange(len(x_data)) + bar_width, width=y_data2, label=&#39;EEG-LIKE&#39;, color=&#39;indianred&#39;, alpha=0.8,
+          height=bar_width)
+ # 在柱状图上显示具体数值, ha参数控制水平对齐方式, va控制垂直对齐方式
+ for y, x in enumerate(y_data1):
+     plt.text(x - 6, y - bar_width / 2, &#39;%s&#39; % (x), ha=&#39;center&#39;, va=&#39;bottom&#39;)
+ for y, x in enumerate(y_data2):
+     plt.text(x - 6, y + bar_width / 2, &#39;%s&#39; % (x), ha=&#39;center&#39;, va=&#39;bottom&#39;)
+ # 为Y轴设置刻度值
+ plt.yticks(np.arange(len(x_data)) + bar_width / 2, x_data)
+ # 设置标题
+ plt.title(&quot;Comparison graph of accuracy before and after regression&quot;)
+ # 为两条坐标轴设置名称
+ plt.xlabel(&quot;Accuracy(%)&quot;)
+ plt.ylabel(&quot;Emotional categories&quot;)
+
+ plt.subplots_adjust(left=0.2, right=0.8, top=0.8, bottom=0.2)
+ # 显示图例
+ plt.legend(loc=&#39;upper right&#39;)
+ plt.savefig(&quot;/home/wyh/Python_workspace/DAN_EEGIMAGE_CODE/model_indices/DualChart.jpg&quot;)
+ plt.show()
 </code></pre>
-</li>
-<li>保存模型<pre><code>model.save(&#39;路径&#39;)
-</code></pre>
-</li>
-<li>维度切换<pre><code>x_train = x_train.transpose(0, 3, 1, 2)
-x_test = x_test.transpose(0, 3, 1, 2)
-</code></pre>
-维度切换，将keras的AlextNet的输入的‘数量，长，宽，通道’修改为pytorch的‘数量，通道，长，宽’。</li>
-<li>获取扩增数据，联系第3点<pre><code>x_train_all = []
-y_train_all = []
-batches_train=0
-for x_batch, y_batch in datagen.flow(x_train, y_train, batch_size=batch_size, shuffle=True):
- x_train_all.append(x_batch)
- y_train_all.append(y_batch)
- batches_train+=1
- if batches_train &gt;= times * len(x_train) / batch_size:
-     break
-x_train_all = np.concatenate(x_train_all)
-y_train_all = np.concatenate(y_train_all)
-x_train_all = torch.tensor(x_train_all)
-y_train_all = torch.tensor(y_train_all)
-torch_data_train = GetLoader(x_train, y_train)  #dataloader
-datas_train = DataLoader(torch_data_train, batch_size=batch_size, shuffle=True, drop_last=False, num_workers=0)
-</code></pre>
-</li>
-<li>pytorch 训练 迁移学习<pre><code>model.train()
-for e in range(epochs):
-    print(&#39;epochs:&#39;,e+1)
-    for j, data_train in enumerate(datas_train, 0):
-        lr_rate = lr / math.pow((1 +  (e * train_num + j) / epochs*train_num), 0.5)
-        optimizer = torch.optim.SGD(model.parameters(), lr=lr_rate, momentum=momentum,
-                                    weight_decay=weight_decay)
-        torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode=&#39;min&#39;, factor=0.1, patience=10, verbose=False,
-                                                   threshold=0.0001, threshold_mode=&#39;rel&#39;, cooldown=0, min_lr=0,
-                                                   eps=1e-08)
-       
-        inputs_train, labels_train = data_train
-        inputs_train, labels_train = Variable(inputs_train), Variable(labels_train) #variable封装tensor
-        
-        inputs_test, labels_test = next(data_gen)
-        inputs_test = torch.tensor(inputs_test)
-        labels_test = torch.tensor(labels_test)
-        
-        optimizer.zero_grad()
-        source_feature,source_result=model(inputs_train)
-        target_feature,target_result=model(inputs_test)
-        mmd_loss = mmd.mmd_rbf_noaccelerate(source_feature, target_feature)
-        loss = F.nll_loss(F.log_softmax(source_result,dim=1), labels_train.long())
-        lambd = 2 / (1 + math.exp(-10 * (e*train_num+j+1) / (epochs*train_num)))
-        loss_total = loss + lambd * mmd_loss
-        loss_total.backward()
-        optimizer.step()
-        prediction = torch.argmax(source_result,1)
-        correct +=(prediction == labels_train).sum().float()
-        total +=len(labels_train)
-        accuracy = correct/total
-        print(&quot;&#123;0:&lt;3d&#125; lr:&#123;1:&lt;.30f&#125;  loss:&#123;2:&lt;.20f&#125;  accuracy:&#123;3:&lt;.20f&#125;&quot;.format(j+1,lr_rate,loss_total,accuracy))
-</code></pre>
-</li>
-<li>numpy和tensor转化<pre><code>train_feature_batch = torch.tensor(train_feature_batch)
-train_feature_batch = train_feature_batch.detach().numpy()
-</code></pre>
-</li>
-<li>cuda选择<pre><code>import os
-os.environ[&quot;CUDA_VISIBLE_DEVICES&quot;] = &quot;2&quot;
-</code></pre>
+<p><img src="/themes/hexo-theme-matery/source/medias/essay/DualChart.jpg" alt="横向对比图"></p>
 </li>
 </ol>
+<p>def plot_confusion_matrix(y_true, y_pred, labels):  # 计算混淆矩阵，以评估分类的准确性。<br>    cmap = plt.cm.binary<br>    cm = confusion_matrix(y_true, y_pred)<br>    tick_marks = np.array(range(len(labels))) + 0.5<br>    np.set_printoptions(precision=2)<br>    cm_normalized = cm.astype(‘float’) / cm.sum(axis=1)[:, np.newaxis]<br>    plt.figure(figsize=(20, 18), dpi=120)<br>    ind_array = np.arange(len(labels))<br>    x, y = np.meshgrid(ind_array, ind_array)<br>    intFlag = 0<br>    for x_val, y_val in zip(x.flatten(), y.flatten()):<br>        #<br>        if (intFlag):<br>            c = cm[y_val][x_val]<br>            plt.text(x_val, y_val, “%d” % (c,), color=’black’, fontsize=20, va=’center’, ha=’center’)</p>
+<pre><code>    else:
+        c = cm_normalized[y_val][x_val]
+
+        if (c &gt; 0.80):
+
+            plt.text(x_val, y_val, &quot;%0.2f&quot; % (c * 100,), color=&#39;white&#39;, fontsize=20, va=&#39;center&#39;, ha=&#39;center&#39;)
+        else:
+            plt.text(x_val, y_val, &quot;%0.2f&quot; % (c * 100,), color=&#39;black&#39;, fontsize=20, va=&#39;center&#39;, ha=&#39;center&#39;)
+if (intFlag):
+    plt.imshow(cm, interpolation=&#39;nearest&#39;, cmap=cmap)
+else:
+    plt.imshow(cm_normalized, interpolation=&#39;nearest&#39;, cmap=cmap)
+plt.gca().set_xticks(tick_marks, minor=True)
+plt.gca().set_yticks(tick_marks, minor=True)
+plt.gca().xaxis.set_ticks_position(&#39;none&#39;)
+plt.gca().yaxis.set_ticks_position(&#39;none&#39;)
+plt.grid(True, which=&#39;minor&#39;, linestyle=&#39;-&#39;)
+plt.gcf().subplots_adjust(bottom=0.15)
+plt.title(&#39;&#39;)
+plt.colorbar()
+xlocations = np.array(range(len(labels)))
+plt.xticks(xlocations, labels, rotation=90, fontsize=20, fontproperties=zhfont1)
+plt.yticks(xlocations, labels, fontsize=20, fontproperties=zhfont1)
+plt.ylabel(&#39;真实类别&#39;, fontsize=20, fontproperties=zhfont1)
+plt.xlabel(&#39;预测类别&#39;, fontsize=20, fontproperties=zhfont1)
+plt.savefig(exp_root + &#39;knn_confusion_matrix12.jpg&#39;, dpi=600)
+plt.show()
+</code></pre>
+<p>def plot_embedding(data, label):<br>    fig = plt.figure(figsize=(5, 5))<br>    type1_x = []<br>    type1_y = []<br>    type2_x = []<br>    type2_y = []<br>    type3_x = []<br>    type3_y = []<br>    type4_x = []<br>    type4_y = []<br>    type5_x = []<br>    type5_y = []<br>    type6_x = []<br>    type6_y = []<br>    type7_x = []<br>    type7_y = []<br>    type8_x = []<br>    type8_y = []</p>
+<pre><code>for i in range(data.shape[0]):
+    if label[i] == 0:
+        type1_x.append(data[i][0])
+        type1_y.append(data[i][1])
+    if label[i] == 1:
+        type2_x.append(data[i][0])
+        type2_y.append(data[i][1])
+    if label[i] == 2:
+        type3_x.append(data[i][0])
+        type3_y.append(data[i][1])
+    if label[i] == 3:
+        type4_x.append(data[i][0])
+        type4_y.append(data[i][1])
+    if label[i] == 4:
+        type5_x.append(data[i][0])
+        type5_y.append(data[i][1])
+    if label[i] == 5:
+        type6_x.append(data[i][0])
+        type6_y.append(data[i][1])
+    if label[i] == 6:
+        type7_x.append(data[i][0])
+        type7_y.append(data[i][1])
+    if label[i] == 7:
+        type8_x.append(data[i][0])
+        type8_y.append(data[i][1])
+
+color = plt.cm.Set3(0)
+color = np.array(color).reshape(1, 4)
+color1 = plt.cm.Set3(1)
+color1 = np.array(color1).reshape(1, 4)
+color2 = plt.cm.Set3(2)
+color2 = np.array(color2).reshape(1, 4)
+color3 = plt.cm.Set3(3)
+color3 = np.array(color3).reshape(1, 4)
+
+type1 = plt.scatter(type1_x, type1_y, s=10, c=&#39;r&#39;)
+type2 = plt.scatter(type2_x, type2_y, s=10, c=&#39;g&#39;)
+type3 = plt.scatter(type3_x, type3_y, s=10, c=&#39;b&#39;)
+type4 = plt.scatter(type4_x, type4_y, s=10, c=&#39;k&#39;)
+type5 = plt.scatter(type5_x, type5_y, s=10, c=&#39;c&#39;)
+type6 = plt.scatter(type6_x, type6_y, s=10, c=&#39;m&#39;)
+type7 = plt.scatter(type7_x, type7_y, s=10, c=&#39;y&#39;)
+type8 = plt.scatter(type8_x, type8_y, s=10, c=color)
+plt.legend((type1, type2, type3, type4, type5, type6, type7, type8),
+           (&#39;愤怒&#39;, &#39;厌恶&#39;, &#39;恐惧&#39;, &#39;快乐&#39;, &#39;中立&#39;, &#39;悲伤&#39;, &#39;惊奇&#39;), prop=zhfont1)
+# loc=(0.77, 0.6))
+plt.xticks()
+plt.yticks()
+return fig
+</code></pre>
+<p>def visual_features(x_train_img, x_test_img, y_train, y_test):<br>    from sklearn.manifold import TSNE<br>    # 可视化训练/测试数据模式<br>    X_train = x_train_img<br>    Y_train = y_train<br>    tsne = TSNE(n_components=2, init=’pca’, random_state=0)  # 使用TSNE对特征降到二维<br>    reduce_dim_X = tsne.fit_transform(X_train)  # 降维后的数据<br>    # 画图<br>    # plt.subplot(1, 2, 1)<br>    fig = plot_embedding(reduce_dim_X, Y_train)<br>    # 图例过大，保存figure时无法保存完全，故对此参数进行调整<br>    fig.subplots_adjust(right=0.7)<br>    plt.title(‘图像视觉特征可视化’, fontproperties=zhfont1)<br>    plt.savefig(“/home/wyh/Python_workspace/DAN_EEGIMAGE_CODE/model_indices/t-sne_train_image.jpg”)<br>    plt.show()<br>    X_test = x_test_img<br>    Y_test = y_test<br>    tsne = TSNE(n_components=2, init=’pca’, random_state=0)  # 使用TSNE对特征降到二维<br>    reduce_dim_X = tsne.fit_transform(X_test)  # 降维后的数据<br>    # 画图<br>    # plt.subplot(1, 2, 2)<br>    fig = plot_embedding(reduce_dim_X, Y_test)<br>    # 图例过大，保存figure时无法保存完全，故对此参数进行调整<br>    fig.subplots_adjust(right=0.7)<br>    plt.title(‘虚拟脑电情感特征可视化’, fontproperties=zhfont1)<br>    # plt.show()<br>    plt.savefig(“/home/wyh/Python_workspace/DAN_EEGIMAGE_CODE/model_indices/t-sne_train_EEG-LIKE.jpg”)<br>    plt.show()</p>
+<p>def comparison_bar(IMAGE_score, Regression_score, Fusion_score, EEG_score):<br>    X = [‘图像’, ‘回归’, ‘融合’, ‘脑电’]<br>    Y = [0.839080459770114, 0.873563218390804, 0.885057471264367, 0.977011494252873]</p>
+<pre><code>plt.xticks(fontproperties=zhfont1)
+plt.bar(X, Y, 0.5, color=[&#39;green&#39;, &#39;blue&#39;, &#39;yellow&#39;, &#39;red&#39;])
+plt.xlabel(&quot;方法&quot;, fontproperties=zhfont1)
+plt.ylabel(&quot;准确率&quot;, fontproperties=zhfont1)
+plt.title(&quot;方法对比图&quot;, fontproperties=zhfont1)
+for a, b in zip(X, Y):
+    plt.text(a, b, &#39;%.4f&#39; % b, ha=&#39;center&#39;, va=&#39;bottom&#39;, fontsize=11)
+# plt.show()
+plt.savefig(&quot;/home/wyh/Python_workspace/DAN_EEGIMAGE_CODE/model_indices/BarChart.jpg&quot;)
+plt.show()
+</code></pre>
+<p>def EEG_like(x_test_eeg, y_pred_test):<br>    x_test_eeg_average = x_test_eeg.mean(0)<br>    x_test_like_average = y_pred_test.mean(0)<br>    x1 = range(0, 128)<br>    x2 = range(0, 128)<br>    y1 = x_test_eeg_average<br>    y2 = x_test_like_average<br>    plt.subplot(2, 1, 1)<br>    plt.plot(x1, y1, ‘.-‘)<br>    plt.title(‘脑电情感特征和虚拟脑电情感特征’, fontproperties=zhfont1)<br>    plt.ylabel(‘脑电情感特征’, fontproperties=zhfont1)<br>    # plt.xlabel(‘Time series’,fontproperties=zhfont1)<br>    plt.subplot(2, 1, 2)<br>    plt.plot(x2, y2, ‘.-‘)<br>    plt.xlabel(‘模拟时间序列’, fontproperties=zhfont1)<br>    plt.ylabel(‘虚拟脑电情感特征’, fontproperties=zhfont1)<br>    # plt.show()<br>    plt.savefig(“/home/wyh/Python_workspace/DAN_EEGIMAGE_CODE/model_indices/EEG-LIKE.jpg”)<br>    plt.show()</p>
 
                 
             </div>
@@ -608,7 +619,7 @@ os.environ[&quot;CUDA_VISIBLE_DEVICES&quot;] = &quot;2&quot;
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://liudongjun-hdu.github.io/2021/03/21/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E9%9B%B6%E6%95%A3%E7%9F%A5%E8%AF%86%E7%82%B9/">https://liudongjun-hdu.github.io/2021/03/21/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E9%9B%B6%E6%95%A3%E7%9F%A5%E8%AF%86%E7%82%B9/</a>
+                    <a href="https://liudongjun-hdu.github.io/2021/03/21/%E7%BB%98%E5%9B%BE/">https://liudongjun-hdu.github.io/2021/03/21/%E7%BB%98%E5%9B%BE/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -646,12 +657,12 @@ os.environ[&quot;CUDA_VISIBLE_DEVICES&quot;] = &quot;2&quot;
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">
-                                    <span class="chip bg-color">深度学习</span>
+                                <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                                    <span class="chip bg-color">机器学习</span>
                                 </a>
                             
-                                <a href="/tags/%E8%BF%81%E7%A7%BB%E5%AD%A6%E4%B9%A0/">
-                                    <span class="chip bg-color">迁移学习</span>
+                                <a href="/tags/%E7%BB%98%E5%9B%BE/">
+                                    <span class="chip bg-color">绘图</span>
                                 </a>
                             
                         </div>
@@ -845,9 +856,10 @@ os.environ[&quot;CUDA_VISIBLE_DEVICES&quot;] = &quot;2&quot;
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2021/03/21/%E7%BB%98%E5%9B%BE/">
                     <div class="card-image">
@@ -865,9 +877,9 @@ os.environ[&quot;CUDA_VISIBLE_DEVICES&quot;] = &quot;2&quot;
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-21
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-21
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -876,6 +888,7 @@ os.environ[&quot;CUDA_VISIBLE_DEVICES&quot;] = &quot;2&quot;
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -898,13 +911,13 @@ os.environ[&quot;CUDA_VISIBLE_DEVICES&quot;] = &quot;2&quot;
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/03/21/%E5%9F%BA%E4%BA%8E%E8%84%91%E6%9C%BA%E5%8D%8F%E5%90%8C%E6%99%BA%E8%83%BD%E7%9A%84%E6%83%85%E7%BB%AA%E8%AF%86%E5%88%AB/">
+                <a href="/2021/03/21/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E9%9B%B6%E6%95%A3%E7%9F%A5%E8%AF%86%E7%82%B9/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="基于脑机协同智能的情绪识别">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="深度学习零散知识点">
                         
-                        <span class="card-title">基于脑机协同智能的情绪识别</span>
+                        <span class="card-title">深度学习零散知识点</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -928,12 +941,12 @@ os.environ[&quot;CUDA_VISIBLE_DEVICES&quot;] = &quot;2&quot;
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%83%85%E7%BB%AA%E8%AF%86%E5%88%AB/">
-                        <span class="chip bg-color">情绪识别</span>
+                    <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">深度学习</span>
                     </a>
                     
-                    <a href="/tags/%E8%84%91%E6%9C%BA%E5%8D%8F%E5%90%8C%E6%99%BA%E8%83%BD/">
-                        <span class="chip bg-color">脑机协同智能</span>
+                    <a href="/tags/%E8%BF%81%E7%A7%BB%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">迁移学习</span>
                     </a>
                     
                 </div>
