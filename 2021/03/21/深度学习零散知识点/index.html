@@ -439,7 +439,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    909
+                    887
                 </div>
                 
 
@@ -515,7 +515,9 @@ sgd = SGD(lr=lr, decay=1e-5, momentum=0.9, nesterov=False)
 model.compile(loss=&#123;&#39;my_loss&#39;: lambda y_true, y_pred: y_pred&#125;, optimizer=sgd)
 </code></pre>
 </li>
-<li>保存模型<br>model.save(‘路径’)</li>
+<li>保存模型<pre><code>model.save(&#39;路径&#39;)
+</code></pre>
+</li>
 <li><pre><code>x_train = x_train.transpose(0, 3, 1, 2)
 x_test = x_test.transpose(0, 3, 1, 2)
 </code></pre>
@@ -524,14 +526,14 @@ x_test = x_test.transpose(0, 3, 1, 2)
 y_train_all = []
 batches_train=0
 for x_batch, y_batch in datagen.flow(x_train, y_train, batch_size=batch_size, shuffle=True):
- x_train_all.append(x_batch) #数组扩充
+ x_train_all.append(x_batch)
  y_train_all.append(y_batch)
  batches_train+=1
  if batches_train &gt;= times * len(x_train) / batch_size:
      break
-x_train_all = np.concatenate(x_train_all)  #数组连接
+x_train_all = np.concatenate(x_train_all)
 y_train_all = np.concatenate(y_train_all)
-x_train_all = torch.tensor(x_train_all)  #numpy转tensor
+x_train_all = torch.tensor(x_train_all)
 y_train_all = torch.tensor(y_train_all)
 torch_data_train = GetLoader(x_train, y_train)  #dataloader
 datas_train = DataLoader(torch_data_train, batch_size=batch_size, shuffle=True, drop_last=False, num_workers=0)
@@ -541,10 +543,9 @@ datas_train = DataLoader(torch_data_train, batch_size=batch_size, shuffle=True, 
 for e in range(epochs):
     print(&#39;epochs:&#39;,e+1)
     for j, data_train in enumerate(datas_train, 0):
-        #参数初始化设
-        lr_rate = lr / math.pow((1 +  (e * train_num + j) / epochs*train_num), 0.5)  # 调整学习率
+        lr_rate = lr / math.pow((1 +  (e * train_num + j) / epochs*train_num), 0.5)
         optimizer = torch.optim.SGD(model.parameters(), lr=lr_rate, momentum=momentum,
-                                    weight_decay=weight_decay)  # 优化器
+                                    weight_decay=weight_decay)
         torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode=&#39;min&#39;, factor=0.1, patience=10, verbose=False,
                                                    threshold=0.0001, threshold_mode=&#39;rel&#39;, cooldown=0, min_lr=0,
                                                    eps=1e-08)
@@ -1079,7 +1080,7 @@ train_feature_batch = train_feature_batch.detach().numpy()
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">1.4k</span>&nbsp;字
+                class="white-color">1.3k</span>&nbsp;字
             
             
             
