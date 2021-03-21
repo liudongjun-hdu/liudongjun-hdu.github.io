@@ -4,24 +4,11 @@
   
     
     <entry>
-      <title>机器学习</title>
-      <link href="2021/03/20/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-      <url>2021/03/20/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</url>
+      <title>基于脑机协同智能的情绪识别情绪</title>
+      <link href="2021/03/21/%E5%9F%BA%E4%BA%8E%E8%84%91%E6%9C%BA%E5%8D%8F%E5%90%8C%E6%99%BA%E8%83%BD%E7%9A%84%E6%83%85%E7%BB%AA%E8%AF%86%E5%88%AB%E6%83%85%E7%BB%AA/"/>
+      <url>2021/03/21/%E5%9F%BA%E4%BA%8E%E8%84%91%E6%9C%BA%E5%8D%8F%E5%90%8C%E6%99%BA%E8%83%BD%E7%9A%84%E6%83%85%E7%BB%AA%E8%AF%86%E5%88%AB%E6%83%85%E7%BB%AA/</url>
       
-        <content type="html"><![CDATA[<!DOCTYPE html><html lang="en"><head>    <meta charset="UTF-8">    <title>Title</title>    <link rel="stylesheet" href="../css/editormd.preview.css" />    <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>    <script src="../lib/marked.min.js"></script>    <script src="../lib/prettify.min.js"></script>    <script src="../lib/raphael.min.js"></script>    <script src="../lib/underscore.min.js"></script>    <script src="../lib/sequence-diagram.min.js"></script>    <script src="../lib/flowchart.min.js"></script>    <script src="../lib/jquery.flowchart.min.js"></script>    <script src="../js/editormd.js"></script></head><body><div id="doc-content">    <textarea style="display:none;" placeholder="markdown语言">#${md.content }</textarea></div><script type="text/javascript">    var testEditor;    $(function () {        testEditor = editormd.markdownToHTML("doc-content", {//注意：这里是上面DIV的id            htmlDecode: "style,script,iframe",            emoji: true,            taskList: true,            tocm: true,            tex: true, // 默认不解析            flowChart: true, // 默认不解析            sequenceDiagram: true, // 默认不解析            codeFold: true        });});</script></body></html>]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Hello World</title>
-      <link href="2021/03/12/hello-world/"/>
-      <url>2021/03/12/hello-world/</url>
-      
-        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class=" language-bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span></code></pre><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class=" language-bash"><code class="language-bash">$ hexo server</code></pre><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class=" language-bash"><code class="language-bash">$ hexo generate</code></pre><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class=" language-bash"><code class="language-bash">$ hexo deploy</code></pre><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+        <content type="html"><![CDATA[<h1 id="基于脑机协同智能的情绪识别情绪"><a href="#基于脑机协同智能的情绪识别情绪" class="headerlink" title="基于脑机协同智能的情绪识别情绪"></a>基于脑机协同智能的情绪识别情绪</h1><blockquote><p>摘 要：面部表情识别是一种直接有效的情感识别模式。机器学习依靠对图像表情进行形式<br>化表征，缺乏大脑的认知表征能力，在小样本数据集或复杂表情（伪装）数据集上识别性能<br>并不理想。针对此问题，将机器人工智能的形式化表征与人脑通用智能的情感认知能力相结<br>合，提出一种脑机协同智能的情绪识别方法。首先，从脑电图信号中提取脑电情感特征以获<br>取大脑对于情绪的认知表征。其次，从情感图像中提取图像的视觉特征以获取机器对于情绪<br>的形式化表征。为增强机器模型的泛化能力，在特征学习中引入样本间的迁移适配。在得到<br>图像视觉特征和脑电情感特征后，采用随机森林回归模型训练得到图像视觉特征与脑电情感<br>特征之间的脑机映射关系。测试图像的图像视觉特征经过脑机映射关系产生虚拟脑电情感特<br>征，然后将虚拟脑电情感特征与图像视觉特征进行融合用于情绪识别。该方法已经在中国情<br>绪图片系统上进行了验证，发现对 7 种情绪的平均识别准确率为 88.51％，相比单纯基于图<br>像的方法提升 3%~5%。</p></blockquote>]]></content>
       
       
       
