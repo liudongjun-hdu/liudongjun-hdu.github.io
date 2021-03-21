@@ -29,8 +29,8 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="栋栋的博客" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<meta name="generator" content="Hexo 5.4.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><link rel="alternate" href="/atom.xml" title="栋栋的博客" type="application/atom+xml">
+</head>
 
 
 
@@ -496,7 +496,7 @@
  plt.savefig(&quot;/home/wyh/Python_workspace/DAN_EEGIMAGE_CODE/model_indices/DualChart.jpg&quot;)
  plt.show()
 </code></pre>
-<p><img src="/medias/essay/DualChart.jpg" alt="横向对比图"></p>
+<p><img src="/images/DualChart.jpg" alt="横向对比图"></p>
 </li>
 </ol>
 <p>def plot_confusion_matrix(y_true, y_pred, labels):  # 计算混淆矩阵，以评估分类的准确性。<br>    cmap = plt.cm.binary<br>    cm = confusion_matrix(y_true, y_pred)<br>    tick_marks = np.array(range(len(labels))) + 0.5<br>    np.set_printoptions(precision=2)<br>    cm_normalized = cm.astype(‘float’) / cm.sum(axis=1)[:, np.newaxis]<br>    plt.figure(figsize=(20, 18), dpi=120)<br>    ind_array = np.arange(len(labels))<br>    x, y = np.meshgrid(ind_array, ind_array)<br>    intFlag = 0<br>    for x_val, y_val in zip(x.flatten(), y.flatten()):<br>        #<br>        if (intFlag):<br>            c = cm[y_val][x_val]<br>            plt.text(x_val, y_val, “%d” % (c,), color=’black’, fontsize=20, va=’center’, ha=’center’)</p>
