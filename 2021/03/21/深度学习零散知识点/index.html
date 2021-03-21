@@ -439,7 +439,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    371
                 </div>
                 
 
@@ -461,7 +461,29 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <p>#深度学习零散知识点</p>
+<ol>
+<li>reshape<br>x_train = x_train.reshape(-1, height, width, channels).astype(‘float32’)<br>x_test = x_test.reshape(-1, height, width, channels).astype(‘float32’)<br>reshape更改数组形状，astype更改数值类型。</li>
+<li>to_categorical<br>y_train = np_utils.to_categorical(y_train, n_classes)<br>y_test = np_utils.to_categorical(y_test, n_classes)<br>to_categorical就是将类别向量转换为二进制（只有0和1）的矩阵类型表示。其表现为将原有的类别向量转换为独热（onehot）编码的形式。</li>
+<li>keras数据增强<br>datagen = ImageDataGenerator(<pre><code> rotation_range=10,
+ width_shift_range=0.1,
+ height_shift_range=0.1,
+ horizontal_flip=True,
+ shear_range=0.1,
+ zoom_range=0.1,
+ fill_mode=&#39;nearest&#39;)
+</code></pre>
+图像深度学习任务中，面对小数据集，我们往往需要利用Image Data Augmentation图像增广技术来扩充我们的数据集，而keras的内置ImageDataGenerator很好地帮我们实现图像增广。</li>
+<li>keras flow函数<br>for x_batch, y_batch in datagen.flow(x_train, y_train, batch_size=batch_size, shuffle=True):<br>flow(self, X, y, batch_size=32, shuffle=True, seed=None, save_to_dir=None, save_prefix=’’, save_format=’png’)：<br>接收numpy数组和标签为参数,生成经过数据提升或标准化后的batch数据,并在一个无限循环中不断的返回batch数据,flow_from_directory(directory): 以文件夹路径为参数,生成经过数据提升/归一化后的数据,在一个无限循环中无限产生batch数据。</li>
+<li>keras 自定义损失函数<br>def dice_coef(y_true, y_pred, lamb):<br> cross_loss= K.categorical_crossentropy(y_true,y_pred)<br> mmd_loss = keras.losses.kullback_leibler_divergence(y_true,y_pred)<br> return lamb * cross_loss + lamb * mmd_loss<br>def dice_loss(lamb):<br> def dice(y_true, y_pred):<pre><code> return dice_coef(y_true, y_pred, lamb)
+</code></pre>
+ return dice<br>def my_loss(args, lamb):<br> y_true, y_pred, train_feature, test_feature = args[0], args[1], args[2], args[3]<br> mmd_loss = keras.losses.kullback_leibler_divergence(train_feature,test_feature)<br> cross_loss= K.categorical_crossentropy(y_true,y_pred)<br> return cross_loss + lamb*mmd_loss</li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+</ol>
+
                 
             </div>
             <hr/>
@@ -813,16 +835,8 @@
                         <span class="chip bg-color">情绪识别</span>
                     </a>
                     
-                    <a href="/tags/%E8%84%91%E7%94%B5%E5%9B%BE%E4%BF%A1%E5%8F%B7/">
-                        <span class="chip bg-color">脑电图信号</span>
-                    </a>
-                    
                     <a href="/tags/%E8%84%91%E6%9C%BA%E5%8D%8F%E5%90%8C%E6%99%BA%E8%83%BD/">
                         <span class="chip bg-color">脑机协同智能</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">
-                        <span class="chip bg-color">深度学习</span>
                     </a>
                     
                 </div>
@@ -971,7 +985,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">441</span>&nbsp;字
+                class="white-color">812</span>&nbsp;字
             
             
             
