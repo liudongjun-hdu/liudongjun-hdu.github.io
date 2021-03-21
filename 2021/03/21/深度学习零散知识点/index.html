@@ -439,7 +439,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    887
+                    817
                 </div>
                 
 
@@ -549,23 +549,23 @@ for e in range(epochs):
         torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode=&#39;min&#39;, factor=0.1, patience=10, verbose=False,
                                                    threshold=0.0001, threshold_mode=&#39;rel&#39;, cooldown=0, min_lr=0,
                                                    eps=1e-08)
-        #source数据预处理
+       
         inputs_train, labels_train = data_train
-        #inputs_train, labels_train = Variable(inputs_train), Variable(labels_train) #variable封装tensor
-        #target数据预处理
+        inputs_train, labels_train = Variable(inputs_train), Variable(labels_train) #variable封装tensor
+        
         inputs_test, labels_test = next(data_gen)
         inputs_test = torch.tensor(inputs_test)
         labels_test = torch.tensor(labels_test)
-        #DAN核心代码，封装在mmd模块中
-        optimizer.zero_grad() #梯度归零
+        
+        optimizer.zero_grad()
         source_feature,source_result=model(inputs_train)
         target_feature,target_result=model(inputs_test)
-        mmd_loss = mmd.mmd_rbf_noaccelerate(source_feature, target_feature) #mmd损失函数
+        mmd_loss = mmd.mmd_rbf_noaccelerate(source_feature, target_feature)
         loss = F.nll_loss(F.log_softmax(source_result,dim=1), labels_train.long())
-        lambd = 2 / (1 + math.exp(-10 * (e*train_num+j+1) / (epochs*train_num))) - 1 #lamda值，公式里面的λ
-        loss_total = loss + lambd * mmd_loss  #总损失函数
-        loss_total.backward()  #反向传播梯度
-        optimizer.step()  #结束一次前传+反传之后，更新优化器参数
+        lambd = 2 / (1 + math.exp(-10 * (e*train_num+j+1) / (epochs*train_num)))
+        loss_total = loss + lambd * mmd_loss
+        loss_total.backward()
+        optimizer.step()
         prediction = torch.argmax(source_result,1)
         correct +=(prediction == labels_train).sum().float()
         total +=len(labels_train)
