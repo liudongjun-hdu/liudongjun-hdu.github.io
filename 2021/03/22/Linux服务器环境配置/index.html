@@ -465,13 +465,13 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><ol>
+                <h1 id="Linux服务器环境部署"><a href="#Linux服务器环境部署" class="headerlink" title="Linux服务器环境部署"></a>Linux服务器环境部署</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><ol>
 <li>vim操作：<ol>
 <li>vim xxxxx</li>
 <li>按i 进入编辑模式，光标移到对应位置进行插入</li>
 <li>编辑好文本按Esc退出插入状态</li>
 <li>保存退出命令 ：wq </li>
-<li>删除一个目录，如（Anaconda3-5.3.1）：sudo rm -rf Anaconda3-5.3.1<h1 id="创建用户"><a href="#创建用户" class="headerlink" title="创建用户"></a>创建用户</h1></li>
+<li>删除一个目录，如（Anaconda3-5.3.1）：sudo rm -rf Anaconda3-5.3.1<h2 id="创建用户"><a href="#创建用户" class="headerlink" title="创建用户"></a>创建用户</h2></li>
 </ol>
 </li>
 <li>获取权限：sudo -i，切换至 root 超级用户目录 </li>
@@ -485,14 +485,14 @@
 <li>usermod -g root ldj 修改属组关系 </li>
 <li>vim /etc/passwd 记住自己的ID，不要修改因为只是获取root权限而不是变成root用户</li>
 <li>“:wq”保存并退出文件 </li>
-<li>关闭文件修改权限：chmod u-w /etc/sudoers <h1 id="Linux-服务器安装-anaconda"><a href="#Linux-服务器安装-anaconda" class="headerlink" title="Linux 服务器安装 anaconda"></a>Linux 服务器安装 anaconda</h1></li>
+<li>关闭文件修改权限：chmod u-w /etc/sudoers <h2 id="Linux-服务器安装-anaconda"><a href="#Linux-服务器安装-anaconda" class="headerlink" title="Linux 服务器安装 anaconda"></a>Linux 服务器安装 anaconda</h2></li>
 <li>下载 anaconda：sudo wget <a target="_blank" rel="noopener external nofollow noreferrer" href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/Anaconda3-5.3">https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/Anaconda3-5.3</a>. 1-Linux-x86_64.sh </li>
 <li>安装 anaconda：sudo bash Anaconda3-5.3.1-Linux-x86_64.sh(提前将文件下载到你的目录)</li>
 <li>配置环境变量：</li>
 <li>编辑配置文件：vi ~/.bashrc（配置该用户的环境变量）</li>
 <li>最后添加一行：export PATH=/home/ldj/anaconda3/bin:$PATH</li>
 <li>激活安装：source ~/.bashrc</li>
-<li>验证是否安装成功：conda –version 查看版本，conda list 查看包列表<h1 id="Linux-服务器安装-cuda-和-cudnn"><a href="#Linux-服务器安装-cuda-和-cudnn" class="headerlink" title="Linux 服务器安装 cuda 和 cudnn"></a>Linux 服务器安装 cuda 和 cudnn</h1></li>
+<li>验证是否安装成功：conda –version 查看版本，conda list 查看包列表<h2 id="Linux-服务器安装-cuda-和-cudnn"><a href="#Linux-服务器安装-cuda-和-cudnn" class="headerlink" title="Linux 服务器安装 cuda 和 cudnn"></a>Linux 服务器安装 cuda 和 cudnn</h2></li>
 </ol>
 </li>
 <li>版本匹配表<br><img src="/images/versionmatching1.jpg" alt="版本匹配表"><br><img src="/images/versionmatching2.jpg" alt="版本匹配表"><br>注释：因为我们实验室服务器已经安装好驱动了，为了减少篇幅，所以省略安装驱动步骤，有需要可以自行百度。<br>nvidia-smi，有如下显示则说明驱动安装成功：<br><img src="/images/versionmatching3.jpg" alt="版本匹配表"></li>
@@ -515,7 +515,7 @@
 <li>配置用户环境变量:<br>sudo vim ~/.bashrc<br>export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda/lib64<br>export PATH=$PATH:/usr/local/cuda/bin</li>
 <li>激活：source ~/.bashrc 使新配置的环境变量生效 </li>
 <li>验证是否成功：nvcc -V：查看是否安装成功 </li>
-<li>查看位置：which NV：查看 NV 位置 <h1 id="配置个人环境"><a href="#配置个人环境" class="headerlink" title="配置个人环境"></a>配置个人环境</h1></li>
+<li>查看位置：which NV：查看 NV 位置 <h2 id="配置个人环境"><a href="#配置个人环境" class="headerlink" title="配置个人环境"></a>配置个人环境</h2></li>
 <li>在 anaconda 下建立自己的虚拟环境： <ol>
 <li>建立环境：conda create -n name python=3.6,name:虚拟环境 名称，python 版本自己更改 </li>
 <li>查看环境：conda env list （查看所有环境） </li>
@@ -527,9 +527,9 @@ sess = tf.Session() print(sess.run(hello))
 </code></pre>
 </li>
 <li>安装 keras-gpu 版，输入 pip install keras-gpu==2.1.4,版本号 自己更换。<br>输入 python 回车，输入 import keras，如果没有报错说明 keras 配置成功，其他环境同上方法配置 </li>
-<li>关闭环境：source deactivate py36_wyh<h1 id="Linux-服务器安装-pycharm"><a href="#Linux-服务器安装-pycharm" class="headerlink" title="Linux 服务器安装 pycharm"></a>Linux 服务器安装 pycharm</h1></li>
+<li>关闭环境：source deactivate py36_wyh<h2 id="Linux-服务器安装-pycharm"><a href="#Linux-服务器安装-pycharm" class="headerlink" title="Linux 服务器安装 pycharm"></a>Linux 服务器安装 pycharm</h2></li>
 <li>下载 pycharm：<a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.jetbrains.com/pycharm/download/">https://www.jetbrains.com/pycharm/download/</a> </li>
-<li>安装 pycharm： tar -zxvf pycharm-community-2020.2.3.tar.gz 3.启动 pycharm：bin 文件夹下输入./pycharm.sh 启动 pycharm<br>cd /home/ldj/pycharm-community-2020.2.3/bin/<br>./pycharm.sh <h1 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h1></li>
+<li>安装 pycharm： tar -zxvf pycharm-community-2020.2.3.tar.gz 3.启动 pycharm：bin 文件夹下输入./pycharm.sh 启动 pycharm<br>cd /home/ldj/pycharm-community-2020.2.3/bin/<br>./pycharm.sh <h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2></li>
 <li>安装一定要在自己的目录下进行，以免更改他人环境 </li>
 <li>在安装之前配置清华镜像，下载速度会很快，更换下载源的方法如 下: 在自己的目录下新建一个.pip 文件夹，在.pip 文件夹下新建 pip.conf 文件，内容为：<br>[global] index-url = <a target="_blank" rel="noopener external nofollow noreferrer" href="https://pypi.douban.com/simple/">https://pypi.douban.com/simple/</a><br>[install] trusted-host = <a target="_blank" rel="noopener external nofollow noreferrer" href="https://pypi.douban.com/simple/">https://pypi.douban.com/simple/</a><br>几个常用的国内源，大家可以自己选择，替换文件中的网址就可以：<br>阿里云 <a target="_blank" rel="noopener external nofollow noreferrer" href="http://mirrors.aliyun.com/pypi/simple/">http://mirrors.aliyun.com/pypi/simple/</a> 中国科技大学 <a target="_blank" rel="noopener external nofollow noreferrer" href="https://pypi.mirrors.ustc.edu.cn/simple/">https://pypi.mirrors.ustc.edu.cn/simple/</a><br>豆瓣(douban) <a target="_blank" rel="noopener external nofollow noreferrer" href="http://pypi.douban.com/simple/">http://pypi.douban.com/simple/</a> 清华大学 <a target="_blank" rel="noopener external nofollow noreferrer" href="https://pypi.tuna.tsinghua.edu.cn/simple/">https://pypi.tuna.tsinghua.edu.cn/simple/</a><br>中国科学技术大学 <a target="_blank" rel="noopener external nofollow noreferrer" href="http://pypi.mirrors.ustc.edu.cn/simple/">http://pypi.mirrors.ustc.edu.cn/simple/</a> </li>
 <li>conda更换清华源<br>conda config –add channels <a target="_blank" rel="noopener external nofollow noreferrer" href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/">https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/</a><br>conda config –set show_channel_urls yes<br>编辑conda的配置文件：vi ~/.condarc<br>删除第三行“- defaults”，然后wq保存退出即可。</li>
@@ -537,7 +537,7 @@ sess = tf.Session() print(sess.run(hello))
 <li>跑程序时，加上 os.environ[“CUDA_VISIBLE_DEVICES”]=”0”,0 是 GPU 标志，更换数字即更换 GPU </li>
 <li>注意区分命令前有无 sudo 的区别，sudo为增加权限使用。 </li>
 <li>升级pip：pip install –upgrade pip</li>
-<li>启动pyCharm的命令设置别名：<br><a target="_blank" rel="noopener external nofollow noreferrer" href="https://blog.csdn.net/hay54/article/details/82344014">https://blog.csdn.net/hay54/article/details/82344014</a><br>alias luminarypy=’cd /home/wyh/pycharm-community-2020.2.3/bin/;./pycharm.sh’<br>luminarypy可打开pycharm<br>alias命令，查看所有别名<br>unalias 别名，表示取消某个别名。<br>注意：alias命令只作用于当次登入的操作。如果想每次登入都能使用这些命令的别名，则可以把相应的alias命令存放在 ~/.bashrc 文件中<br>操作：vi ~/.bashrc<br>找到alias命令那边加入：alias luminarypy=’cd /home/wyh/pycharm-community-2020.2.3/bin/;./pycharm.sh’<br>然后激活：source ~/.bashrc<br>这样别名就永久生效了<h1 id="作者："><a href="#作者：" class="headerlink" title="作者："></a>作者：</h1>杭州电子科技大学计算机学院 lab519 刘栋军 联系方式：<a href="mailto:&#108;&#105;&#x75;&#x64;&#x6f;&#110;&#x67;&#106;&#117;&#x6e;&#64;&#x68;&#100;&#117;&#x2e;&#101;&#100;&#117;&#x2e;&#99;&#110;" rel="external nofollow noreferrer">&#108;&#105;&#x75;&#x64;&#x6f;&#110;&#x67;&#106;&#117;&#x6e;&#64;&#x68;&#100;&#117;&#x2e;&#101;&#100;&#117;&#x2e;&#99;&#110;</a> <h1 id="备注："><a href="#备注：" class="headerlink" title="备注："></a>备注：</h1>本文部分引用 csdn 博客等网络内容，如有侵权，请联系本人删除， 谢谢。<br>本人才疏学浅，如有错误，请联系本人更改，谢谢。</li>
+<li>启动pyCharm的命令设置别名：<br><a target="_blank" rel="noopener external nofollow noreferrer" href="https://blog.csdn.net/hay54/article/details/82344014">https://blog.csdn.net/hay54/article/details/82344014</a><br>alias luminarypy=’cd /home/wyh/pycharm-community-2020.2.3/bin/;./pycharm.sh’<br>luminarypy可打开pycharm<br>alias命令，查看所有别名<br>unalias 别名，表示取消某个别名。<br>注意：alias命令只作用于当次登入的操作。如果想每次登入都能使用这些命令的别名，则可以把相应的alias命令存放在 ~/.bashrc 文件中<br>操作：vi ~/.bashrc<br>找到alias命令那边加入：alias luminarypy=’cd /home/wyh/pycharm-community-2020.2.3/bin/;./pycharm.sh’<br>然后激活：source ~/.bashrc<br>这样别名就永久生效了<h2 id="作者："><a href="#作者：" class="headerlink" title="作者："></a>作者：</h2>杭州电子科技大学计算机学院 lab519 刘栋军 联系方式：<a href="mailto:&#x6c;&#x69;&#x75;&#x64;&#111;&#x6e;&#103;&#106;&#117;&#110;&#64;&#x68;&#100;&#117;&#46;&#x65;&#100;&#x75;&#x2e;&#x63;&#110;" rel="external nofollow noreferrer">&#x6c;&#x69;&#x75;&#x64;&#111;&#x6e;&#103;&#106;&#117;&#110;&#64;&#x68;&#100;&#117;&#46;&#x65;&#100;&#x75;&#x2e;&#x63;&#110;</a> <h2 id="备注："><a href="#备注：" class="headerlink" title="备注："></a>备注：</h2>本文部分引用 csdn 博客等网络内容，如有侵权，请联系本人删除， 谢谢。<br>本人才疏学浅，如有错误，请联系本人更改，谢谢。</li>
 </ol>
 
                 
