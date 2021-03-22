@@ -443,7 +443,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.5k
+                    1.6k
                 </div>
                 
 
@@ -545,14 +545,14 @@ sess = tf.Session() print(sess.run(hello))
 <h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><ol>
 <li>安装一定要在自己的目录下进行，以免更改他人环境 </li>
 <li>在安装之前配置清华镜像，下载速度会很快，更换下载源的方法如 下: 在自己的目录下新建一个.pip 文件夹，在.pip 文件夹下新建 pip.conf 文件，内容为：<br>[global] index-url = <a target="_blank" rel="noopener external nofollow noreferrer" href="https://pypi.douban.com/simple/">https://pypi.douban.com/simple/</a><br>[install] trusted-host = <a target="_blank" rel="noopener external nofollow noreferrer" href="https://pypi.douban.com/simple/">https://pypi.douban.com/simple/</a><br>几个常用的国内源，大家可以自己选择，替换文件中的网址就可以：<br>阿里云 <a target="_blank" rel="noopener external nofollow noreferrer" href="http://mirrors.aliyun.com/pypi/simple/">http://mirrors.aliyun.com/pypi/simple/</a> 中国科技大学 <a target="_blank" rel="noopener external nofollow noreferrer" href="https://pypi.mirrors.ustc.edu.cn/simple/">https://pypi.mirrors.ustc.edu.cn/simple/</a><br>豆瓣(douban) <a target="_blank" rel="noopener external nofollow noreferrer" href="http://pypi.douban.com/simple/">http://pypi.douban.com/simple/</a> 清华大学 <a target="_blank" rel="noopener external nofollow noreferrer" href="https://pypi.tuna.tsinghua.edu.cn/simple/">https://pypi.tuna.tsinghua.edu.cn/simple/</a><br>中国科学技术大学 <a target="_blank" rel="noopener external nofollow noreferrer" href="http://pypi.mirrors.ustc.edu.cn/simple/">http://pypi.mirrors.ustc.edu.cn/simple/</a> </li>
-<li>conda更换清华源<br>conda config –add channels <a target="_blank" rel="noopener external nofollow noreferrer" href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/">https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/</a><br>conda config –set show_channel_urls yes<br>编辑conda的配置文件：vi ~/.condarc<br>删除第三行“- defaults”，然后wq保存退出即可。</li>
+<li>conda更换清华源<br>conda config –add channels <a target="_blank" rel="noopener external nofollow noreferrer" href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/">https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/</a><br>conda config –add channels <a target="_blank" rel="noopener external nofollow noreferrer" href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge">https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge</a><br>conda config –add channels <a target="_blank" rel="noopener external nofollow noreferrer" href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/msys2/">https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/msys2/</a><br>由于后续还要进行PyTorch安装，还要增加PyTorch源<br>conda config –add channels <a target="_blank" rel="noopener external nofollow noreferrer" href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch/">https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch/</a><br>设置搜索时显示通道地址<br>conda config –set show_channel_urls yes<br>编辑conda的配置文件：vi ~/.condarc<br>删除第三行“- defaults”，然后wq保存退出即可。<br>换源成功后输入如下命令进行更新：<br>conda update –all<br>conda update -n base conda</li>
 <li>实验室的cuda和cudnn一般都是配置好的，直接引用即可。避免重复下载，浪费空间。</li>
 <li>跑程序时，加上 os.environ[“CUDA_VISIBLE_DEVICES”]=”0”,0 是 GPU 标志，更换数字即更换 GPU </li>
 <li>注意区分命令前有无 sudo 的区别，sudo为增加权限使用。 </li>
 <li>升级pip：pip install –upgrade pip</li>
 <li>启动pyCharm的命令设置别名：<br><a target="_blank" rel="noopener external nofollow noreferrer" href="https://blog.csdn.net/hay54/article/details/82344014">https://blog.csdn.net/hay54/article/details/82344014</a><br>alias luminarypy=’cd /home/wyh/pycharm-community-2020.2.3/bin/;./pycharm.sh’<br>luminarypy可打开pycharm<br>alias命令，查看所有别名<br>unalias 别名，表示取消某个别名。<br>注意：alias命令只作用于当次登入的操作。如果想每次登入都能使用这些命令的别名，则可以把相应的alias命令存放在 ~/.bashrc 文件中<br>操作：vi ~/.bashrc<br>找到alias命令那边加入：alias luminarypy=’cd /home/wyh/pycharm-community-2020.2.3/bin/;./pycharm.sh’<br>然后激活：source ~/.bashrc<br>这样别名就永久生效了</li>
 </ol>
-<h2 id="作者"><a href="#作者" class="headerlink" title="作者"></a>作者</h2><p>  杭州电子科技大学计算机学院 lab519 刘栋军 联系方式：<a href="mailto:&#108;&#105;&#117;&#x64;&#x6f;&#x6e;&#x67;&#106;&#117;&#x6e;&#x40;&#x68;&#100;&#117;&#x2e;&#x65;&#x64;&#x75;&#46;&#x63;&#110;" rel="external nofollow noreferrer">&#108;&#105;&#117;&#x64;&#x6f;&#x6e;&#x67;&#106;&#117;&#x6e;&#x40;&#x68;&#100;&#117;&#x2e;&#x65;&#x64;&#x75;&#46;&#x63;&#110;</a> </p>
+<h2 id="作者"><a href="#作者" class="headerlink" title="作者"></a>作者</h2><p>  杭州电子科技大学计算机学院 lab519 刘栋军 联系方式：<a href="mailto:&#108;&#x69;&#x75;&#100;&#x6f;&#110;&#x67;&#x6a;&#x75;&#x6e;&#x40;&#x68;&#100;&#117;&#46;&#101;&#x64;&#x75;&#46;&#99;&#x6e;" rel="external nofollow noreferrer">&#108;&#x69;&#x75;&#100;&#x6f;&#110;&#x67;&#x6a;&#x75;&#x6e;&#x40;&#x68;&#100;&#117;&#46;&#101;&#x64;&#x75;&#46;&#99;&#x6e;</a> </p>
 <h2 id="备注"><a href="#备注" class="headerlink" title="备注"></a>备注</h2><p>  本文部分引用 csdn 博客等网络内容，如有侵权，请联系本人删除， 谢谢。<br>  本人才疏学浅，如有错误，请联系本人更改，谢谢。</p>
 
                 
@@ -1064,7 +1064,7 @@ sess = tf.Session() print(sess.run(hello))
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">4.4k</span>&nbsp;字
+                class="white-color">4.5k</span>&nbsp;字
             
             
             
