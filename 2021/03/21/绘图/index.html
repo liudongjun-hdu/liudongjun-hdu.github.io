@@ -461,8 +461,8 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="绘图需要引入的包以及图片存储路径"><a href="#绘图需要引入的包以及图片存储路径" class="headerlink" title="绘图需要引入的包以及图片存储路径"></a>绘图需要引入的包以及图片存储路径</h1><p>import matplotlib.pyplot as plt<br>import matplotlib<br>from sklearn.metrics import *<br>import matplotlib.pyplot as plt<br>import numpy as np<br>exp_root = ‘/home/wyh/Python_workspace/DAN_EEGIMAGE_CODE/model_indices/‘</p>
-<h1 id="横向对比图"><a href="#横向对比图" class="headerlink" title="横向对比图"></a>横向对比图</h1><pre><code>def Comparsion_regression():
+                <h1 id="绘图"><a href="#绘图" class="headerlink" title="绘图"></a>绘图</h1><h2 id="绘图需要引入的包以及图片存储路径"><a href="#绘图需要引入的包以及图片存储路径" class="headerlink" title="绘图需要引入的包以及图片存储路径"></a>绘图需要引入的包以及图片存储路径</h2><p>import matplotlib.pyplot as plt<br>import matplotlib<br>from sklearn.metrics import *<br>import matplotlib.pyplot as plt<br>import numpy as np<br>exp_root = ‘/home/wyh/Python_workspace/DAN_EEGIMAGE_CODE/model_indices/‘</p>
+<h2 id="横向对比图"><a href="#横向对比图" class="headerlink" title="横向对比图"></a>横向对比图</h2><pre><code>def Comparsion_regression():
     # 构建数据
     x_data = [&#39;愤怒&#39;, &#39;快乐&#39;, &#39;中立&#39;, &#39;悲伤&#39;, &#39;惊奇&#39;, &#39;厌恶&#39;, &#39;恐惧&#39;]
     y_data1 = [100.00, 92.31, 100.00, 83.33, 83.33, 50.00, 37.50]
@@ -494,7 +494,7 @@
     plt.show()
 </code></pre>
 <p><img src="/images/DualChart.jpg" alt="横向对比图"></p>
-<h1 id="混淆矩阵"><a href="#混淆矩阵" class="headerlink" title="混淆矩阵"></a>混淆矩阵</h1><pre><code>def plot_confusion_matrix(y_true, y_pred, labels):  # 计算混淆矩阵，以评估分类的准确性。
+<h2 id="混淆矩阵"><a href="#混淆矩阵" class="headerlink" title="混淆矩阵"></a>混淆矩阵</h2><pre><code>def plot_confusion_matrix(y_true, y_pred, labels):  # 计算混淆矩阵，以评估分类的准确性。
     cmap = plt.cm.binary
     cm = confusion_matrix(y_true, y_pred)
     tick_marks = np.array(range(len(labels))) + 0.5
@@ -539,7 +539,7 @@
     plt.show()
 </code></pre>
 <p><img src="/images/knn_confusion_matrix12.jpg" alt="混淆矩阵图"></p>
-<h1 id="t-sne"><a href="#t-sne" class="headerlink" title="t-sne"></a>t-sne</h1><pre><code>def plot_embedding(data, label):
+<h2 id="t-sne"><a href="#t-sne" class="headerlink" title="t-sne"></a>t-sne</h2><pre><code>def plot_embedding(data, label):
     fig = plt.figure(figsize=(5, 5))
     type1_x = []
     type1_y = []
@@ -633,7 +633,7 @@ def visual_features(x_train_img, x_test_img, y_train, y_test):
     plt.show()
 </code></pre>
 <p><img src="/images/t-sne_train_image.jpg" alt="t-sne图1"><br><img src="/images/t-sne_train_EEG-LIKE.jpg" alt="t-sne图2"></p>
-<h1 id="纵向对比图"><a href="#纵向对比图" class="headerlink" title="纵向对比图"></a>纵向对比图</h1><pre><code>def comparison_bar(IMAGE_score, Regression_score, Fusion_score, EEG_score):
+<h2 id="纵向对比图"><a href="#纵向对比图" class="headerlink" title="纵向对比图"></a>纵向对比图</h2><pre><code>def comparison_bar(IMAGE_score, Regression_score, Fusion_score, EEG_score):
     X = [&#39;图像&#39;, &#39;回归&#39;, &#39;融合&#39;, &#39;脑电&#39;]
     Y = [0.839080459770114, 0.873563218390804, 0.885057471264367, 0.977011494252873]
 
@@ -649,7 +649,7 @@ def visual_features(x_train_img, x_test_img, y_train, y_test):
     plt.show()
 </code></pre>
 <p><img src="/images/BarChart.jpg" alt="纵向对比图"></p>
-<h1 id="折线图"><a href="#折线图" class="headerlink" title="折线图"></a>折线图</h1><pre><code>def EEG_like(x_test_eeg, y_pred_test):
+<h2 id="折线图"><a href="#折线图" class="headerlink" title="折线图"></a>折线图</h2><pre><code>def EEG_like(x_test_eeg, y_pred_test):
     x_test_eeg_average = x_test_eeg.mean(0)
     x_test_like_average = y_pred_test.mean(0)
     x1 = range(0, 128)
@@ -670,7 +670,7 @@ def visual_features(x_train_img, x_test_img, y_train, y_test):
     plt.show()
 </code></pre>
 <p><img src="/images/EEG-LIKE.jpg" alt="折线图"></p>
-<h1 id="accuracy-loss图"><a href="#accuracy-loss图" class="headerlink" title="accuracy_loss图"></a>accuracy_loss图</h1><pre><code>x1 = range(0, iteration//log_interval)
+<h2 id="accuracy-loss图"><a href="#accuracy-loss图" class="headerlink" title="accuracy_loss图"></a>accuracy_loss图</h2><pre><code>x1 = range(0, iteration//log_interval)
 x2 = range(0, iteration//log_interval)
 y1 = Accuracy_list
 y2 = Loss_list
