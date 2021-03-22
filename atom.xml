@@ -6,7 +6,7 @@
   <link href="https://liudongjun-hdu.github.io/atom.xml" rel="self"/>
   
   <link href="https://liudongjun-hdu.github.io/"/>
-  <updated>2021-03-22T11:45:55.111Z</updated>
+  <updated>2021-03-22T12:01:54.513Z</updated>
   <id>https://liudongjun-hdu.github.io/</id>
   
   <author>
@@ -21,15 +21,17 @@
     <link href="https://liudongjun-hdu.github.io/2021/03/22/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
     <id>https://liudongjun-hdu.github.io/2021/03/22/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</id>
     <published>2021-03-22T10:47:30.000Z</published>
-    <updated>2021-03-22T11:45:55.111Z</updated>
+    <updated>2021-03-22T12:01:54.513Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;ol&gt;
-&lt;li&gt;前言&lt;br&gt;vim操作：&lt;br&gt; vim xxxxx&lt;br&gt; 按i 进入编辑模式，光标移到对应位置进行插入&lt;br&gt; 编辑好文本按Esc退出插入状态&lt;br&gt; 保存退出命令 ：wq&lt;br&gt; 删除一个目录，如（Anaconda3-5.3.1）：sudo rm -rf</summary>
+    <summary type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;ol&gt;
+&lt;li&gt;vim操作：&lt;ol&gt;
+&lt;li&gt;vim xxxxx&lt;/li&gt;
+&lt;li&gt;按i</summary>
         
       
     
