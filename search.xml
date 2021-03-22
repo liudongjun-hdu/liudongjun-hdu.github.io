@@ -4,6 +4,27 @@
   
     
     <entry>
+      <title>字体设置</title>
+      <link href="2021/03/22/%E5%AD%97%E4%BD%93%E8%AE%BE%E7%BD%AE/"/>
+      <url>2021/03/22/%E5%AD%97%E4%BD%93%E8%AE%BE%E7%BD%AE/</url>
+      
+        <content type="html"><![CDATA[<ol><li>设置,路径是你的字体文件存放的路径<pre><code>zhfont1 = matplotlib.font_manager.FontProperties(fname=&#39;/usr/share/fonts/my_fonts/simhei.ttf&#39;)</code></pre></li><li>使用<pre><code>plt.xlabel(&#39;预测类别&#39;, fontsize=20, fontproperties=zhfont1)plt.ylabel(&#39;真实类别&#39;, fontsize=20, fontproperties=zhfont1)</code></pre></li></ol>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 字体 </tag>
+            
+            <tag> 中英文 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>绘图</title>
       <link href="2021/03/21/%E7%BB%98%E5%9B%BE/"/>
       <url>2021/03/21/%E7%BB%98%E5%9B%BE/</url>

@@ -6,7 +6,7 @@
   <link href="https://liudongjun-hdu.github.io/atom.xml" rel="self"/>
   
   <link href="https://liudongjun-hdu.github.io/"/>
-  <updated>2021-03-21T08:27:36.629Z</updated>
+  <updated>2021-03-22T06:44:44.961Z</updated>
   <id>https://liudongjun-hdu.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>字体设置</title>
+    <link href="https://liudongjun-hdu.github.io/2021/03/22/%E5%AD%97%E4%BD%93%E8%AE%BE%E7%BD%AE/"/>
+    <id>https://liudongjun-hdu.github.io/2021/03/22/%E5%AD%97%E4%BD%93%E8%AE%BE%E7%BD%AE/</id>
+    <published>2021-03-22T06:35:06.000Z</published>
+    <updated>2021-03-22T06:44:44.961Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;ol&gt;
+&lt;li&gt;设置,路径是你的字体文件存放的路径&lt;pre&gt;&lt;code&gt;zhfont1 =</summary>
+        
+      
+    
+    
+    
+    
+    <category term="字体" scheme="https://liudongjun-hdu.github.io/tags/%E5%AD%97%E4%BD%93/"/>
+    
+    <category term="中英文" scheme="https://liudongjun-hdu.github.io/tags/%E4%B8%AD%E8%8B%B1%E6%96%87/"/>
+    
+  </entry>
   
   <entry>
     <title>绘图</title>
