@@ -465,7 +465,7 @@
 <li>CapsNet的提出<br>深度学习开创者之一、反向传播等神经网络经典算法的发明人Geoffrey Hinton思考了胶囊网络数十年之久，才发表论文正式提出胶囊网络。主要原因就是一直没找到训练胶囊网络的合适算法。</li>
 <li>CapsNet的优势<br>相比CNN需要的数据，它只需要学习一小部分数据，就能达到最先进的效果（Hinton在他关于CNN错误的著名演说中提到了这一点）。 从这个意义上说，胶囊理论实际上更接近人脑的行为。为了学会区分数字，人脑只需要几十个例子，最多几百个例子。而CNN则需要几万个例子才能取得很好的效果。这看起来像是在暴力破解，显然要比我们的大脑低级。</li>
 </ol>
-<h2 id="胶囊的提出"><a href="#胶囊的提出" class="headerlink" title="胶囊的提出"></a>胶囊的提出</h2><ol>
+<h2 id="胶囊的概念"><a href="#胶囊的概念" class="headerlink" title="胶囊的概念"></a>胶囊的概念</h2><ol>
 <li>胶囊概念的理解<br>“人工神经网络不应当追求“神经元”活动中的视角不变性（使用单一的标量输出来总结一个局部池中的重复特征检测器的活动），而应当使用局部的“胶囊”，这些胶囊对其输入执行一些相当复杂的内部计算，然后将这些计算的结果封装成一个包含信息丰富的输出的小向量。每个胶囊学习辨识一个有限的观察条件和变形范围内隐式定义的视觉实体，并输出实体在有限范围内存在的概率及一组“实例参数”，实例参数可能包括相对这个视觉实体的隐式定义的典型版本的精确的位姿、照明条件和变形信息。当胶囊工作正常时，视觉实体存在的概率具有局部不变性——当实体在胶囊覆盖的有限范围内的外观流形上移动时，概率不会改变。实例参数却是“等变的”——随着观察条件的变化，实体在外观流形上移动时，实例参数也会相应地变化，因为实例参数表示实体在外观流形上的内在坐标。”</li>
 <li>使用胶囊<br>所有胶囊检测中的特征的状态的重要信息，都将以向量的形式（神经元输出的则是标量）被胶囊封装。胶囊将特征检测的概率作为其输出向量的长度进行编码。检测出的特征的状态被编码为该向量指向的方向（“实例参数”）。所以，当检测出的特征在图像中移动或其状态不知怎的发生变化时，概率仍然保持不变（向量长度没有改变），但它的方向改变了。胶囊将特征检测的概率作为其输出向量的长度进行编码。检测出的特征的状态被编码为该向量指向的方向（“实例参数”）。所以，当检测出的特征在图像中移动或其状态不知怎的发生变化时，概率仍然保持不变（向量长度没有改变），但它的方向改变了。</li>
 <li>举例<br>想象一个胶囊，它检测图像中的面部，并输出长度为0.99的三维向量。接着我们开始在图像上移动面部。向量将在空间上旋转，表示检测出的面部的状态改变了，但其长度将保持固定，因为胶囊仍然确信它检测出了面部。这就是Hinton所说的活动等变性：神经活动将随着物体在图像中的“外观流形上的移动”而改变。与此同时，检测概率保持恒定，这才是我们应该追求的那种不变性，而不是CNN提供的基于最大池化的不变性。</li>
@@ -473,27 +473,38 @@
 </ol>
 <h2 id="动态路由算法"><a href="#动态路由算法" class="headerlink" title="动态路由算法"></a>动态路由算法</h2><ol>
 <li>算法的伪代码<br><img src="/images/routingalgorithm.png" alt="routingalgorithm"></li>
-<li>算法的实现代码<br>```<br>def squash(x):<br> lengths2 = x.pow(2).sum(dim=2)<br> lengths = lengths2.sqrt()<br> x = x * (lengths2 / (1 + lengths2) / lengths).view(x.size(0), x.size(1), 1)<br> return x</li>
-</ol>
-<p>class AgreementRouting(nn.Module):<br>    def <strong>init</strong>(self, input_caps, output_caps, n_iterations):<br>        super(AgreementRouting, self).<strong>init</strong>()<br>        self.n_iterations = n_iterations<br>        self.b = nn.Parameter(torch.zeros((input_caps, output_caps)))</p>
-<pre><code>def forward(self, u_predict):
-    batch_size, input_caps, output_caps, output_dim = u_predict.size()
-    c = F.softmax(self.b, dim=1)
-    s = (c.unsqueeze(2) * u_predict).sum(dim=1) #dim=0纵向压缩，dim=1横向压缩
-    v = squash(s)
-
-    if self.n_iterations &gt; 0:
-        b_batch = self.b.expand((batch_size, input_caps, output_caps))
-        for r in range(self.n_iterations):
-            v = v.unsqueeze(1)
-            b_batch = b_batch + (u_predict * v).sum(-1) 
-            c = F.softmax(b_batch.view(-1, output_caps), dim=1).view(-1, input_caps, output_caps, 1)
-            s = (c * u_predict).sum(dim=1)
-            v = squash(s)
-
-    return v
+<li>算法的实现代码<pre><code>def squash(x):
+ lengths2 = x.pow(2).sum(dim=2)
+ lengths = lengths2.sqrt()
+ x = x * (lengths2 / (1 + lengths2) / lengths).view(x.size(0), x.size(1), 1)
+ return x
+class AgreementRouting(nn.Module):
+ def __init__(self, input_caps, output_caps, n_iterations):
+     super(AgreementRouting, self).__init__()
+     self.n_iterations = n_iterations
+     self.b = nn.Parameter(torch.zeros((input_caps, output_caps)))        
+ def forward(self, u_predict):
+     batch_size, input_caps, output_caps, output_dim = u_predict.size()
+     c = F.softmax(self.b, dim=1)
+     s = (c.unsqueeze(2) * u_predict).sum(dim=1) #dim=0纵向压缩，dim=1横向压缩
+     v = squash(s)
+     if self.n_iterations &gt; 0:
+         b_batch = self.b.expand((batch_size, input_caps, output_caps))
+         for r in range(self.n_iterations):
+             v = v.unsqueeze(1)
+             b_batch = b_batch + (u_predict * v).sum(-1) 
+             c = F.softmax(b_batch.view(-1, output_caps), dim=1).view(-1, input_caps, output_caps, 1)
+             s = (c * u_predict).sum(dim=1)
+             v = squash(s)
+     return v
 </code></pre>
-<p>```<br>3. 算法解读<br>1.输入向量的矩阵乘法<br>2.输入向量的标量加权<br>3.加权输入向量之和<br>4.向量到向量的非线性变换 </p>
+</li>
+<li>算法解读</li>
+<li>输入向量的矩阵乘法</li>
+<li>输入向量的标量加权</li>
+<li>加权输入向量之和</li>
+<li>向量到向量的非线性变换 </li>
+</ol>
 <h2 id="备注"><a href="#备注" class="headerlink" title="备注"></a>备注</h2><p>引用：<a target="_blank" rel="noopener external nofollow noreferrer" href="https://blog.csdn.net/weixin_42182910">https://blog.csdn.net/weixin_42182910</a>  leonorandzzzz的博客</p>
 
                 
