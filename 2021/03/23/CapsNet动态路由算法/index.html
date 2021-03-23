@@ -511,11 +511,13 @@ class AgreementRouting(nn.Module):
 <li>初始化一个权值矩阵b</li>
 <li>b经过softmax得到系数c的值</li>
 <li>系数c乘以u得到s</li>
-<li>s经过非线性变换得到v<br>重复n_iteratons轮：</li>
+<li>s经过非线性变换得到v<br>重复n_iteratons轮：<ol>
 <li>计算u与v的相关性来更新b</li>
 <li>b经过softmax得到系数c的值</li>
 <li>系数c乘以u得到s</li>
 <li>s经过非线性变换得到v </li>
+</ol>
+</li>
 </ol>
 </li>
 </ol>
