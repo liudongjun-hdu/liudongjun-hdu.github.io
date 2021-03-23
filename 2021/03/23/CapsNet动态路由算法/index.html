@@ -439,7 +439,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.2k
+                    1.3k
                 </div>
                 
 
@@ -470,6 +470,10 @@
 <li>使用胶囊<br>所有胶囊检测中的特征的状态的重要信息，都将以向量的形式（神经元输出的则是标量）被胶囊封装。胶囊将特征检测的概率作为其输出向量的长度进行编码。检测出的特征的状态被编码为该向量指向的方向（“实例参数”）。所以，当检测出的特征在图像中移动或其状态不知怎的发生变化时，概率仍然保持不变（向量长度没有改变），但它的方向改变了。胶囊将特征检测的概率作为其输出向量的长度进行编码。检测出的特征的状态被编码为该向量指向的方向（“实例参数”）。所以，当检测出的特征在图像中移动或其状态不知怎的发生变化时，概率仍然保持不变（向量长度没有改变），但它的方向改变了。</li>
 <li>举例<br>想象一个胶囊，它检测图像中的面部，并输出长度为0.99的三维向量。接着我们开始在图像上移动面部。向量将在空间上旋转，表示检测出的面部的状态改变了，但其长度将保持固定，因为胶囊仍然确信它检测出了面部。这就是Hinton所说的活动等变性：神经活动将随着物体在图像中的“外观流形上的移动”而改变。与此同时，检测概率保持恒定，这才是我们应该追求的那种不变性，而不是CNN提供的基于最大池化的不变性。</li>
 <li>胶囊的工作原理<br>胶囊和神经元的不同<br><img src="/images/capsule.png" alt="capsule"></li>
+<li>输入向量的矩阵乘法</li>
+<li>输入向量的标量加权</li>
+<li>加权输入向量之和</li>
+<li>向量到向量的非线性变换 </li>
 </ol>
 <h2 id="动态路由算法"><a href="#动态路由算法" class="headerlink" title="动态路由算法"></a>动态路由算法</h2><ol>
 <li>算法的伪代码<br><img src="/images/routingalgorithm.png" alt="routingalgorithm"></li>
@@ -502,10 +506,10 @@ class AgreementRouting(nn.Module):
 </code></pre>
 <ol start="3">
 <li>算法解读</li>
-<li>输入向量的矩阵乘法</li>
-<li>输入向量的标量加权</li>
-<li>加权输入向量之和</li>
-<li>向量到向量的非线性变换 </li>
+<li>初始化一个权值矩阵b</li>
+<li>b经过softmax得到系数c的值</li>
+<li>系数c乘以u得到s</li>
+<li>s经过非线性变换得到v<br>重复n_iteratons轮：<br>   1.计算u与v的相关性来更新b<br>   2.b经过softmax得到系数c的值<br>   3.系数c乘以u得到s<br>   4.s经过非线性变换得到v </li>
 </ol>
 <h2 id="备注"><a href="#备注" class="headerlink" title="备注"></a>备注</h2><p>引用：<a target="_blank" rel="noopener external nofollow noreferrer" href="https://blog.csdn.net/weixin_42182910">https://blog.csdn.net/weixin_42182910</a>  leonorandzzzz的博客</p>
 
@@ -1014,7 +1018,7 @@ class AgreementRouting(nn.Module):
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">6.9k</span>&nbsp;字
+                class="white-color">7k</span>&nbsp;字
             
             
             
