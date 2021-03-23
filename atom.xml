@@ -6,7 +6,7 @@
   <link href="https://liudongjun-hdu.github.io/atom.xml" rel="self"/>
   
   <link href="https://liudongjun-hdu.github.io/"/>
-  <updated>2021-03-23T01:44:19.941Z</updated>
+  <updated>2021-03-23T03:24:52.993Z</updated>
   <id>https://liudongjun-hdu.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CapsNet动态路由算法</title>
+    <link href="https://liudongjun-hdu.github.io/2021/03/23/CapsNet%E5%8A%A8%E6%80%81%E8%B7%AF%E7%94%B1%E7%AE%97%E6%B3%95/"/>
+    <id>https://liudongjun-hdu.github.io/2021/03/23/CapsNet%E5%8A%A8%E6%80%81%E8%B7%AF%E7%94%B1%E7%AE%97%E6%B3%95/</id>
+    <published>2021-03-23T02:50:42.000Z</published>
+    <updated>2021-03-23T03:24:52.993Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;CapsNet动态路由算法&quot;&gt;&lt;a href=&quot;#CapsNet动态路由算法&quot; class=&quot;headerlink&quot; title=&quot;CapsNet动态路由算法&quot;&gt;&lt;/a&gt;CapsNet动态路由算法&lt;/h1&gt;&lt;h2 id=&quot;CapsNet介绍&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    
+    <category term="CapsNet" scheme="https://liudongjun-hdu.github.io/tags/CapsNet/"/>
+    
+    <category term="动态路由算法" scheme="https://liudongjun-hdu.github.io/tags/%E5%8A%A8%E6%80%81%E8%B7%AF%E7%94%B1%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
   
   <entry>
     <title>hexo联合github创建网站</title>

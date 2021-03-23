@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="基于脑机协同智能的情绪识别, 栋栋的博客">
+    <meta name="keywords" content="CapsNet动态路由算法, 栋栋的博客">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>基于脑机协同智能的情绪识别 | 栋栋的博客</title>
+    <title>CapsNet动态路由算法 | 栋栋的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -289,12 +289,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">基于脑机协同智能的情绪识别</h1>
+                    <h1 class="description center-align post-title">CapsNet动态路由算法</h1>
                 </div>
             </div>
         </div>
@@ -410,12 +410,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E6%83%85%E7%BB%AA%E8%AF%86%E5%88%AB/">
-                                <span class="chip bg-color">情绪识别</span>
+                            <a href="/tags/CapsNet/">
+                                <span class="chip bg-color">CapsNet</span>
                             </a>
                         
-                            <a href="/tags/%E8%84%91%E6%9C%BA%E5%8D%8F%E5%90%8C%E6%99%BA%E8%83%BD/">
-                                <span class="chip bg-color">脑机协同智能</span>
+                            <a href="/tags/%E5%8A%A8%E6%80%81%E8%B7%AF%E7%94%B1%E7%AE%97%E6%B3%95/">
+                                <span class="chip bg-color">动态路由算法</span>
                             </a>
                         
                     </div>
@@ -430,7 +430,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-03-21
+                    2021-03-23
                 </div>
                 
 
@@ -439,7 +439,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    441
+                    1.2k
                 </div>
                 
 
@@ -461,13 +461,40 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="基于脑机协同智能的情绪识别"><a href="#基于脑机协同智能的情绪识别" class="headerlink" title="基于脑机协同智能的情绪识别"></a>基于脑机协同智能的情绪识别</h1><blockquote>
-<p>摘 要：面部表情识别是一种直接有效的情感识别模式。机器学习依靠对图像表情进行形式<br>化表征，缺乏大脑的认知表征能力，在小样本数据集或复杂表情（伪装）数据集上识别性能<br>并不理想。针对此问题，将机器人工智能的形式化表征与人脑通用智能的情感认知能力相结<br>合，提出一种脑机协同智能的情绪识别方法。首先，从脑电图信号中提取脑电情感特征以获<br>取大脑对于情绪的认知表征。其次，从情感图像中提取图像的视觉特征以获取机器对于情绪<br>的形式化表征。为增强机器模型的泛化能力，在特征学习中引入样本间的迁移适配。在得到<br>图像视觉特征和脑电情感特征后，采用随机森林回归模型训练得到图像视觉特征与脑电情感<br>特征之间的脑机映射关系。测试图像的图像视觉特征经过脑机映射关系产生虚拟脑电情感特<br>征，然后将虚拟脑电情感特征与图像视觉特征进行融合用于情绪识别。该方法已经在中国情<br>绪图片系统上进行了验证，发现对 7 种情绪的平均识别准确率为 88.51％，相比单纯基于图<br>像的方法提升 3%~5%。</p>
-</blockquote>
-<p>关键词：情绪识别；脑电图信号；脑机协同智能；深度学习</p>
-<p>中图分类号：TP18，TN911.7，R318 </p>
-<p>文献标识码：A </p>
-<p>doi: 10.11959/j.issn.2096−6652.2021000</p>
+                <h1 id="CapsNet动态路由算法"><a href="#CapsNet动态路由算法" class="headerlink" title="CapsNet动态路由算法"></a>CapsNet动态路由算法</h1><h2 id="CapsNet介绍"><a href="#CapsNet介绍" class="headerlink" title="CapsNet介绍"></a>CapsNet介绍</h2><ol>
+<li>CapsNet的提出<br>深度学习开创者之一、反向传播等神经网络经典算法的发明人Geoffrey Hinton思考了胶囊网络数十年之久，才发表论文正式提出胶囊网络。主要原因就是一直没找到训练胶囊网络的合适算法。</li>
+<li>CapsNet的优势<br>相比CNN需要的数据，它只需要学习一小部分数据，就能达到最先进的效果（Hinton在他关于CNN错误的著名演说中提到了这一点）。 从这个意义上说，胶囊理论实际上更接近人脑的行为。为了学会区分数字，人脑只需要几十个例子，最多几百个例子。而CNN则需要几万个例子才能取得很好的效果。这看起来像是在暴力破解，显然要比我们的大脑低级。</li>
+</ol>
+<h2 id="胶囊的提出"><a href="#胶囊的提出" class="headerlink" title="胶囊的提出"></a>胶囊的提出</h2><ol>
+<li>胶囊概念的理解<br>“人工神经网络不应当追求“神经元”活动中的视角不变性（使用单一的标量输出来总结一个局部池中的重复特征检测器的活动），而应当使用局部的“胶囊”，这些胶囊对其输入执行一些相当复杂的内部计算，然后将这些计算的结果封装成一个包含信息丰富的输出的小向量。每个胶囊学习辨识一个有限的观察条件和变形范围内隐式定义的视觉实体，并输出实体在有限范围内存在的概率及一组“实例参数”，实例参数可能包括相对这个视觉实体的隐式定义的典型版本的精确的位姿、照明条件和变形信息。当胶囊工作正常时，视觉实体存在的概率具有局部不变性——当实体在胶囊覆盖的有限范围内的外观流形上移动时，概率不会改变。实例参数却是“等变的”——随着观察条件的变化，实体在外观流形上移动时，实例参数也会相应地变化，因为实例参数表示实体在外观流形上的内在坐标。”</li>
+<li>使用胶囊<br>所有胶囊检测中的特征的状态的重要信息，都将以向量的形式（神经元输出的则是标量）被胶囊封装。胶囊将特征检测的概率作为其输出向量的长度进行编码。检测出的特征的状态被编码为该向量指向的方向（“实例参数”）。所以，当检测出的特征在图像中移动或其状态不知怎的发生变化时，概率仍然保持不变（向量长度没有改变），但它的方向改变了。胶囊将特征检测的概率作为其输出向量的长度进行编码。检测出的特征的状态被编码为该向量指向的方向（“实例参数”）。所以，当检测出的特征在图像中移动或其状态不知怎的发生变化时，概率仍然保持不变（向量长度没有改变），但它的方向改变了。</li>
+<li>举例<br>想象一个胶囊，它检测图像中的面部，并输出长度为0.99的三维向量。接着我们开始在图像上移动面部。向量将在空间上旋转，表示检测出的面部的状态改变了，但其长度将保持固定，因为胶囊仍然确信它检测出了面部。这就是Hinton所说的活动等变性：神经活动将随着物体在图像中的“外观流形上的移动”而改变。与此同时，检测概率保持恒定，这才是我们应该追求的那种不变性，而不是CNN提供的基于最大池化的不变性。</li>
+<li>胶囊的工作原理<br>胶囊和神经元的不同<br><img src="/images/capsule.png" alt="capsule"></li>
+</ol>
+<h2 id="动态路由算法"><a href="#动态路由算法" class="headerlink" title="动态路由算法"></a>动态路由算法</h2><ol>
+<li>算法的伪代码<br><img src="/images/routingalgorithm.png" alt="routingalgorithm"></li>
+<li>算法的实现代码<br>```<br>def squash(x):<br> lengths2 = x.pow(2).sum(dim=2)<br> lengths = lengths2.sqrt()<br> x = x * (lengths2 / (1 + lengths2) / lengths).view(x.size(0), x.size(1), 1)<br> return x</li>
+</ol>
+<p>class AgreementRouting(nn.Module):<br>    def <strong>init</strong>(self, input_caps, output_caps, n_iterations):<br>        super(AgreementRouting, self).<strong>init</strong>()<br>        self.n_iterations = n_iterations<br>        self.b = nn.Parameter(torch.zeros((input_caps, output_caps)))</p>
+<pre><code>def forward(self, u_predict):
+    batch_size, input_caps, output_caps, output_dim = u_predict.size()
+    c = F.softmax(self.b, dim=1)
+    s = (c.unsqueeze(2) * u_predict).sum(dim=1) #dim=0纵向压缩，dim=1横向压缩
+    v = squash(s)
+
+    if self.n_iterations &gt; 0:
+        b_batch = self.b.expand((batch_size, input_caps, output_caps))
+        for r in range(self.n_iterations):
+            v = v.unsqueeze(1)
+            b_batch = b_batch + (u_predict * v).sum(-1) 
+            c = F.softmax(b_batch.view(-1, output_caps), dim=1).view(-1, input_caps, output_caps, 1)
+            s = (c * u_predict).sum(dim=1)
+            v = squash(s)
+
+    return v
+</code></pre>
+<p>```<br>3. 算法解读<br>1.输入向量的矩阵乘法<br>2.输入向量的标量加权<br>3.加权输入向量之和<br>4.向量到向量的非线性变换 </p>
+<h2 id="备注"><a href="#备注" class="headerlink" title="备注"></a>备注</h2><p>引用：<a target="_blank" rel="noopener external nofollow noreferrer" href="https://blog.csdn.net/weixin_42182910">https://blog.csdn.net/weixin_42182910</a>  leonorandzzzz的博客</p>
 
                 
             </div>
@@ -494,7 +521,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://liudongjun-hdu.github.io/2021/03/21/%E5%9F%BA%E4%BA%8E%E8%84%91%E6%9C%BA%E5%8D%8F%E5%90%8C%E6%99%BA%E8%83%BD%E7%9A%84%E6%83%85%E7%BB%AA%E8%AF%86%E5%88%AB/">https://liudongjun-hdu.github.io/2021/03/21/%E5%9F%BA%E4%BA%8E%E8%84%91%E6%9C%BA%E5%8D%8F%E5%90%8C%E6%99%BA%E8%83%BD%E7%9A%84%E6%83%85%E7%BB%AA%E8%AF%86%E5%88%AB/</a>
+                    <a href="https://liudongjun-hdu.github.io/2021/03/23/CapsNet%E5%8A%A8%E6%80%81%E8%B7%AF%E7%94%B1%E7%AE%97%E6%B3%95/">https://liudongjun-hdu.github.io/2021/03/23/CapsNet%E5%8A%A8%E6%80%81%E8%B7%AF%E7%94%B1%E7%AE%97%E6%B3%95/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -532,12 +559,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E6%83%85%E7%BB%AA%E8%AF%86%E5%88%AB/">
-                                    <span class="chip bg-color">情绪识别</span>
+                                <a href="/tags/CapsNet/">
+                                    <span class="chip bg-color">CapsNet</span>
                                 </a>
                             
-                                <a href="/tags/%E8%84%91%E6%9C%BA%E5%8D%8F%E5%90%8C%E6%99%BA%E8%83%BD/">
-                                    <span class="chip bg-color">脑机协同智能</span>
+                                <a href="/tags/%E5%8A%A8%E6%80%81%E8%B7%AF%E7%94%B1%E7%AE%97%E6%B3%95/">
+                                    <span class="chip bg-color">动态路由算法</span>
                                 </a>
                             
                         </div>
@@ -731,66 +758,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2021/03/21/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E9%9B%B6%E6%95%A3%E7%9F%A5%E8%AF%86%E7%82%B9/">
+                <a href="/2021/03/23/CapsNet%E5%8A%A8%E6%80%81%E8%B7%AF%E7%94%B1%E7%AE%97%E6%B3%95/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="深度学习零散知识点">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="CapsNet动态路由算法">
                         
-                        <span class="card-title">深度学习零散知识点</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-21
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            Liu Dongjun
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">
-                        <span class="chip bg-color">深度学习</span>
-                    </a>
-                    
-                    <a href="/tags/%E8%BF%81%E7%A7%BB%E5%AD%A6%E4%B9%A0/">
-                        <span class="chip bg-color">迁移学习</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
-            </div>
-            <div class="card">
-                <a href="/2021/03/21/%E5%9F%BA%E4%BA%8E%E8%84%91%E6%9C%BA%E5%8D%8F%E5%90%8C%E6%99%BA%E8%83%BD%E7%9A%84%E6%83%85%E7%BB%AA%E8%AF%86%E5%88%AB/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="基于脑机协同智能的情绪识别">
-                        
-                        <span class="card-title">基于脑机协同智能的情绪识别</span>
+                        <span class="card-title">CapsNet动态路由算法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -801,7 +780,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-21
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-23
                             </span>
                         <span class="publish-author">
                             
@@ -815,12 +794,65 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%83%85%E7%BB%AA%E8%AF%86%E5%88%AB/">
-                        <span class="chip bg-color">情绪识别</span>
+                    <a href="/tags/CapsNet/">
+                        <span class="chip bg-color">CapsNet</span>
                     </a>
                     
-                    <a href="/tags/%E8%84%91%E6%9C%BA%E5%8D%8F%E5%90%8C%E6%99%BA%E8%83%BD/">
-                        <span class="chip bg-color">脑机协同智能</span>
+                    <a href="/tags/%E5%8A%A8%E6%80%81%E8%B7%AF%E7%94%B1%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">动态路由算法</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/03/23/hexo%E8%81%94%E5%90%88github%E5%88%9B%E5%BB%BA%E7%BD%91%E7%AB%99/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="hexo联合github创建网站">
+                        
+                        <span class="card-title">hexo联合github创建网站</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-23
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Liu Dongjun
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/hexo/">
+                        <span class="chip bg-color">hexo</span>
+                    </a>
+                    
+                    <a href="/tags/github/">
+                        <span class="chip bg-color">github</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%BD%91%E7%AB%99/">
+                        <span class="chip bg-color">网站</span>
                     </a>
                     
                 </div>
