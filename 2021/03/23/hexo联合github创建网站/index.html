@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="绘图, 栋栋的博客">
+    <meta name="keywords" content="hexo联合github创建网站, 栋栋的博客">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>绘图 | 栋栋的博客</title>
+    <title>hexo联合github创建网站 | 栋栋的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -289,12 +289,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">绘图</h1>
+                    <h1 class="description center-align post-title">hexo联合github创建网站</h1>
                 </div>
             </div>
         </div>
@@ -410,12 +410,16 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
-                                <span class="chip bg-color">机器学习</span>
+                            <a href="/tags/hexo/">
+                                <span class="chip bg-color">hexo</span>
                             </a>
                         
-                            <a href="/tags/%E7%BB%98%E5%9B%BE/">
-                                <span class="chip bg-color">绘图</span>
+                            <a href="/tags/github/">
+                                <span class="chip bg-color">github</span>
+                            </a>
+                        
+                            <a href="/tags/%E7%BD%91%E7%AB%99/">
+                                <span class="chip bg-color">网站</span>
                             </a>
                         
                     </div>
@@ -430,7 +434,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-03-21
+                    2021-03-23
                 </div>
                 
 
@@ -439,7 +443,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.6k
+                    1.2k
                 </div>
                 
 
@@ -461,231 +465,60 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="绘图"><a href="#绘图" class="headerlink" title="绘图"></a>绘图</h1><h2 id="绘图需要引入的包以及图片存储路径"><a href="#绘图需要引入的包以及图片存储路径" class="headerlink" title="绘图需要引入的包以及图片存储路径"></a>绘图需要引入的包以及图片存储路径</h2><p>import matplotlib.pyplot as plt<br>import matplotlib<br>from sklearn.metrics import *<br>import matplotlib.pyplot as plt<br>import numpy as np<br>exp_root = ‘/home/wyh/Python_workspace/DAN_EEGIMAGE_CODE/model_indices/‘</p>
-<h2 id="横向对比图"><a href="#横向对比图" class="headerlink" title="横向对比图"></a>横向对比图</h2><pre><code>def Comparsion_regression():
-    # 构建数据
-    x_data = [&#39;愤怒&#39;, &#39;快乐&#39;, &#39;中立&#39;, &#39;悲伤&#39;, &#39;惊奇&#39;, &#39;厌恶&#39;, &#39;恐惧&#39;]
-    y_data1 = [100.00, 92.31, 100.00, 83.33, 83.33, 50.00, 37.50]
-    y_data2 = [100.00, 96.15, 100.00, 83.33, 91.67, 62.50, 37.50]
-    bar_width = 0.4
-    # Y轴数据使用range(len(x_data), 就是0、1、2...
-    plt.barh(y=range(len(x_data)), width=y_data1, label=&#39;IMAGE&#39;, color=&#39;steelblue&#39;, alpha=0.8, height=bar_width)
-    # Y轴数据使用np.arange(len(x_data))+bar_width,
-    # 就是bar_width、1+bar_width、2+bar_width...这样就和第一个柱状图并列了
-    plt.barh(y=np.arange(len(x_data)) + bar_width, width=y_data2, label=&#39;EEG-LIKE&#39;, color=&#39;indianred&#39;, alpha=0.8,
-             height=bar_width)
-    # 在柱状图上显示具体数值, ha参数控制水平对齐方式, va控制垂直对齐方式
-    for y, x in enumerate(y_data1):
-        plt.text(x - 6, y - bar_width / 2, &#39;%s&#39; % (x), ha=&#39;center&#39;, va=&#39;bottom&#39;)
-    for y, x in enumerate(y_data2):
-        plt.text(x - 6, y + bar_width / 2, &#39;%s&#39; % (x), ha=&#39;center&#39;, va=&#39;bottom&#39;)
-    # 为Y轴设置刻度值
-    plt.yticks(np.arange(len(x_data)) + bar_width / 2, x_data)
-    # 设置标题
-    plt.title(&quot;Comparison graph of accuracy before and after regression&quot;)
-    # 为两条坐标轴设置名称
-    plt.xlabel(&quot;Accuracy(%)&quot;)
-    plt.ylabel(&quot;Emotional categories&quot;)
-
-    plt.subplots_adjust(left=0.2, right=0.8, top=0.8, bottom=0.2)
-    # 显示图例
-    plt.legend(loc=&#39;upper right&#39;)
-    plt.savefig(&quot;/home/wyh/Python_workspace/DAN_EEGIMAGE_CODE/model_indices/DualChart.jpg&quot;)
-    plt.show()
+                <h1 id="hexo联合github创建网站"><a href="#hexo联合github创建网站" class="headerlink" title="hexo联合github创建网站"></a>hexo联合github创建网站</h1><h2 id="需要下载安装的软件"><a href="#需要下载安装的软件" class="headerlink" title="需要下载安装的软件"></a>需要下载安装的软件</h2><ol>
+<li>安装Git<br>下载地址：<a target="_blank" rel="noopener external nofollow noreferrer" href="https://git-scm.com/download/win">https://git-scm.com/download/win</a></li>
+<li>安装Node.js<br>下载地址：<a target="_blank" rel="noopener external nofollow noreferrer" href="https://nodejs.org/en/download/">https://nodejs.org/en/download/</a><br>注意：安装Node.js会包含环境变量及npm的安装<br>检测Node.js是否安装成功：在命令行输入 node -v:查看版本<br>检测npm是否安装成功：在命令行输入 npm -v:查看版本</li>
+</ol>
+<h2 id="使用hexo搭建静态网页"><a href="#使用hexo搭建静态网页" class="headerlink" title="使用hexo搭建静态网页"></a>使用hexo搭建静态网页</h2><p>Hexo就是我们的个人博客网站的框架，这里需要自己在电脑常里创建一个文件夹，可以命名为blog，你可以更改文件夹的名称（记住文件夹的名称），Hexo框架与以后你自己发布的网页都在这个文件夹中。<br>进入命令行界面，cd到此文件夹目录：</p>
+<ol>
+<li>使用npm命令安装Hexo<pre><code>npm install -g hexo-cli
 </code></pre>
-<p><img src="/images/DualChart.jpg" alt="横向对比图"></p>
-<h2 id="混淆矩阵"><a href="#混淆矩阵" class="headerlink" title="混淆矩阵"></a>混淆矩阵</h2><pre><code>def plot_confusion_matrix(y_true, y_pred, labels):  # 计算混淆矩阵，以评估分类的准确性。
-    cmap = plt.cm.binary
-    cm = confusion_matrix(y_true, y_pred)
-    tick_marks = np.array(range(len(labels))) + 0.5
-    np.set_printoptions(precision=2)
-    cm_normalized = cm.astype(&#39;float&#39;) / cm.sum(axis=1)[:, np.newaxis]
-    plt.figure(figsize=(20, 18), dpi=120)
-    ind_array = np.arange(len(labels))
-    x, y = np.meshgrid(ind_array, ind_array)
-    intFlag = 0
-    for x_val, y_val in zip(x.flatten(), y.flatten()):
-        #
-        if (intFlag):
-            c = cm[y_val][x_val]
-            plt.text(x_val, y_val, &quot;%d&quot; % (c,), color=&#39;black&#39;, fontsize=20, va=&#39;center&#39;, ha=&#39;center&#39;)
-
-        else:
-            c = cm_normalized[y_val][x_val]
-
-            if (c &gt; 0.80):
-
-                plt.text(x_val, y_val, &quot;%0.2f&quot; % (c * 100,), color=&#39;white&#39;, fontsize=20, va=&#39;center&#39;, ha=&#39;center&#39;)
-            else:
-                plt.text(x_val, y_val, &quot;%0.2f&quot; % (c * 100,), color=&#39;black&#39;, fontsize=20, va=&#39;center&#39;, ha=&#39;center&#39;)
-    if (intFlag):
-        plt.imshow(cm, interpolation=&#39;nearest&#39;, cmap=cmap)
-    else:
-        plt.imshow(cm_normalized, interpolation=&#39;nearest&#39;, cmap=cmap)
-    plt.gca().set_xticks(tick_marks, minor=True)
-    plt.gca().set_yticks(tick_marks, minor=True)
-    plt.gca().xaxis.set_ticks_position(&#39;none&#39;)
-    plt.gca().yaxis.set_ticks_position(&#39;none&#39;)
-    plt.grid(True, which=&#39;minor&#39;, linestyle=&#39;-&#39;)
-    plt.gcf().subplots_adjust(bottom=0.15)
-    plt.title(&#39;&#39;)
-    plt.colorbar()
-    xlocations = np.array(range(len(labels)))
-    plt.xticks(xlocations, labels, rotation=90, fontsize=20, fontproperties=zhfont1)
-    plt.yticks(xlocations, labels, fontsize=20, fontproperties=zhfont1)
-    plt.ylabel(&#39;真实类别&#39;, fontsize=20, fontproperties=zhfont1)
-    plt.xlabel(&#39;预测类别&#39;, fontsize=20, fontproperties=zhfont1)
-    plt.savefig(exp_root + &#39;knn_confusion_matrix12.jpg&#39;, dpi=600)
-    plt.show()
+</li>
+<li>安装完成后，初始化我们的博客<pre><code>hexo init      # 初始化
+npm install    # 安装组件
 </code></pre>
-<p><img src="/images/knn_confusion_matrix12.jpg" alt="混淆矩阵图"></p>
-<h2 id="t-sne"><a href="#t-sne" class="headerlink" title="t-sne"></a>t-sne</h2><pre><code>def plot_embedding(data, label):
-    fig = plt.figure(figsize=(5, 5))
-    type1_x = []
-    type1_y = []
-    type2_x = []
-    type2_y = []
-    type3_x = []
-    type3_y = []
-    type4_x = []
-    type4_y = []
-    type5_x = []
-    type5_y = []
-    type6_x = []
-    type6_y = []
-    type7_x = []
-    type7_y = []
-    type8_x = []
-    type8_y = []
-    for i in range(data.shape[0]):
-        if label[i] == 0:
-            type1_x.append(data[i][0])
-            type1_y.append(data[i][1])
-        if label[i] == 1:
-            type2_x.append(data[i][0])
-            type2_y.append(data[i][1])
-        if label[i] == 2:
-            type3_x.append(data[i][0])
-            type3_y.append(data[i][1])
-        if label[i] == 3:
-            type4_x.append(data[i][0])
-            type4_y.append(data[i][1])
-        if label[i] == 4:
-            type5_x.append(data[i][0])
-            type5_y.append(data[i][1])
-        if label[i] == 5:
-            type6_x.append(data[i][0])
-            type6_y.append(data[i][1])
-        if label[i] == 6:
-            type7_x.append(data[i][0])
-            type7_y.append(data[i][1])
-        if label[i] == 7:
-            type8_x.append(data[i][0])
-            type8_y.append(data[i][1])
-    color = plt.cm.Set3(0)
-    color = np.array(color).reshape(1, 4)
-    color1 = plt.cm.Set3(1)
-    color1 = np.array(color1).reshape(1, 4)
-    color2 = plt.cm.Set3(2)
-    color2 = np.array(color2).reshape(1, 4)
-    color3 = plt.cm.Set3(3)
-    color3 = np.array(color3).reshape(1, 4)
-    type1 = plt.scatter(type1_x, type1_y, s=10, c=&#39;r&#39;)
-    type2 = plt.scatter(type2_x, type2_y, s=10, c=&#39;g&#39;)
-    type3 = plt.scatter(type3_x, type3_y, s=10, c=&#39;b&#39;)
-    type4 = plt.scatter(type4_x, type4_y, s=10, c=&#39;k&#39;)
-    type5 = plt.scatter(type5_x, type5_y, s=10, c=&#39;c&#39;)
-    type6 = plt.scatter(type6_x, type6_y, s=10, c=&#39;m&#39;)
-    type7 = plt.scatter(type7_x, type7_y, s=10, c=&#39;y&#39;)
-    type8 = plt.scatter(type8_x, type8_y, s=10, c=color)
-    plt.legend((type1, type2, type3, type4, type5, type6, type7, type8),
-               (&#39;愤怒&#39;, &#39;厌恶&#39;, &#39;恐惧&#39;, &#39;快乐&#39;, &#39;中立&#39;, &#39;悲伤&#39;, &#39;惊奇&#39;), prop=zhfont1)
-    plt.xticks()
-    plt.yticks()
-    return fig
-def visual_features(x_train_img, x_test_img, y_train, y_test):
-    from sklearn.manifold import TSNE
-    # 可视化训练/测试数据模式
-    X_train = x_train_img
-    Y_train = y_train
-    tsne = TSNE(n_components=2, init=&#39;pca&#39;, random_state=0)  # 使用TSNE对特征降到二维
-    reduce_dim_X = tsne.fit_transform(X_train)  # 降维后的数据
-    # 画图
-    # plt.subplot(1, 2, 1)
-    fig = plot_embedding(reduce_dim_X, Y_train)
-    # 图例过大，保存figure时无法保存完全，故对此参数进行调整
-    fig.subplots_adjust(right=0.7)
-    plt.title(&#39;图像视觉特征可视化&#39;, fontproperties=zhfont1)
-    plt.savefig(&quot;/home/wyh/Python_workspace/DAN_EEGIMAGE_CODE/model_indices/t-sne_train_image.jpg&quot;)
-    plt.show()
-    X_test = x_test_img
-    Y_test = y_test
-    tsne = TSNE(n_components=2, init=&#39;pca&#39;, random_state=0)  # 使用TSNE对特征降到二维
-    reduce_dim_X = tsne.fit_transform(X_test)  # 降维后的数据
-    # 画图
-    # plt.subplot(1, 2, 2)
-    fig = plot_embedding(reduce_dim_X, Y_test)
-    # 图例过大，保存figure时无法保存完全，故对此参数进行调整
-    fig.subplots_adjust(right=0.7)
-    plt.title(&#39;虚拟脑电情感特征可视化&#39;, fontproperties=zhfont1)
-    # plt.show()
-    plt.savefig(&quot;/home/wyh/Python_workspace/DAN_EEGIMAGE_CODE/model_indices/t-sne_train_EEG-LIKE.jpg&quot;)
-    plt.show()
+</li>
+<li>网站雏形已经建好，检测查看<pre><code>hexo new test_my_site #用于新建一篇文章
+hexo g #用于生成
+hexo s #建立服务
 </code></pre>
-<p><img src="/images/t-sne_train_image.jpg" alt="t-sne图1"><br><img src="/images/t-sne_train_EEG-LIKE.jpg" alt="t-sne图2"></p>
-<h2 id="纵向对比图"><a href="#纵向对比图" class="headerlink" title="纵向对比图"></a>纵向对比图</h2><pre><code>def comparison_bar(IMAGE_score, Regression_score, Fusion_score, EEG_score):
-    X = [&#39;图像&#39;, &#39;回归&#39;, &#39;融合&#39;, &#39;脑电&#39;]
-    Y = [0.839080459770114, 0.873563218390804, 0.885057471264367, 0.977011494252873]
-
-    plt.xticks(fontproperties=zhfont1)
-    plt.bar(X, Y, 0.5, color=[&#39;green&#39;, &#39;blue&#39;, &#39;yellow&#39;, &#39;red&#39;])
-    plt.xlabel(&quot;方法&quot;, fontproperties=zhfont1)
-    plt.ylabel(&quot;准确率&quot;, fontproperties=zhfont1)
-    plt.title(&quot;方法对比图&quot;, fontproperties=zhfont1)
-    for a, b in zip(X, Y):
-        plt.text(a, b, &#39;%.4f&#39; % b, ha=&#39;center&#39;, va=&#39;bottom&#39;, fontsize=11)
-    # plt.show()
-    plt.savefig(&quot;/home/wyh/Python_workspace/DAN_EEGIMAGE_CODE/model_indices/BarChart.jpg&quot;)
-    plt.show()
+完成后，打开浏览器输入地址：localhost:4000，即可查看到自己的静态网页。</li>
+</ol>
+<h2 id="使用github创建仓库"><a href="#使用github创建仓库" class="headerlink" title="使用github创建仓库"></a>使用github创建仓库</h2><ol>
+<li>注册github账号，注意用户名需要与你的博客网站文件夹名称一致，例如blog</li>
+<li>创建仓库，用于存放你的博客网站，即为：将你的本地文件部署在github仓库里，用户即可在网上访问你的网站。<br>GitHub 主页右上角加号 -&gt; New repository：<br><img src="/images/repository.jpg" alt="repository"><br>填好后点击 Create repository 创建<br>创建后默认自动启用 HTTPS，博客地址为：https://用户名.github.io</li>
+</ol>
+<h2 id="hexo与github联动"><a href="#hexo与github联动" class="headerlink" title="hexo与github联动"></a>hexo与github联动</h2><ol>
+<li>在联动之前，需要将你的Git与GitHub账号绑定：<ol>
+<li>进入你的文件夹，鼠标右击打开Git Bash<br>设置user.name和user.email配置信息：<pre><code>git config --global user.name &quot;你的GitHub用户名&quot;
+git config --global user.email &quot;你的GitHub注册邮箱&quot;
 </code></pre>
-<p><img src="/images/BarChart.jpg" alt="纵向对比图"></p>
-<h2 id="折线图"><a href="#折线图" class="headerlink" title="折线图"></a>折线图</h2><pre><code>def EEG_like(x_test_eeg, y_pred_test):
-    x_test_eeg_average = x_test_eeg.mean(0)
-    x_test_like_average = y_pred_test.mean(0)
-    x1 = range(0, 128)
-    x2 = range(0, 128)
-    y1 = x_test_eeg_average
-    y2 = x_test_like_average
-    plt.subplot(2, 1, 1)
-    plt.plot(x1, y1, &#39;.-&#39;)
-    plt.title(&#39;脑电情感特征和虚拟脑电情感特征&#39;, fontproperties=zhfont1)
-    plt.ylabel(&#39;脑电情感特征&#39;, fontproperties=zhfont1)
-    # plt.xlabel(&#39;Time series&#39;,fontproperties=zhfont1)
-    plt.subplot(2, 1, 2)
-    plt.plot(x2, y2, &#39;.-&#39;)
-    plt.xlabel(&#39;模拟时间序列&#39;, fontproperties=zhfont1)
-    plt.ylabel(&#39;虚拟脑电情感特征&#39;, fontproperties=zhfont1)
-    # plt.show()
-    plt.savefig(&quot;/home/wyh/Python_workspace/DAN_EEGIMAGE_CODE/model_indices/EEG-LIKE.jpg&quot;)
-    plt.show()
+</li>
+<li>生成ssh密钥文件：<pre><code>ssh-keygen -t rsa -C &quot;你的GitHub注册邮箱&quot;
 </code></pre>
-<p><img src="/images/EEG-LIKE.jpg" alt="折线图"></p>
-<h2 id="accuracy-loss图"><a href="#accuracy-loss图" class="headerlink" title="accuracy_loss图"></a>accuracy_loss图</h2><pre><code>x1 = range(0, iteration//log_interval)
-x2 = range(0, iteration//log_interval)
-y1 = Accuracy_list
-y2 = Loss_list
-plt.subplot(2, 1, 1)
-plt.plot(x1, y1, &#39;o-&#39;)
-plt.title(&#39;Train accuracy vs. epochs&#39;)
-plt.ylabel(&#39;Train accuracy&#39;)
-plt.subplot(2, 1, 2)
-plt.plot(x2, y2, &#39;.-&#39;)
-plt.xlabel(&#39;Train loss vs. epochs&#39;)
-plt.ylabel(&#39;Train loss&#39;)
-plt.savefig(&quot;/home/wyh/Python_workspace/DAN_EEGIMAGE_CODE/model_indices/accuracy_loss.jpg&quot;)
-plt.show()
+</li>
+<li>然后直接三个回车即可，默认不需要设置密码<br>然后找到生成的.ssh的文件夹中的id_rsa.pub密钥，将内容全部复制</li>
+<li>打开GitHub_Settings_keys 页面，新建new SSH Key<br><img src="/images/key.jpg" alt="key"><br>Title为标题，任意填即可，将刚刚复制的id_rsa.pub内容粘贴进去，最后点击Add SSH key。</li>
+<li>在Git Bash中检测GitHub公钥设置是否成功，输入 ssh <a href="mailto:&#x67;&#x69;&#116;&#64;&#x67;&#x69;&#x74;&#x68;&#117;&#98;&#x2e;&#x63;&#111;&#109;" rel="external nofollow noreferrer">&#x67;&#x69;&#116;&#64;&#x67;&#x69;&#x74;&#x68;&#117;&#98;&#x2e;&#x63;&#111;&#109;</a> ：<br><img src="/images/ssh.jpg" alt="ssh"><br>如上则说明成功。这里之所以设置GitHub密钥原因是，通过非对称加密的公钥与私钥来完成加密，公钥放置在GitHub上，私钥放置在自己的电脑里。GitHub要求每次推送代码都是合法用户，所以每次推送都需要输入账号密码验证推送用户是否是合法用户，为了省去每次输入密码的步骤，采用了ssh，当你推送的时候，git就会匹配你的私钥跟GitHub上面的公钥是否是配对的，若是匹配就认为你是合法用户，则允许推送。这样可以保证每次的推送都是正确合法的。</li>
+</ol>
+</li>
+<li>本地博客测试成功后，就是上传到 GitHub 进行部署，使其能够在网络上访问。<ol>
+<li>在blog根目录里的_config.yml文件称为站点配置文件<br>添加或修改文件如下，注意有空格<br>deploy:<br>type: git<br>repo: 这里填入你之前在GitHub上创建仓库的完整路径，记得加上 .git<br>branch: master<br>保存站点配置文件。<br>解释：其实就是给hexo d 这个命令做相应的配置，让hexo知道你要把blog部署在哪个位置，很显然，我们部署在我们GitHub的仓库里。</li>
+<li>安装Git部署插件，输入命令：<pre><code>npm install hexo-deployer-git --save
 </code></pre>
-<p><img src="/images/accuracy_loss.jpg" alt="accuracy_loss图"></p>
+</li>
+<li>分别输入三条命令：<pre><code>hexo clean 
+hexo g 
+hexo d
+</code></pre>
+第三条的 hexo d 就是部署网站命令，d是deploy的缩写。完成后，打开浏览器，在地址栏输入你的放置个人网站的仓库路径，即 <a target="_blank" rel="noopener external nofollow noreferrer" href="http://xxxx.github.io,你就会发现你的博客已经上线了,可以在网络上被访问了./">http://xxxx.github.io,你就会发现你的博客已经上线了，可以在网络上被访问了。</a></li>
+</ol>
+</li>
+</ol>
+<h2 id="常用命令介绍"><a href="#常用命令介绍" class="headerlink" title="常用命令介绍"></a>常用命令介绍</h2><p>npm install hexo -g #安装Hexo<br>npm update hexo -g #升级<br>hexo init #初始化博客</p>
+<p>命令简写<br>hexo n “我的博客” == hexo new “我的博客” #新建文章<br>hexo g == hexo generate #生成<br>hexo s == hexo server #启动服务预览<br>hexo d == hexo deploy #部署</p>
+<p>hexo server #Hexo会监视文件变动并自动更新，无须重启服务器<br>hexo server -s #静态模式<br>hexo server -p 5000 #更改端口<br>hexo server -i 192.168.1.1 #自定义 IP<br>hexo clean #清除缓存，若是网页正常情况下可以忽略这条命令</p>
+<h2 id="网站主题更换，功能优化升级"><a href="#网站主题更换，功能优化升级" class="headerlink" title="网站主题更换，功能优化升级"></a>网站主题更换，功能优化升级</h2><p>请访问：<a target="_blank" rel="noopener external nofollow noreferrer" href="https://tqraf.cn/2020/04/hexoblog.html">https://tqraf.cn/2020/04/hexoblog.html</a></p>
 
                 
             </div>
@@ -712,7 +545,7 @@ plt.show()
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://liudongjun-hdu.github.io/2021/03/21/%E7%BB%98%E5%9B%BE/">https://liudongjun-hdu.github.io/2021/03/21/%E7%BB%98%E5%9B%BE/</a>
+                    <a href="https://liudongjun-hdu.github.io/2021/03/23/hexo%E8%81%94%E5%90%88github%E5%88%9B%E5%BB%BA%E7%BD%91%E7%AB%99/">https://liudongjun-hdu.github.io/2021/03/23/hexo%E8%81%94%E5%90%88github%E5%88%9B%E5%BB%BA%E7%BD%91%E7%AB%99/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -750,12 +583,16 @@ plt.show()
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
-                                    <span class="chip bg-color">机器学习</span>
+                                <a href="/tags/hexo/">
+                                    <span class="chip bg-color">hexo</span>
                                 </a>
                             
-                                <a href="/tags/%E7%BB%98%E5%9B%BE/">
-                                    <span class="chip bg-color">绘图</span>
+                                <a href="/tags/github/">
+                                    <span class="chip bg-color">github</span>
+                                </a>
+                            
+                                <a href="/tags/%E7%BD%91%E7%AB%99/">
+                                    <span class="chip bg-color">网站</span>
                                 </a>
                             
                         </div>
@@ -949,17 +786,18 @@ plt.show()
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2021/03/22/%E5%AD%97%E4%BD%93%E8%AE%BE%E7%BD%AE/">
+                <a href="/2021/03/23/hexo%E8%81%94%E5%90%88github%E5%88%9B%E5%BB%BA%E7%BD%91%E7%AB%99/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="字体设置">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="hexo联合github创建网站">
                         
-                        <span class="card-title">字体设置</span>
+                        <span class="card-title">hexo联合github创建网站</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -969,9 +807,9 @@ plt.show()
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-22
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-23
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -980,15 +818,20 @@ plt.show()
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%AD%97%E4%BD%93/">
-                        <span class="chip bg-color">字体</span>
+                    <a href="/tags/hexo/">
+                        <span class="chip bg-color">hexo</span>
                     </a>
                     
-                    <a href="/tags/%E4%B8%AD%E8%8B%B1%E6%96%87/">
-                        <span class="chip bg-color">中英文</span>
+                    <a href="/tags/github/">
+                        <span class="chip bg-color">github</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%BD%91%E7%AB%99/">
+                        <span class="chip bg-color">网站</span>
                     </a>
                     
                 </div>
@@ -1002,13 +845,13 @@ plt.show()
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/03/21/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E9%9B%B6%E6%95%A3%E7%9F%A5%E8%AF%86%E7%82%B9/">
+                <a href="/2021/03/22/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="深度学习零散知识点">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="Linux服务器环境配置">
                         
-                        <span class="card-title">深度学习零散知识点</span>
+                        <span class="card-title">Linux服务器环境配置</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1019,7 +862,7 @@ plt.show()
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-21
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-22
                             </span>
                         <span class="publish-author">
                             
@@ -1032,12 +875,16 @@ plt.show()
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">
-                        <span class="chip bg-color">深度学习</span>
+                    <a href="/tags/Linux/">
+                        <span class="chip bg-color">Linux</span>
                     </a>
                     
-                    <a href="/tags/%E8%BF%81%E7%A7%BB%E5%AD%A6%E4%B9%A0/">
-                        <span class="chip bg-color">迁移学习</span>
+                    <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/">
+                        <span class="chip bg-color">服务器</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/">
+                        <span class="chip bg-color">环境部署</span>
                     </a>
                     
                 </div>
