@@ -6,7 +6,7 @@
   <link href="https://liudongjun-hdu.github.io/atom.xml" rel="self"/>
   
   <link href="https://liudongjun-hdu.github.io/"/>
-  <updated>2021-03-23T06:58:15.393Z</updated>
+  <updated>2021-03-26T08:02:49.543Z</updated>
   <id>https://liudongjun-hdu.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>服务器包环境迁移</title>
+    <link href="https://liudongjun-hdu.github.io/2021/03/26/%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%8C%85%E7%8E%AF%E5%A2%83%E8%BF%81%E7%A7%BB/"/>
+    <id>https://liudongjun-hdu.github.io/2021/03/26/%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%8C%85%E7%8E%AF%E5%A2%83%E8%BF%81%E7%A7%BB/</id>
+    <published>2021-03-26T07:56:56.000Z</published>
+    <updated>2021-03-26T08:02:49.543Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;服务器包环境迁移&quot;&gt;&lt;a href=&quot;#服务器包环境迁移&quot; class=&quot;headerlink&quot; title=&quot;服务器包环境迁移&quot;&gt;&lt;/a&gt;服务器包环境迁移&lt;/h1&gt;&lt;h2 id=&quot;包环境导出&quot;&gt;&lt;a href=&quot;#包环境导出&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="服务器" scheme="https://liudongjun-hdu.github.io/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+    <category term="包环境" scheme="https://liudongjun-hdu.github.io/tags/%E5%8C%85%E7%8E%AF%E5%A2%83/"/>
+    
+    <category term="迁移" scheme="https://liudongjun-hdu.github.io/tags/%E8%BF%81%E7%A7%BB/"/>
+    
+  </entry>
   
   <entry>
     <title>CapsNet动态路由算法</title>

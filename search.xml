@@ -4,6 +4,29 @@
   
     
     <entry>
+      <title>服务器包环境迁移</title>
+      <link href="2021/03/26/%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%8C%85%E7%8E%AF%E5%A2%83%E8%BF%81%E7%A7%BB/"/>
+      <url>2021/03/26/%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%8C%85%E7%8E%AF%E5%A2%83%E8%BF%81%E7%A7%BB/</url>
+      
+        <content type="html"><![CDATA[<h1 id="服务器包环境迁移"><a href="#服务器包环境迁移" class="headerlink" title="服务器包环境迁移"></a>服务器包环境迁移</h1><h2 id="包环境导出"><a href="#包环境导出" class="headerlink" title="包环境导出"></a>包环境导出</h2><ol><li>输出包环境至文件：<pre><code>pip freeze | tee requirements.txt</code></pre></li></ol><h2 id="包环境导入"><a href="#包环境导入" class="headerlink" title="包环境导入"></a>包环境导入</h2><ol><li>从文件输出包环境：<pre><code>pip install -r requirements.txt</code></pre></li></ol>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 服务器 </tag>
+            
+            <tag> 包环境 </tag>
+            
+            <tag> 迁移 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>CapsNet动态路由算法</title>
       <link href="2021/03/23/CapsNet%E5%8A%A8%E6%80%81%E8%B7%AF%E7%94%B1%E7%AE%97%E6%B3%95/"/>
       <url>2021/03/23/CapsNet%E5%8A%A8%E6%80%81%E8%B7%AF%E7%94%B1%E7%AE%97%E6%B3%95/</url>
