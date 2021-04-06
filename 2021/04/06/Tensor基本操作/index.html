@@ -473,11 +473,13 @@ torch.device(&#39;cuda&#39;, 0)
 声明设备<pre><code>device_cpu = torch.device(&quot;cpu:0&quot;)
 device_cuda = torch.device(&quot;cuda:0&quot;)
 </code></pre>
-挂载设备<pre><code>data = torch.Tensor([1])
+挂载设备</li>
+</ol>
+<pre><code>data = torch.Tensor([1])
 data.to(device_cpu)
 data.to(device_cuda)
 </code></pre>
-</li>
+<ol start="3">
 <li>torch.layout 是表现 torch.Tensor 内存分布的类(目前只支持 torch.strided)</li>
 </ol>
 <h2 id="Tensor创建"><a href="#Tensor创建" class="headerlink" title="Tensor创建"></a>Tensor创建</h2><ol>
@@ -506,60 +508,37 @@ array([-1,  2,  3])
 <ol>
 <li>根据数值要求</li>
 </ol>
+<pre><code>torch.zeros(*sizes, out=None, ..) # 返回大小为sizes的零矩阵 
+torch.zeros_like(input, ..) # 返回与input相同size的零矩阵
+torch.ones(*sizes, out=None, ..) # f返回大小为sizes的单位矩阵
+torch.ones_like(input, ..) # 返回与input相同size的单位矩阵
+torch.full(size, fill_value, …) # 返回大小为sizes,单位值为fill_value的矩阵
+torch.full_like(input, fill_value, …) # 返回与input相同size，单位值为fill_value的矩阵
+torch.arange(start=0, end, step=1, …) # 返回从start到end, 单位步长为step的1-d tensor.
+torch.linspace(start, end, steps=100, …)  # 返回从start到end, 间隔中的插值数目为steps的1-d tensor
+torch.logspace(start, end, steps=100, …) # 返回1-d tensor ，从10^start到10^end的steps个对数间隔
+</code></pre>
+<ol start="2">
+<li>根据矩阵要求</li>
+</ol>
+<pre><code>torch.eye(n, m=None, out=None,…) # 返回2-D 的单位对角矩阵
+torch.empty(*sizes, out=None, …) # 返回被未初始化的数值填充，大小为sizes的tensor
+torch.empty_like(input, …) # 返回与input相同size,并被未初始化的数值填充的tensor
+</code></pre>
+<ol start="3">
+<li>根据随机生成</li>
+</ol>
+<pre><code>torch.normal(mean, std, out=None)
+torch.rand(*size, out=None, dtype=None, …) #返回[0,1]之间均匀分布的随机数值
+torch.rand_like(input, dtype=None, …) #返回与input相同size的tensor, 填充均匀分布的随机数值
+torch.randint(low=0, high, size,…) #返回均匀分布的[low,high]之间的整数随机值
+torch.randint_like(input, low=0, high, dtype=None, …) #
+torch.randn(*sizes, out=None, …) #返回大小为size,由均值为0，方差为1的正态分布的随机数值
+torch.randn_like(input, dtype=None, …)
+torch.randperm(n, out=None, dtype=torch.int64) # 返回0到n-1的数列的随机排列
+</code></pre>
 </li>
 </ol>
-<pre><code>```
-torch.zeros(*sizes, out=None, ..) # 返回大小为sizes的零矩阵 
-
-torch.zeros_like(input, ..) # 返回与input相同size的零矩阵
-
-torch.ones(*sizes, out=None, ..) # f返回大小为sizes的单位矩阵
-
-torch.ones_like(input, ..) # 返回与input相同size的单位矩阵
-
-torch.full(size, fill_value, …) # 返回大小为sizes,单位值为fill_value的矩阵
-
-torch.full_like(input, fill_value, …) # 返回与input相同size，单位值为fill_value的矩阵
-
-torch.arange(start=0, end, step=1, …) # 返回从start到end, 单位步长为step的1-d tensor.
-
-torch.linspace(start, end, steps=100, …)  # 返回从start到end, 间隔中的插值数目为steps的1-d tensor
-
-torch.logspace(start, end, steps=100, …) # 返回1-d tensor ，从10^start到10^end的steps个对数间隔
-```
-
-2. 根据矩阵要求
-
-
-```
-torch.eye(n, m=None, out=None,…) # 返回2-D 的单位对角矩阵
-
-torch.empty(*sizes, out=None, …) # 返回被未初始化的数值填充，大小为sizes的tensor
-
-torch.empty_like(input, …) # 返回与input相同size,并被未初始化的数值填充的tensor
-```
-
-3. 根据随机生成
-
-
-```
-torch.normal(mean, std, out=None)
-
-torch.rand(*size, out=None, dtype=None, …) #返回[0,1]之间均匀分布的随机数值
-
-torch.rand_like(input, dtype=None, …) #返回与input相同size的tensor, 填充均匀分布的随机数值
-
-torch.randint(low=0, high, size,…) #返回均匀分布的[low,high]之间的整数随机值
-
-torch.randint_like(input, low=0, high, dtype=None, …) #
-
-torch.randn(*sizes, out=None, …) #返回大小为size,由均值为0，方差为1的正态分布的随机数值
-
-torch.randn_like(input, dtype=None, …)
-
-torch.randperm(n, out=None, dtype=torch.int64) # 返回0到n-1的数列的随机排列
-```
-</code></pre>
 <h2 id="Tensor操作"><a href="#Tensor操作" class="headerlink" title="Tensor操作"></a>Tensor操作</h2><ol>
 <li><p>基本操作：</p>
 <ol>
