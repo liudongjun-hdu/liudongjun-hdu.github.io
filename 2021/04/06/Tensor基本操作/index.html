@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="标签, 栋栋的博客">
+    <meta name="keywords" content="Tensor基本操作, 栋栋的博客">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>标签 | 栋栋的博客</title>
+    <title>Tensor基本操作 | 栋栋的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -289,12 +289,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">tags</h1>
+                    <h1 class="description center-align post-title">Tensor基本操作</h1>
                 </div>
             </div>
         </div>
@@ -408,9 +408,17 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Tensor/">
+                                <span class="chip bg-color">Tensor</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%95%B0%E7%BB%84%E6%93%8D%E4%BD%9C/">
+                                <span class="chip bg-color">数组操作</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -422,7 +430,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-03-20
+                    2021-04-06
                 </div>
                 
 
@@ -431,7 +439,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    2.5k
                 </div>
                 
 
@@ -453,7 +461,264 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h1 id="Tensor基本操作"><a href="#Tensor基本操作" class="headerlink" title="Tensor基本操作"></a>Tensor基本操作</h1><h2 id="Tensor属性"><a href="#Tensor属性" class="headerlink" title="Tensor属性"></a>Tensor属性</h2><ol>
+<li>torch.dtype 是展示 torch.Tensor 数据类型的类<br>FloatTensor、DoubleTensor、HalfTensor、ByteTensor、CharTensor、ShortTensor、IntTensor、LongTensor</li>
+<li>Torch.device 是表现 torch.Tensor 被分配的设备类型的类<br>查看设备<pre><code>torch.device(&#39;cpu&#39;)
+torch.device(&#39;cuda&#39;)
+torch.device(&#39;cpu:0&#39;)
+torch.device(&#39;cuda:0&#39;)
+torch.device(&#39;cpu&#39;, 0)
+torch.device(&#39;cuda&#39;, 0)
+</code></pre>
+声明设备<pre><code>device_cpu = torch.device(&quot;cpu:0&quot;)
+device_cuda = torch.device(&quot;cuda:0&quot;)
+</code></pre>
+挂载设备<pre><code>data = torch.Tensor([1])
+data.to(device_cpu)
+data.to(device_cuda)
+</code></pre>
+</li>
+<li>torch.layout 是表现 torch.Tensor 内存分布的类(目前只支持 torch.strided)</li>
+</ol>
+<h2 id="Tensor创建"><a href="#Tensor创建" class="headerlink" title="Tensor创建"></a>Tensor创建</h2><ol>
+<li><p>直接创建<br>torch.tensor(data, dtype=None, device=None,requires_grad=False)<br>data - 可以是list, tuple, numpy array, scalar或其他类型<br>dtype - 可以返回想要的tensor类型<br>device - 可以指定返回的设备<br>requires_grad - 可以指定是否进行记录图的操作，默认为False<br>注：torch.tensor 总是会复制 data, 如果你想避免复制，可以使 torch.Tensor. detach()；如果是从 numpy 中获得数据，那么你可以用 torch.from_numpy(), 注from_numpy() 是共享内存的。<br>例：<br>完整的写法</p>
+<pre><code>torch.tensor([[0.11111, 0.222222, 0.3333333]],
+             dtype=torch.float64,
+             device=torch.device(&#39;cuda:0&#39;))
+</code></pre>
+<p>创建空的tensor</p>
+<pre><code>torch.tensor([])
+</code></pre>
+</li>
+<li><p>numpy转化tensor<br>torch.from_numpy(ndarry)<br>注：生成返回的tensor会和ndarry共享数据，任何对tensor的操作都会影响到ndarry,反之亦然<br>例：</p>
+<pre><code>&gt;&gt;&gt; a = numpy.array([1, 2, 3])
+&gt;&gt;&gt; t = torch.from_numpy(a)
+&gt;&gt;&gt; t
+tensor([ 1,  2,  3])
+&gt;&gt;&gt; t[0] = -1
+&gt;&gt;&gt; a
+array([-1,  2,  3])
+</code></pre>
+</li>
+<li><p>定制Tensor</p>
+<ol>
+<li>根据数值要求<br>```<br>torch.zeros(*sizes, out=None, ..) # 返回大小为sizes的零矩阵 </li>
+</ol>
+<p>torch.zeros_like(input, ..) # 返回与input相同size的零矩阵</p>
+<p>torch.ones(*sizes, out=None, ..) # f返回大小为sizes的单位矩阵</p>
+<p>torch.ones_like(input, ..) # 返回与input相同size的单位矩阵</p>
+<p>torch.full(size, fill_value, …) # 返回大小为sizes,单位值为fill_value的矩阵</p>
+<p>torch.full_like(input, fill_value, …) # 返回与input相同size，单位值为fill_value的矩阵</p>
+<p>torch.arange(start=0, end, step=1, …) # 返回从start到end, 单位步长为step的1-d tensor.</p>
+<p>torch.linspace(start, end, steps=100, …)  # 返回从start到end, 间隔中的插值数目为steps的1-d tensor</p>
+<p>torch.logspace(start, end, steps=100, …) # 返回1-d tensor ，从10^start到10^end的steps个对数间隔</p>
+<pre><code>2. 根据矩阵要求
+</code></pre>
+<p>torch.eye(n, m=None, out=None,…) # 返回2-D 的单位对角矩阵</p>
+<p>torch.empty(*sizes, out=None, …) # 返回被未初始化的数值填充，大小为sizes的tensor</p>
+<p>torch.empty_like(input, …) # 返回与input相同size,并被未初始化的数值填充的tensor</p>
+<pre><code>3. 根据随机生成
+</code></pre>
+<p>torch.normal(mean, std, out=None)</p>
+<p>torch.rand(*size, out=None, dtype=None, …) #返回[0,1]之间均匀分布的随机数值</p>
+<p>torch.rand_like(input, dtype=None, …) #返回与input相同size的tensor, 填充均匀分布的随机数值</p>
+<p>torch.randint(low=0, high, size,…) #返回均匀分布的[low,high]之间的整数随机值</p>
+<p>torch.randint_like(input, low=0, high, dtype=None, …) #</p>
+<p>torch.randn(*sizes, out=None, …) #返回大小为size,由均值为0，方差为1的正态分布的随机数值</p>
+<p>torch.randn_like(input, dtype=None, …)</p>
+<p>torch.randperm(n, out=None, dtype=torch.int64) # 返回0到n-1的数列的随机排列<br>```</p>
+</li>
+</ol>
+<h2 id="Tensor操作"><a href="#Tensor操作" class="headerlink" title="Tensor操作"></a>Tensor操作</h2><ol>
+<li><p>基本操作：</p>
+<ol>
+<li>合并操作<pre><code>torch.cat(seq, dim=0, out=None) # 沿着dim连接seq中的tensor, 所有的tensor必须有相同的size或为empty
+torch.stack(seq, dim=0, out=None) # 同上
+</code></pre>
+注：<br>.cat 和 .stack的区别在于 cat会增加现有维度的值,可以理解为续接，stack会新加增加一个维度，可以<br>理解为叠加<br>例：<pre><code>&gt;&gt;&gt; a=torch.Tensor([1,2,3])
+&gt;&gt;&gt; torch.stack((a,a)).size()
+torch.size(2,3)
+&gt;&gt;&gt; torch.cat((a,a)).size()
+torch.size(6)
+</code></pre>
+</li>
+<li>剪裁操作<pre><code>torch.split(tensor, split_size_or_sections, dim=0) # 将tensor 拆分成相应的组块
+torch.chunk(tensor, chunks, dim=0) # 将tensor 拆分成相应的组块，最后一块会小一些如果不能整除的话
+</code></pre>
+注：<br>split和chunk的区别在于：split的split_size_or_sections 表示每一个组块中的数据大小，chunks表示组块的数量<br>例：<pre><code>&gt;&gt;&gt; a = torch.Tensor([1,2,3])
+&gt;&gt;&gt; torch.split(a,1)
+(tensor([1.]), tensor([2.]), tensor([3.]))
+&gt;&gt;&gt; torch.chunk(a,1)
+(tensor([ 1., 2., 3.]),)
+</code></pre>
+</li>
+<li>索引操作<pre><code>torch.index_select(input, dim, index, out=None) # 返回沿着dim的指定tensor, index需为longTensor类型，不共用内存
+torch.masked_select(input, mask, out=None) # 根据mask来返回input的值其为1-D tensor. Mask为ByteTensor, true返回，false不返回，返回值不共用内存
+</code></pre>
+例:<pre><code>&gt;&gt;&gt; x = torch.randn(3, 4)
+&gt;&gt;&gt; x
+tensor([[ 0.3552, -2.3825, -0.8297,  0.3477],
+  [-1.2035,  1.2252,  0.5002,  0.6248],
+  [ 0.1307, -2.0608,  0.1244,  2.0139]])
+&gt;&gt;&gt; mask = x.ge(0.5)
+&gt;&gt;&gt; mask
+tensor([[ 0,  0,  0,  0],
+  [ 0,  1,  1,  1],
+  [ 0,  0,  0,  1]], dtype=torch.uint8)
+&gt;&gt;&gt; torch.masked_select(x, mask)
+tensor([ 1.2252,  0.5002,  0.6248,  2.0139])
+</code></pre>
+</li>
+<li>变换操作<pre><code>torch.transpose(input, dim0, dim1, out=None) # 返回dim0和dim1交换后的tensor
+torch.t(input, out=None) # 专为2D矩阵的转置，是transpose的便捷函数
+torch.squeeze(input, dim, out=None)  # 默认移除所有size为1的维度，当dim指定时，移除指定size为1的维度. 返回的tensor会和input共享存储空间，所以任何一个的改变都会影响另一个
+torch.unsqueeze(input, dim, out=None) # 扩展input的size, 如 A x B 变为 1 x A x B 
+torch.reshape(input, shape) # 返回size为shape具有相同数值的tensor, 注意 shape=(-1,)这种表述，-1表示任意的。
+torch.where(condition, x, y) # 根据condition的值来相应x,y的值，true返回x的值，false返回y的值，形成新的tensor
+torch.unbind(tensor, dim=0) # 返回tuple 解除指定的dim的绑定,相当于按指定dim拆分
+torch.nonzero(input, out=None) # 返回非零值的索引， 每一行都是一个非零值的索引值
+</code></pre>
+例：<br>```<blockquote>
+<blockquote>
+<blockquote>
+<p>a=torch.Tensor([1,2,3,4,5]) #a.size 是 torch.size(5)<br>b=a.reshape(1,-1)  #表示第一维度是1，第二维度按a的size填充满<br>b.size()<br>torch.size([1,5])</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>a=torch.Tensor([[1,2,3],[2,3,4]])<br>torch.unbind(a,dim=0)<br>(torch([1,2,3]),torch([2,3,4])) # 将一个(2,3) 分为两个(3)</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>torch.nonzero(input, out=None) # 返回非零值的索引， 每一行都是一个非零值的索引值</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>torch.nonzero(torch.tensor([1, 1, 1, 0, 1]))<br>tensor([[ 0],</p>
+<pre><code>    [ 1],
+    [ 2],
+    [ 4]])
+</code></pre>
+<p>torch.nonzero(torch.tensor([[0.6, 0.0, 0.0, 0.0],</p>
+<pre><code>                            [0.0, 0.4, 0.0, 0.0],
+                            [0.0, 0.0, 1.2, 0.0],
+                            [0.0, 0.0, 0.0,-0.4]]))
+</code></pre>
+<p>tensor([[ 0,  0],</p>
+<pre><code>    [ 1,  1],
+    [ 2,  2],
+    [ 3,  3]])
+</code></pre>
+<p>```</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>点对点操作</p>
+<ol>
+<li>三角函数<pre><code>torch.abs(input, out=None)
+torch.acos(input, out=None)
+torch.asin(input, out=None)
+torch.atan(input, out=None)
+torch.atan2(input, inpu2, out=None) 
+torch.cos(input, out=None)
+torch.cosh(input, out=None)
+torch.sin(input, out=None)
+torch.sinh(input, out=None)
+torch.tan(input, out=None)
+torch.tanh(input, out=None)
+</code></pre>
+</li>
+<li>加减乘除<pre><code>Torch.add(input, value, out=None)
+  .add(input, value=1, other, out=None)
+  .addcdiv(tensor, value=1, tensor1, tensor2, out=None)
+  .addcmul(tensor, value=1, tensor1, tensor2, out=None)
+torch.div(input, value, out=None)
+  .div(input, other, out=None)
+torch.mul(input, value, out=None)
+  .mul(input, other, out=None)
+</code></pre>
+</li>
+<li>对数运算<pre><code>torch.log(input, out=None)  # y_i=log_e(x_i)
+torch.log1p(input, out=None)  # y_i=log_e(x_i+1)
+torch.log2(input, out=None)   # y_i=log_2(x_i)
+torch.log10(input,out=None)  # y_i=log_10(x_i)
+</code></pre>
+</li>
+<li>幂函数<br>torch.pow(input, exponent, out=None)  # y_i=input^(exponent)</li>
+<li>指数函数<br>torch.exp(tensor, out=None)    # y_i=e^(x_i)<br>torch.expm1(tensor, out=None)   # y_i=e^(x_i) -1</li>
+<li>截断函数<pre><code>torch.ceil(input, out=None)   # 返回向正方向取得最小整数
+torch.floor(input, out=None)  # 返回向负方向取得最大整数
+torch.round(input, out=None)  # 返回相邻最近的整数，四舍五入
+torch.trunc(input, out=None)  # 返回整数部分数值
+torch.frac(tensor, out=None)  # 返回小数部分数值
+torch.fmod(input, divisor, out=None)  # 返回input/divisor的余数
+torch.remainder(input, divisor, out=None)  # 同上
+</code></pre>
+</li>
+<li>其他运算<pre><code>torch.erf(tensor， out=None)
+torch.erfinv(tensor, out=None)
+torch.sigmoid(input, out=None)
+torch.clamp(input, min, max out=None)  # 返回 input&lt;min,则返回min, input&gt;max,则返回max,其余返回input
+torch.neg(input, out=None) # out_i=-1*(input)
+torch.reciprocal(input, out=None)  # out_i= 1/input_i
+torch.sqrt(input, out=None)  # out_i=sqrt(input_i)
+torch.rsqrt(input, out=None) # out_i=1/(sqrt(input_i))
+torch.sign(input, out=None)  # out_i=sin(input_i)  大于0为1，小于0为-1
+torch.lerp(start, end, weight, out=None)
+</code></pre>
+</li>
+</ol>
+</li>
+<li><p>降维操作</p>
+<pre><code>torch.argmax(input, dim=None, keepdim=False) # 返回最大值排序的索引值
+torch.argmin(input, dim=None, keepdim=False)  # 返回最小值排序的索引值
+torch.cumprod(input, dim, out=None)  # y_i=x_1 * x_2 * x_3 *…* x_i
+torch.cumsum(input, dim, out=None)  # y_i=x_1 + x_2 + … + x_i
+torch.dist(input, out, p=2)       # 返回input和out的p式距离
+torch.mean()                      # 返回平均值
+torch.sum()                       # 返回总和
+torch.median(input)               # 返回中间值
+torch.mode(input)                 # 返回众数值
+torch.unique(input, sorted=False) # 返回1-D的唯一的tensor,每个数值返回一次.
+torch.std() # 返回标准差
+torch.var() # 返回方差
+torch.norm(input, p=2) # 返回p-norm的范式
+torch.prod(input, dim, keepdim=False) # 返回指定维度每一行的乘积
+</code></pre>
+</li>
+<li><p>对比操作<br>torch.eq(input, other, out=None)  # 按成员进行等式操作，相同返回1<br>torch.equal(tensor1, tensor2) # 如果tensor1和tensor2有相同的size和elements，则为true<br>torch.ge(input, other, out=None)   # input&gt;= other<br>torch.gt(input, other, out=None)   # input&gt;other<br>torch.le(input, other, out=None)    # input=&lt;other<br>torch.lt(input, other, out=None)    # input&lt;other<br>torch.ne(input, other, out=None)  # input != other 不等于<br>torch.max()                        # 返回最大值<br>torch.min()                        # 返回最小值<br>torch.isnan(tensor) # 判断是否为’nan’<br>torch.sort(input, dim=None, descending=False, out=None) # 对目标input进行排序<br>torch.topk(input, k, dim=None, largest=True, sorted=True, out=None)  # 沿着指定维度返回最大k个数值及其索引值<br>torch.kthvalue(input, k, dim=None, deepdim=False, out=None) # 沿着指定维度返回最小k个数值及其索引值</p>
+</li>
+<li><p>频谱操作<br>torch.fft(input, signal_ndim, normalized=False)<br>torch.ifft(input, signal_ndim, normalized=False)<br>torch.rfft(input, signal_ndim, normalized=False, onesided=True)<br>torch.irfft(input, signal_ndim, normalized=False, onesided=True)<br>torch.stft(signa, frame_length, hop, …)</p>
+</li>
+<li><p>其他操作<br>torch.cross(input, other, dim=-1, out=None)  # 叉乘(外积)<br>torch.dot(tensor1, tensor2)  # 返回tensor1和tensor2的点乘<br>torch.mm(mat1, mat2, out=None) # 返回矩阵mat1和mat2的乘积<br>torch.eig(a, eigenvectors=False, out=None) # 返回矩阵a的特征值/特征向量<br>torch.det(A)  # 返回矩阵A的行列式<br>torch.trace(input) # 返回2-d 矩阵的迹(对对角元素求和)<br>torch.diag(input, diagonal=0, out=None) #<br>torch.histc(input, bins=100, min=0, max=0, out=None) # 计算input的直方图<br>torch.tril(input, diagonal=0, out=None)  # 返回矩阵的下三角矩阵，其他为0<br>torch.triu(input, diagonal=0, out=None) # 返回矩阵的上三角矩阵，其他为0</p>
+</li>
+</ol>
+<h2 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h2><ol>
+<li>获取python number<pre><code>&gt;&gt;&gt; a = torch.Tensor([1,2,3])
+&gt;&gt;&gt; a[0]   # 直接取索引返回的是tensor数据
+tensor(1.)
+&gt;&gt;&gt; a[0].item()  # 获取python number
+1
+</code></pre>
+</li>
+<li>tensor设置<pre><code>torch.is_tensor()  # 如果是pytorch的tensor类型返回true
+torch.is_storage() # 如果是pytorch的storage类型返回ture
+</code></pre>
+</li>
+<li>tensor是否为空<pre><code>&gt;&gt;&gt; a=torch.Tensor()
+&gt;&gt;&gt; len(a)
+0
+&gt;&gt;&gt; len(a) is 0
+True
+</code></pre>
+</li>
+</ol>
+
                 
             </div>
             <hr/>
@@ -479,7 +744,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://liudongjun-hdu.github.io/tags/index-1.html">https://liudongjun-hdu.github.io/tags/index-1.html</a>
+                    <a href="https://liudongjun-hdu.github.io/2021/04/06/Tensor%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/">https://liudongjun-hdu.github.io/2021/04/06/Tensor%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -516,7 +781,15 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/Tensor/">
+                                    <span class="chip bg-color">Tensor</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%95%B0%E7%BB%84%E6%93%8D%E4%BD%9C/">
+                                    <span class="chip bg-color">数组操作</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -713,13 +986,13 @@
                 <i class="far fa-dot-circle"></i>&nbsp;本篇
             </div>
             <div class="card">
-                <a href="/tags/index-1.html">
+                <a href="/2021/04/06/Tensor%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="tags">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="Tensor基本操作">
                         
-                        <span class="card-title">tags</span>
+                        <span class="card-title">Tensor基本操作</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -730,7 +1003,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-20
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-06
                             </span>
                         <span class="publish-author">
                             
@@ -742,22 +1015,34 @@
                 </div>
 
                 
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Tensor/">
+                        <span class="chip bg-color">Tensor</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%95%B0%E7%BB%84%E6%93%8D%E4%BD%9C/">
+                        <span class="chip bg-color">数组操作</span>
+                    </a>
+                    
+                </div>
+                
             </div>
         </div>
         
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/tags/index-1.html">
+                <a href="/2021/03/26/%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%8C%85%E7%8E%AF%E5%A2%83%E8%BF%81%E7%A7%BB/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="tags">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="服务器包环境迁移">
                         
-                        <span class="card-title">tags</span>
+                        <span class="card-title">服务器包环境迁移</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -768,7 +1053,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-20
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-26
                             </span>
                         <span class="publish-author">
                             
@@ -778,7 +1063,22 @@
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/">
+                        <span class="chip bg-color">服务器</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%8C%85%E7%8E%AF%E5%A2%83/">
+                        <span class="chip bg-color">包环境</span>
+                    </a>
+                    
+                    <a href="/tags/%E8%BF%81%E7%A7%BB/">
+                        <span class="chip bg-color">迁移</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>

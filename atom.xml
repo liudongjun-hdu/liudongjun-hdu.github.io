@@ -6,7 +6,7 @@
   <link href="https://liudongjun-hdu.github.io/atom.xml" rel="self"/>
   
   <link href="https://liudongjun-hdu.github.io/"/>
-  <updated>2021-03-26T08:02:49.543Z</updated>
+  <updated>2021-04-06T10:38:19.723Z</updated>
   <id>https://liudongjun-hdu.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Tensor基本操作</title>
+    <link href="https://liudongjun-hdu.github.io/2021/04/06/Tensor%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/"/>
+    <id>https://liudongjun-hdu.github.io/2021/04/06/Tensor%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/</id>
+    <published>2021-04-06T02:42:56.000Z</published>
+    <updated>2021-04-06T10:38:19.723Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Tensor基本操作&quot;&gt;&lt;a href=&quot;#Tensor基本操作&quot; class=&quot;headerlink&quot; title=&quot;Tensor基本操作&quot;&gt;&lt;/a&gt;Tensor基本操作&lt;/h1&gt;&lt;h2 id=&quot;Tensor属性&quot;&gt;&lt;a href=&quot;#Tensor属性&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="Tensor" scheme="https://liudongjun-hdu.github.io/tags/Tensor/"/>
+    
+    <category term="数组操作" scheme="https://liudongjun-hdu.github.io/tags/%E6%95%B0%E7%BB%84%E6%93%8D%E4%BD%9C/"/>
+    
+  </entry>
   
   <entry>
     <title>服务器包环境迁移</title>

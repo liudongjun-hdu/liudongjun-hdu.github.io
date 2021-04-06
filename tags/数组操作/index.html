@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="friends, 栋栋的博客">
+    <meta name="keywords" content="标签: 数组操作, 栋栋的博客">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>friends | 栋栋的博客</title>
+    <title>标签: 数组操作 | 栋栋的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -332,325 +332,242 @@
 
     </div>
 </div>
-<style>
-    .friends-container {
-        margin-top: -100px;
-        margin-bottom: 30px;
-    }
-
-    .friends-container .tag-title {
-        margin-bottom: 10px;
-        color: #3C4858;
-        font-size: 1.75rem;
-        font-weight: 400;
-    }
-
-    .frind-ship img {
-        border-radius: 50%;
-    }
-
-    /* 一下是按钮样式 */
-
-    .frind-ship {
-        padding: 10px 20px;
-    }
-
-    .frind-ship .title {
-        display: flex;
-        align-items: center;
-    }
-
-    .frind-ship .title div {
-        color: #fff;
-        padding-left: 10px;
-    }
-
-    .frind-ship .title img {
-        width: 100px;
-        height: 100px;
-        flex-shrink: 0;
-    }
-
-    .frind-ship .title h1 {
-        padding-bottom: 5px;
-        border-bottom: 2px solid #fff;
-        position: relative;
-        top:-15px;
-        left: 3px;
-    }
-
-    .friend-button {
-        display: flex;
-        justify-content: center;
-        margin-bottom: -27px;
-    }
-
-    .friend-button a {
-        border-radius: 40px;
-    }
-
-    .friend-all .tag-post {
-        margin-bottom: 30px;
-    }
-
-    .button-caution {
-        background-color: #FF4351;
-        border-color: #FF4351;
-        color: #FFF;
-    }
-
-    .button {
-        font-weight: 300;
-        font-size: 16px;
-        font-family: "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-        text-decoration: none;
-        text-align: center;
-        line-height: 40px;
-        height: 40px;
-        padding: 0 40px;
-        margin: 0;
-        display: inline-block;
-        appearance: none;
-        cursor: pointer;
-        border: none;
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        box-sizing: border-box;
-        -webkit-transition-property: all;
-        transition-property: all;
-        -webkit-transition-duration: .3s;
-        transition-duration: .3s;
-    }
-
-    .title {
-        margin-bottom: 0rem !important;
-    }
-
-    .card {
-        margin: 3rem 0 1rem 0 !important;
-    }
-
-    .button-glow.button-caution {
-        -webkit-animation-name: glowing-caution;
-        animation-name: glowing-caution;
-    }
-
-    @-webkit-keyframes glowing-caution {
-        from {
-            -webkit-box-shadow: 0 0 0 rgba(255, 67, 81, 0.3);
-            box-shadow: 0 0 0 rgba(255, 67, 81, 0.3);
-        }
-
-        50% {
-            -webkit-box-shadow: 0 0 20px rgba(255, 67, 81, 0.8);
-            box-shadow: 0 0 20px rgba(255, 67, 81, 0.8);
-        }
-
-        to {
-            -webkit-box-shadow: 0 0 0 rgba(255, 67, 81, 0.3);
-            box-shadow: 0 0 0 rgba(255, 67, 81, 0.3);
-        }
-    }
-
-    @keyframes glowing-caution {
-        from {
-            -webkit-box-shadow: 0 0 0 rgba(255, 67, 81, 0.3);
-            box-shadow: 0 0 0 rgba(255, 67, 81, 0.3);
-        }
-
-        50% {
-            -webkit-box-shadow: 0 0 20px rgba(255, 67, 81, 0.8);
-            box-shadow: 0 0 20px rgba(255, 67, 81, 0.8);
-        }
-
-        to {
-            -webkit-box-shadow: 0 0 0 rgba(255, 67, 81, 0.3);
-            box-shadow: 0 0 0 rgba(255, 67, 81, 0.3);
-        }
-    }
-
-    .button-caution:hover {
-        background-color: #ff7680;
-        border-color: #ff7680;
-        color: #FFF;
-        text-decoration: none;
-    }
-
-    .frind-card1 {
-        background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
-    }
-
-    .frind-card2 {
-        background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    }
-
-    .frind-card3 {
-        background-image: linear-gradient(to right, #b8cbb8 0%, #b8cbb8 0%, #b465da 0%, #cf6cc9 33%, #ee609c 66%, #ee609c 100%);
-    }
-
-    .frind-card4 {
-        background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
-    }
-
-    .frind-card5 {
-        background-image: linear-gradient(to top, #c471f5 0%, #fa71cd 100%);
-    }
-
-    .frind-card6 {
-        background-image: linear-gradient(to top, #48c6ef 0%, #6f86d6 100%);
-    }
-
-    .frind-card7 {
-        background-image: linear-gradient(to top, #0ba360 0%, #3cba92 100%);
-    }
-
-    .frind-card8 {
-        background-image: linear-gradient(to top, #0c3483 0%, #a2b6df 100%, #6b8cce 100%, #a2b6df 100%);
-    }
-
-    .frind-card9 {
-        background-image: linear-gradient(to right, #ff758c 0%, #ff7eb3 100%);
-    }
-
-    .frind-card10 {
-        background-image: linear-gradient(to top, #f77062 0%, #fe5196 100%);
-    }
-
-    article .card {
-        overflow: visible !important;
-    }
-</style>
 
 <main class="content">
-    <div class="container friends-container">
-        <div class="card">
-            <div class="card-content">
-                <div class="tag-title center-align">
-                    <i class="fas fa-address-book"></i>&nbsp;&nbsp;友情链接
-                </div>
-                <article id="friends-link">
-                    
-                    
-                    <div class="row tags-posts friend-all">
-                        
-                        
-                        <div class="col s12 m6 l4 friend-div" data-aos="zoom-in-up">
-                            <div class="card frind-card1">
-                                <div class="frind-ship">
-                                    <div class="title">
-                                        <img src="/medias/friend/0.jpg" alt="img">
-                                        <div>
-                                            <h1 class="friend-name">杭电</h1>
-                                            <p style="position: relative;top: -35px;">I am not a master, just looking for the master&#39;s footsteps.</p>
-                                        </div>
-                                    </div>
-                                    <div class="friend-button">
-                                        <a href="http://www.hdu.edu.cn/" target="_blank"
-                                            class="button button-glow button-rounded button-caution">
-                                            Read More
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        
-                        <div class="col s12 m6 l4 friend-div" data-aos="zoom-in-up">
-                            <div class="card frind-card2">
-                                <div class="frind-ship">
-                                    <div class="title">
-                                        <img src="/medias/friend/1.jpg" alt="img">
-                                        <div>
-                                            <h1 class="friend-name">CSDN</h1>
-                                            <p style="position: relative;top: -35px;">I am not a master, just looking for the master&#39;s footsteps.</p>
-                                        </div>
-                                    </div>
-                                    <div class="friend-button">
-                                        <a href="https://blog.csdn.net/weixin_44594535?spm=1001.2101.3001.5343" target="_blank"
-                                            class="button button-glow button-rounded button-caution">
-                                            Read More
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        
-                        <div class="col s12 m6 l4 friend-div" data-aos="zoom-in-up">
-                            <div class="card frind-card3">
-                                <div class="frind-ship">
-                                    <div class="title">
-                                        <img src="/medias/friend/2.jpg" alt="img">
-                                        <div>
-                                            <h1 class="friend-name">知乎</h1>
-                                            <p style="position: relative;top: -35px;">I am not a master, just looking for the master&#39;s footsteps.</p>
-                                        </div>
-                                    </div>
-                                    <div class="friend-button">
-                                        <a href="https://www.zhihu.com/people/tao-ke-qu-xue-xi-18" target="_blank"
-                                            class="button button-glow button-rounded button-caution">
-                                            Read More
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                    </div>
-                    
-                </article>
+
+    
+
+<div id="tags" class="container chip-container">
+    <div class="card">
+        <div class="card-content">
+            <div class="tag-title center-align">
+                <i class="fas fa-tags"></i>&nbsp;&nbsp;文章标签
+            </div>
+            <div class="tag-chips">
+                
+                
+                <a href="/tags/CapsNet/" title="CapsNet: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="CapsNet" style="background-color: #F9EBEA;">CapsNet
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/%E5%8A%A8%E6%80%81%E8%B7%AF%E7%94%B1%E7%AE%97%E6%B3%95/" title="动态路由算法: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="动态路由算法" style="background-color: #F5EEF8;">动态路由算法
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/Linux/" title="Linux: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="Linux" style="background-color: #D5F5E3;">Linux
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" title="服务器: 2">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="服务器" style="background-color: #E8F8F5;">服务器
+                        <span class="tag-length">2</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/" title="环境部署: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="环境部署" style="background-color: #FEF9E7;">环境部署
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/hexo/" title="hexo: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="hexo" style="background-color: #F8F9F9;">hexo
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/github/" title="github: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="github" style="background-color: #82E0AA;">github
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/%E7%BD%91%E7%AB%99/" title="网站: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="网站" style="background-color: #D7BDE2;">网站
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/%E6%83%85%E7%BB%AA%E8%AF%86%E5%88%AB/" title="情绪识别: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="情绪识别" style="background-color: #A3E4D7;">情绪识别
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/%E8%84%91%E6%9C%BA%E5%8D%8F%E5%90%8C%E6%99%BA%E8%83%BD/" title="脑机协同智能: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="脑机协同智能" style="background-color: #85C1E9;">脑机协同智能
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" title="深度学习: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="深度学习" style="background-color: #F8C471;">深度学习
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/%E8%BF%81%E7%A7%BB%E5%AD%A6%E4%B9%A0/" title="迁移学习: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="迁移学习" style="background-color: #F9E79F;">迁移学习
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/%E5%AD%97%E4%BD%93/" title="字体: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="字体" style="background-color: #D7BDE2;">字体
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/%E4%B8%AD%E8%8B%B1%E6%96%87/" title="中英文: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="中英文" style="background-color: #D7BDE2;">中英文
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" title="机器学习: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="机器学习" style="background-color: #E8F8F5;">机器学习
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/%E7%BB%98%E5%9B%BE/" title="绘图: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="绘图" style="background-color: #FEF9E7;">绘图
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/%E5%8C%85%E7%8E%AF%E5%A2%83/" title="包环境: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="包环境" style="background-color: #D7BDE2;">包环境
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/%E8%BF%81%E7%A7%BB/" title="迁移: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="迁移" style="background-color: #FEF9E7;">迁移
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/Tensor/" title="Tensor: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="Tensor" style="background-color: #FEF9E7;">Tensor
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/%E6%95%B0%E7%BB%84%E6%93%8D%E4%BD%9C/" title="数组操作: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-active "
+                            data-tagname="数组操作" style="background-color: #F8C471;">数组操作
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
             </div>
         </div>
-
-        
-
-        <div class="card">
-
-            
-
-            
-
-            
-
-            
-            <div class="livere-card card" data-aos="fade-up">
-    <!-- 来必力City版安装代码 -->
-    <div id="lv-container" class="card-content" data-id="city" data-uid="MTAyMC81MzAxMC8yOTQ4Ng==">
-        <script type="text/javascript">
-            (function (d, s) {
-                let j, e = d.getElementsByTagName(s)[0];
-                if (typeof LivereTower === 'function') {
-                    return;
-                }
-
-                j = d.createElement(s);
-                j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-                j.async = true;
-
-                e.parentNode.insertBefore(j, e);
-            })(document, 'script');
-        </script>
-        <noscript>为正常使用来必力评论功能请激活JavaScript。</noscript>
     </div>
-    <!-- City版安装代码已完成 -->
 </div>
-            
 
-            
+    
 
+    <article id="articles" class="container articles">
+        <div class="row tags-posts">
             
-
+            
+            <div class="article tag-post col s12 m6 l4" data-tags="Tensor, 数组操作" data-aos="fade-up">
+                <div class="card">
+                    <a href="/2021/04/06/Tensor%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/">
+                        <div class="card-image tag-image">
+                            
+                            
+                            <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="Tensor基本操作">
+                            
+                            <span class="card-title">Tensor基本操作</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-06
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-user fa-fw"></i>
+                                Liu Dongjun
+                                
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
         </div>
-    </div>
+    </article>
 </main>
 
-<script>
-    $(function () {
-        $('#friends-link').masonry({
-            itemSelector: '.friend-div'
-        });
-    });
-</script>
+
 
 
     <footer class="page-footer bg-color">
