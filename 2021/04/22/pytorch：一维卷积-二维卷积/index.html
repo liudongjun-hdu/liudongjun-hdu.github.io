@@ -443,7 +443,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    522
+                    502
                 </div>
                 
 
@@ -473,28 +473,46 @@
 <li>stride是卷积核移动步长, padding是否对输入张量补0</li>
 </ol>
 </li>
-<li>示例：<br>```<br>import torch.nn as nn<br>import torch</li>
+<li>示例：</li>
 </ol>
-<p>input = torch.randn(10, 128, 129)<br>m = nn.Conv1d(128, 128, kernel_size=4, padding=2)<br>out = m(input)<br>print(out.size()) #(10, 128, 130)</p>
-<pre><code>4. 公式：
-![一维卷积](/images/一维卷积.png)
+<pre><code>import torch.nn as nn
+import torch
 
-## 二维卷积
-
-1. 定义：对由多个特征平面组成的输入信号进行2D的卷积操作。
-2. 函数：torch.nn.Conv2d(in_channels, out_channels, kernel_size, stride=1, padding=0, dilation=1, groups=1, bias=True, padding_mode=&#39;zeros&#39;)
-    1. in_channels参数代表输入特征矩阵的深度即channel，比如输入一张RGB彩色图像，那in_channels=3
-    2. out_channels参数代表卷积核的个数，使用n个卷积核输出的特征矩阵深度即channel就是n
-    3. kernel_size参数代表卷积核的尺寸，输入可以是int类型如3 代表卷积核的height=width=3，也可以是tuple类型如(3, 5)代表卷积核的height=3，width=5
-    4. stride参数代表卷积核的步距默认为1，和kernel_size一样输入可以是int类型，也可以是tuple类型
-    5. padding参数代表在输入特征矩阵四周补零的情况默认为0，同样输入可以为int型如1 代表上下方向各补一行0元素，左右方向各补一列0像素（即补一圈0），如果输入为tuple型如(2, 1) 代表在上方补两行下方补两行，左边补一列，右边补一列。可见下图，padding[0]是在H高度方向两侧填充的，padding[1]是在W宽度方向两侧填充的：
-
-3. 示例：
+input = torch.randn(10, 128, 129)
+m = nn.Conv1d(128, 128, kernel_size=4, padding=2)
+out = m(input)
+print(out.size()) #(10, 128, 130)
 </code></pre>
-<p>import torch.nn as nn<br>import torch</p>
-<p>im = torch.randn(1, 1, 5, 5)<br>c = nn.Conv2d(1, 1, kernel_size=2, stride=2, padding=1)<br>output = c(im)</p>
-<p>print(output.size()) #(1, 1, 3, 3)</p>
-<p>```<br>4. 公式：<br><img src="/images/%E4%BA%8C%E7%BB%B4%E5%8D%B7%E7%A7%AF.png" alt="一维卷积"></p>
+<ol start="4">
+<li>公式：<br><img src="/images/%E4%B8%80%E7%BB%B4%E5%8D%B7%E7%A7%AF.png" alt="一维卷积"></li>
+</ol>
+<h2 id="二维卷积"><a href="#二维卷积" class="headerlink" title="二维卷积"></a>二维卷积</h2><ol>
+<li><p>定义：对由多个特征平面组成的输入信号进行2D的卷积操作。</p>
+</li>
+<li><p>函数：torch.nn.Conv2d(in_channels, out_channels, kernel_size, stride=1, padding=0, dilation=1, groups=1, bias=True, padding_mode=’zeros’)</p>
+<ol>
+<li>in_channels参数代表输入特征矩阵的深度即channel，比如输入一张RGB彩色图像，那in_channels=3</li>
+<li>out_channels参数代表卷积核的个数，使用n个卷积核输出的特征矩阵深度即channel就是n</li>
+<li>kernel_size参数代表卷积核的尺寸，输入可以是int类型如3 代表卷积核的height=width=3，也可以是tuple类型如(3, 5)代表卷积核的height=3，width=5</li>
+<li>stride参数代表卷积核的步距默认为1，和kernel_size一样输入可以是int类型，也可以是tuple类型</li>
+<li>padding参数代表在输入特征矩阵四周补零的情况默认为0，同样输入可以为int型如1 代表上下方向各补一行0元素，左右方向各补一列0像素（即补一圈0），如果输入为tuple型如(2, 1) 代表在上方补两行下方补两行，左边补一列，右边补一列。可见下图，padding[0]是在H高度方向两侧填充的，padding[1]是在W宽度方向两侧填充的：</li>
+</ol>
+</li>
+<li><p>示例：</p>
+</li>
+</ol>
+<pre><code>import torch.nn as nn
+import torch
+ 
+im = torch.randn(1, 1, 5, 5)
+c = nn.Conv2d(1, 1, kernel_size=2, stride=2, padding=1)
+output = c(im)
+ 
+print(output.size()) #(1, 1, 3, 3)
+</code></pre>
+<ol start="4">
+<li>公式：<br><img src="/images/%E4%BA%8C%E7%BB%B4%E5%8D%B7%E7%A7%AF.png" alt="一维卷积"></li>
+</ol>
 
                 
             </div>
@@ -1009,7 +1027,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">10.4k</span>&nbsp;字
+                class="white-color">10.3k</span>&nbsp;字
             
             
             

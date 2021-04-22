@@ -474,14 +474,18 @@
 <h2 id="设置表格样式"><a href="#设置表格样式" class="headerlink" title="设置表格样式"></a>设置表格样式</h2><pre><code>with open(output_path, &#39;w+&#39;) as out:
             writer = csv.writer(out)
             writer.writerow(
-                [&quot;iteration&quot;, &quot;beta_shift&quot;, &quot;dropout_prob&quot;, &#39;train_batch_size&#39;, &#39;learning_rate&#39;, &#39;gradient_accumulation_step&#39;, &#39;warmup_proportion&#39;,
-                 &#39;seed&#39;, &#39;diff_weight&#39;, &#39;sim_weight&#39;, &#39;recon_weight&#39;, &#39;capsnet_iterations&#39;, &#39;routing_iterations&#39;, &#39;capsnet_headers&#39;,
+                [&quot;iteration&quot;, &quot;beta_shift&quot;, &quot;dropout_prob&quot;, &#39;train_batch_size&#39;, 
+                 &#39;learning_rate&#39;, &#39;gradient_accumulation_step&#39;, &#39;warmup_proportion&#39;,
+                 &#39;seed&#39;, &#39;diff_weight&#39;, &#39;sim_weight&#39;, &#39;recon_weight&#39;, 
+                 &#39;capsnet_iterations&#39;, &#39;routing_iterations&#39;, &#39;capsnet_headers&#39;,
                  &#39;test_acc&#39;, &#39;test_mae&#39;, &#39;test_corr&#39;, &#39;test_f_score&#39;, &#39;mult_a7&#39;])
 </code></pre>
 <h2 id="记录保存参数"><a href="#记录保存参数" class="headerlink" title="记录保存参数"></a>记录保存参数</h2><pre><code>with open(output_path, &#39;a+&#39;) as out:
                 writer = csv.writer(out)
-                writer.writerow([(i+1), args.beta_shift, args.dropout_prob, args.train_batch_size, args.learning_rate, args.gradient_accumulation_step,
-                args.warmup_proportion, args.seed, args.diff_weight, args.sim_weight, args.recon_weight, args.capsnet_iterations, args.routing_iterations, args.capsnet_headers,
+                writer.writerow([(i+1), args.beta_shift, args.dropout_prob, 
+                args.train_batch_size, args.learning_rate, args.gradient_accumulation_step,
+                args.warmup_proportion, args.seed, args.diff_weight, args.sim_weight, 
+                args.recon_weight, args.capsnet_iterations, args.routing_iterations, args.capsnet_headers,
                 max_test_score, max_test_mae, max_test_corr, max_test_f_score, max_mult_score])
 </code></pre>
 
@@ -992,7 +996,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">10.4k</span>&nbsp;字
+                class="white-color">10.3k</span>&nbsp;字
             
             
             
