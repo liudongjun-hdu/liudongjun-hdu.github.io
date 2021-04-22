@@ -443,7 +443,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    472
+                    470
                 </div>
                 
 
@@ -467,9 +467,7 @@
             <div id="articleContent">
                 <h1 id="pytorch：一维卷积-amp-二维卷积"><a href="#pytorch：一维卷积-amp-二维卷积" class="headerlink" title="pytorch：一维卷积&amp;二维卷积"></a>pytorch：一维卷积&amp;二维卷积</h1><h2 id="一维卷积"><a href="#一维卷积" class="headerlink" title="一维卷积"></a>一维卷积</h2><ol>
 <li>定义：一维卷积不代表卷积核只有一维，也不代表被卷积的feature也是一维。一维的意思是说卷积的方向是一维的。</li>
-<li>函数：torch.nn.Conv1d(in_channels, out_channels, kernel_size, stride=1, <pre><code>  padding=0, dilation=1, groups=1, bias=True, padding_mode=‘zeros’)
-</code></pre>
-<ol>
+<li>函数：torch.nn.Conv1d(in_channels, out_channels, kernel_size, stride=1,<br>padding=0, dilation=1, groups=1, bias=True, padding_mode=‘zeros’)<ol>
 <li>in_channel和out_channel是卷积核个数</li>
 <li>kernel_size是卷积核的大小</li>
 <li>stride是卷积核移动步长, padding是否对输入张量补0</li>
@@ -491,9 +489,7 @@ print(out.size()) #(10, 128, 130)
 <h2 id="二维卷积"><a href="#二维卷积" class="headerlink" title="二维卷积"></a>二维卷积</h2><ol>
 <li><p>定义：对由多个特征平面组成的输入信号进行2D的卷积操作。</p>
 </li>
-<li><p>函数：torch.nn.Conv2d(in_channels, out_channels, kernel_size, stride=1, </p>
-<pre><code>  padding=0, dilation=1, groups=1, bias=True, padding_mode=&#39;zeros&#39;)
-</code></pre>
+<li><p>函数：torch.nn.Conv2d(in_channels, out_channels, kernel_size, stride=1,<br>padding=0, dilation=1, groups=1, bias=True, padding_mode=’zeros’)</p>
 <ol>
 <li>in_channels参数代表输入特征矩阵的深度即channel，比如输入一张RGB彩色图像，那in_channels=3</li>
 <li>out_channels参数代表卷积核的个数，使用n个卷积核输出的特征矩阵深度即channel就是n</li>
