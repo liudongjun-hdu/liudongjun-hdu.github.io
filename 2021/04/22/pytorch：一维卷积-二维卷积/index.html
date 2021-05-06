@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="pytorch：一维卷积&amp;二维卷积, 栋栋的博客">
+    <meta name="keywords" content="pytorch：卷积, 栋栋的博客">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>pytorch：一维卷积&amp;二维卷积 | 栋栋的博客</title>
+    <title>pytorch：卷积 | 栋栋的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -289,12 +289,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">pytorch：一维卷积&amp;二维卷积</h1>
+                    <h1 class="description center-align post-title">pytorch：卷积</h1>
                 </div>
             </div>
         </div>
@@ -422,6 +422,10 @@
                                 <span class="chip bg-color">二维卷积</span>
                             </a>
                         
+                            <a href="/tags/%E4%B8%89%E7%BB%B4%E5%8D%B7%E7%A7%AF/">
+                                <span class="chip bg-color">三维卷积</span>
+                            </a>
+                        
                     </div>
                     
                 </div>
@@ -443,7 +447,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    480
+                    1.1k
                 </div>
                 
 
@@ -465,7 +469,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="pytorch：一维卷积-amp-二维卷积"><a href="#pytorch：一维卷积-amp-二维卷积" class="headerlink" title="pytorch：一维卷积&amp;二维卷积"></a>pytorch：一维卷积&amp;二维卷积</h1><h2 id="一维卷积"><a href="#一维卷积" class="headerlink" title="一维卷积"></a>一维卷积</h2><ol>
+                <h1 id="pytorch：一维卷积-amp-二维卷积-amp-三维卷积"><a href="#pytorch：一维卷积-amp-二维卷积-amp-三维卷积" class="headerlink" title="pytorch：一维卷积&amp;二维卷积&amp;三维卷积"></a>pytorch：一维卷积&amp;二维卷积&amp;三维卷积</h1><h2 id="一维卷积"><a href="#一维卷积" class="headerlink" title="一维卷积"></a>一维卷积</h2><ol>
 <li>定义：一维卷积不代表卷积核只有一维，也不代表被卷积的feature也是一维。一维的意思是说卷积的方向是一维的。</li>
 <li>函数：</li>
 </ol>
@@ -520,6 +524,32 @@ print(output.size()) #(1, 1, 3, 3)
 <ol start="4">
 <li>公式：<br><img src="/images/%E4%BA%8C%E7%BB%B4%E5%8D%B7%E7%A7%AF.png" alt="二维卷积"></li>
 </ol>
+<h2 id="三维卷积"><a href="#三维卷积" class="headerlink" title="三维卷积"></a>三维卷积</h2><p>1.定义：使用场景一般是多帧(单/多通道)的数据，输出也是多帧，依次对连续k帧的整个通道同时执行卷积操作。(3D卷积在执行时不仅在各自的通道中共享卷积核，而且在连续k帧之间也共享卷积核)<br><img src="/images/%E4%B8%89%E7%BB%B4%E5%8D%B7%E7%A7%AF.png" alt="三维卷积"></p>
+<p>2.函数：</p>
+<pre><code>torch.nn.Conv3d(in_channels, out_channels, kernel_size, stride=1, padding=0, dilation=1, groups=1, bias=True)
+in_channels(int) – 输入信号的通道，就是输入中每帧图像的通道数
+out_channels(int) – 卷积产生的通道，就是输出中每帧图像的通道数
+kernel_size(int or tuple) - 过滤器的尺寸，假设为(a,b,c)，表示的是过滤器每次处理 a 帧图像，该图像的大小是b x c。
+stride(int or tuple, optional) - 卷积步长，形状是三维的，假设为(x,y,z)，表示的是三维上的步长是x，在行方向上步长是y，在列方向上步长是z。
+padding(int or tuple, optional) - 输入的每一条边补充0的层数，形状是三维的，假设是(l,m,n)，表示的是在输入的三维方向前后分别padding l 个全零二维矩阵，在输入的行方向上下分别padding m 个全零行向量，在输入的列方向左右分别padding n 个全零列向量。
+dilation(int or tuple, optional) – 卷积核元素之间的间距，这个看看空洞卷积就okay了
+groups(int, optional) – 从输入通道到输出通道的阻塞连接数；没用到，没细看
+bias(bool, optional) - 如果bias=True，添加偏置；没用到，没细看
+</code></pre>
+<p>3.示例：</p>
+<pre><code>import torch
+import torch.nn as nn
+from torch import autograd
+ 
+# kernel_size的第哥一维度的值是每次处理的图像帧数，后面是卷积核的大小
+m = nn.Conv3d(3, 3, (3, 7, 7), stride=1, padding=0)
+input = autograd.Variable(torch.randn(1, 3, 7, 60, 40))
+output = m(input)
+print(output.size())
+# 输出是 torch.Size([1, 3, 5, 54, 34])
+</code></pre>
+<p>4.公式：</p>
+<p>（1，3，7，60，40）表示输入1个视频，每个视频中图像的通道数是3，每个视频中包含的图像数是7，图像的大小是60 x 40。<br>（3，3，（3，7，7））表示的是输入图像的通道数是3，输出图像的通道数是3，（3，7，7）表示过滤器每次处理3帧图像，卷积核的大小是7 x 7。<br>stride=1 表示stride=（1，1，1），在三维方向上步长是1，在宽和高上步长也是1。<br>padding=0 表示padding=（0，0，0）表示在三维方向上不padding，在宽和高上也不padding。</p>
 
                 
             </div>
@@ -594,6 +624,10 @@ print(output.size()) #(1, 1, 3, 3)
                             
                                 <a href="/tags/%E4%BA%8C%E7%BB%B4%E5%8D%B7%E7%A7%AF/">
                                     <span class="chip bg-color">二维卷积</span>
+                                </a>
+                            
+                                <a href="/tags/%E4%B8%89%E7%BB%B4%E5%8D%B7%E7%A7%AF/">
+                                    <span class="chip bg-color">三维卷积</span>
                                 </a>
                             
                         </div>
@@ -796,9 +830,9 @@ print(output.size()) #(1, 1, 3, 3)
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="pytorch：一维卷积&amp;二维卷积">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="pytorch：卷积">
                         
-                        <span class="card-title">pytorch：一维卷积&amp;二维卷积</span>
+                        <span class="card-title">pytorch：卷积</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -833,6 +867,10 @@ print(output.size()) #(1, 1, 3, 3)
                     
                     <a href="/tags/%E4%BA%8C%E7%BB%B4%E5%8D%B7%E7%A7%AF/">
                         <span class="chip bg-color">二维卷积</span>
+                    </a>
+                    
+                    <a href="/tags/%E4%B8%89%E7%BB%B4%E5%8D%B7%E7%A7%AF/">
+                        <span class="chip bg-color">三维卷积</span>
                     </a>
                     
                 </div>
@@ -1034,7 +1072,7 @@ print(output.size()) #(1, 1, 3, 3)
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">10.3k</span>&nbsp;字
+                class="white-color">11.1k</span>&nbsp;字
             
             
             
