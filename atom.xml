@@ -6,7 +6,7 @@
   <link href="https://liudongjun-hdu.github.io/atom.xml" rel="self"/>
   
   <link href="https://liudongjun-hdu.github.io/"/>
-  <updated>2021-12-01T03:42:56.898Z</updated>
+  <updated>2021-05-06T07:09:23.055Z</updated>
   <id>https://liudongjun-hdu.github.io/</id>
   
   <author>
@@ -15,19 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>test</title>
-    <link href="https://liudongjun-hdu.github.io/2021/12/01/test/"/>
-    <id>https://liudongjun-hdu.github.io/2021/12/01/test/</id>
-    <published>2021-12-01T03:42:56.000Z</published>
-    <updated>2021-12-01T03:42:56.898Z</updated>
-    
-    
-    
-    
-    
-  </entry>
   
   <entry>
     <title>pytorch：卷积</title>
