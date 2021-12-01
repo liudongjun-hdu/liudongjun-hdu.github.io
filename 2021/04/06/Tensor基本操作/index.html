@@ -573,8 +573,10 @@ torch.chunk(tensor, chunks, dim=0) # 将tensor 拆分成相应的组块，最后
 <ol start="3">
 <li>索引操作</li>
 </ol>
-<pre><code>torch.index_select(input, dim, index, out=None) # 返回沿着dim的指定tensor, index需为longTensor类型，不共用内存
-torch.masked_select(input, mask, out=None) # 根据mask来返回input的值其为1-D tensor. Mask为ByteTensor, true返回，false不返回，返回值不共用内存
+<pre><code>torch.index_select(input, dim, index, out=None) 
+# 返回沿着dim的指定tensor, index需为longTensor类型，不共用内存
+torch.masked_select(input, mask, out=None) 
+# 根据mask来返回input的值其为1-D tensor. Mask为ByteTensor, true返回，false不返回，返回值不共用内存
 </code></pre>
 <p>例:</p>
 <pre><code>&gt;&gt;&gt; x = torch.randn(3, 4)
