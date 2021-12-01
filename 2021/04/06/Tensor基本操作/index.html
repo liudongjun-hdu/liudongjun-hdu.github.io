@@ -595,7 +595,8 @@ tensor([ 1.2252,  0.5002,  0.6248,  2.0139])
 </ol>
 <pre><code>torch.transpose(input, dim0, dim1, out=None) # 返回dim0和dim1交换后的tensor
 torch.t(input, out=None) # 专为2D矩阵的转置，是transpose的便捷函数
-torch.squeeze(input, dim, out=None)  # 默认移除所有size为1的维度，当dim指定时，移除指定size为1的维度. 返回的tensor会和input共享存储空间，所以任何一个的改变都会影响另一个
+torch.squeeze(input, dim, out=None)  # 默认移除所有size为1的维度，当dim指定时，
+移除指定size为1的维度. 返回的tensor会和input共享存储空间，所以任何一个的改变都会影响另一个
 torch.unsqueeze(input, dim, out=None) # 扩展input的size, 如 A x B 变为 1 x A x B 
 torch.reshape(input, shape) # 返回size为shape具有相同数值的tensor, 注意 shape=(-1,)这种表述，-1表示任意的。
 torch.where(condition, x, y) # 根据condition的值来相应x,y的值，true返回x的值，false返回y的值，形成新的tensor
